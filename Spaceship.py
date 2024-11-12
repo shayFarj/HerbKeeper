@@ -27,6 +27,7 @@ class SpaceShip(CircleSprite.CircleSprite):
     
     def getAction(self,action):
         self.action = action
+        print(action)
     
     def shoot(self):
         self.energy -= Constants.BULLET_ENERGY

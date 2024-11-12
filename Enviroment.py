@@ -39,20 +39,25 @@ class Enviroment:
 
         self.surface = surface
 
+        pygame.mixer.music.load("opening.wav")
+        pygame.mixer.music.play(-1)
 
     def getInput(self,events):
         for e in events:
             if e.type == pygame.MOUSEBUTTONDOWN:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
-                    print("Aaa")
+                    pygame.mixer.music.stop()
                     self.scene_status = scene_flags.game
 
+                    self.spaceship.energy = 1000
+
+                    self.spaceship.getAction((0,0))
+                    
                     for i in range(Constants.BOUNCER_NUMBER):
                         self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
         
                     for i in range(Constants.HERB_NUMBER):
                         self.herb_group.add(Herb.Herb(self.randomPosition()))
-                    print(self.bouncer_group)
 
     def gameOver(self):
         return self.spaceship.energy <= 0
@@ -68,6 +73,7 @@ class Enviroment:
         return (random.randint(0,Constants.BOUNDERIES[0]),random.randint(0,Constants.BOUNDERIES[1]))
     
     def getAction(self, action):
+
         self.spaceship.getAction(action)
 
     def update(self):
@@ -76,6 +82,8 @@ class Enviroment:
             self.bouncer_group.empty()
             self.bullet_group.empty()
             self.herb_group.empty()
+            pygame.mixer.music.load("ending.wav")
+            pygame.mixer.music.play(-1)
             return
 
         self.bouncer_group.update()
