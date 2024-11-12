@@ -20,14 +20,16 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
         self.group = group
 
-        self.energy = 1000
+        self.energy = 0
+
+        self.fps_clock = pygame.time.Clock()
 
         self.s_timer = Timer.timerLoop(0.1)
         self.fShoot = True
     
     def getAction(self,action):
         self.action = action
-        print(action)
+
     
     def shoot(self):
         self.energy -= Constants.BULLET_ENERGY
@@ -39,6 +41,9 @@ class SpaceShip(CircleSprite.CircleSprite):
         return pos[0] < 0 or pos[0] > Constants.BOUNDERIES[0] or pos[1] < 0 or pos[1] > Constants.BOUNDERIES[1]
 
     def update(self) -> None:
+
+        delta = self.fps_clock.tick()
+
         shootTime = self.s_timer.completed()
 
         if(self.energy > 0):
@@ -47,9 +52,9 @@ class SpaceShip(CircleSprite.CircleSprite):
                     self.fShoot = True
                     self.s_timer.reset()
                 angle = self.action[1]
-                speed = self.action[0] * Constants.SPACESHIP_SPEED
+                speed = self.action[0] * Constants.SPACESHIP_SPEED * delta/10
 
-                self.energy -= speed
+                self.energy -= math.ceil(speed)
                 
                 vector = pygame.math.Vector2(speed,0).rotate(angle)
 

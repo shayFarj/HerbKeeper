@@ -42,7 +42,9 @@ class Enviroment:
         pygame.mixer.music.load("opening.wav")
         pygame.mixer.music.play(-1)
 
-    def getInput(self,events):
+    def getInput(self,events,action):
+        if self.scene_status == scene_flags.game:
+            self.spaceship.getAction(action)
         for e in events:
             if e.type == pygame.MOUSEBUTTONDOWN:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
@@ -51,13 +53,15 @@ class Enviroment:
 
                     self.spaceship.energy = 1000
 
-                    self.spaceship.getAction((0,0))
-                    
                     for i in range(Constants.BOUNCER_NUMBER):
                         self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
         
                     for i in range(Constants.HERB_NUMBER):
                         self.herb_group.add(Herb.Herb(self.randomPosition()))
+
+                    self.spaceship.getAction((0,0))
+                    print(self.spaceship.action)
+        text_to_screen(self.surface,str(self.spaceship.action),128,256,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
 
     def gameOver(self):
         return self.spaceship.energy <= 0
@@ -72,9 +76,6 @@ class Enviroment:
     def randomPosition(self):
         return (random.randint(0,Constants.BOUNDERIES[0]),random.randint(0,Constants.BOUNDERIES[1]))
     
-    def getAction(self, action):
-
-        self.spaceship.getAction(action)
 
     def update(self):
         if self.gameOver() and self.scene_status != scene_flags.game_over:
@@ -82,10 +83,13 @@ class Enviroment:
             self.bouncer_group.empty()
             self.bullet_group.empty()
             self.herb_group.empty()
+            self.spaceship.action = [0,0]
+            print(self.spaceship.action)
+
             pygame.mixer.music.load("ending.wav")
             pygame.mixer.music.play(-1)
             return
-
+        
         self.bouncer_group.update()
         self.bullet_group.update()
         self.spaceship_group.update()

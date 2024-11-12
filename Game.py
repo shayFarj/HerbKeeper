@@ -52,8 +52,8 @@ def main():
                 run = False
         
         action = human.getAction(events)
-        env.getAction(action)
-        env.getInput(events)
+        
+        env.getInput(events,action)
         env.collisions()
         env.update()
         env.draw()
