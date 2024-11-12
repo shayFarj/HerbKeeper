@@ -36,6 +36,7 @@ failing = False
 
 human = HumanAgent.humanAgent()
 
+env = Enviroment.Enviroment(main_surf)
 
 pygame.mixer.music.load("opening.wav")
 pygame.mixer.music.play(-1)
@@ -52,34 +53,20 @@ def main():
         for event in events:
             if event.type == pygame.QUIT:
                 run = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if entering:
-                    entering = False
-                    failing = False
-                    pygame.mixer.music.stop()
-                    env = Enviroment.Enviroment(main_surf)
-        
-        if not entering and not failing:
-            if env.gameOver():
-                env = 0
-                failing = True
-                entering = True
-                human.action = [0,0]
-                pygame.mixer.music.load("ending.wav")
-                pygame.mixer.music.play(-1)
-            else:
-                action = human.getAction(events)
-                env.getAction(action)
-                env.collisions()
-                env.update()
-                env.draw()
-                env.sustain()
-            
-        else:
-            if failing:
-                text_to_screen(main_surf,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
-            else:
-                text_to_screen(main_surf,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
+        action = human.getAction(events)
+        env.getAction(action)
+        env.getInput(events)
+        env.collisions()
+        env.update()
+        env.draw()
+        env.sustain()
+            # if env.gameOver():
+            #     env = 0
+            #     failing = True
+            #     entering = True
+            #     human.action = [0,0]
+            #     pygame.mixer.music.load("ending.wav")
+            #     pygame.mixer.music.play(-1)
         
         
         

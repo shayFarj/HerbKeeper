@@ -8,6 +8,12 @@ import random
 import Timer
 import RectSprite
 
+
+class scene_flags:
+    game = 1
+    game_over = 2
+    start_menu = 0
+
 def text_to_screen(screen, text, x, y, size = 50,
             color = (200, 000, 000), font_type = 'basis33.ttf'):
     try:
@@ -29,15 +35,24 @@ class Enviroment:
         self.spaceship_group = pygame.sprite.GroupSingle()
         self.spaceship_group.add(self.spaceship)
 
+        self.scene_status = scene_flags.start_menu
 
         self.surface = surface
 
-        for i in range(Constants.BOUNCER_NUMBER):
-            self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
-        
-        for i in range(Constants.HERB_NUMBER):
-            self.herb_group.add(Herb.Herb(self.randomPosition()))
 
+    def getInput(self,events):
+        for e in events:
+            if e.type == pygame.MOUSEBUTTONDOWN:
+                if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
+                    print("Aaa")
+                    self.scene_status = scene_flags.game
+
+                    for i in range(Constants.BOUNCER_NUMBER):
+                        self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
+        
+                    for i in range(Constants.HERB_NUMBER):
+                        self.herb_group.add(Herb.Herb(self.randomPosition()))
+                    print(self.bouncer_group)
 
     def gameOver(self):
         return self.spaceship.energy <= 0
@@ -56,20 +71,35 @@ class Enviroment:
         self.spaceship.getAction(action)
 
     def update(self):
+        if self.gameOver() and self.scene_status != scene_flags.game_over:
+            self.scene_status = scene_flags.game_over
+            self.bouncer_group.empty()
+            self.bullet_group.empty()
+            self.herb_group.empty()
+            return
+
         self.bouncer_group.update()
         self.bullet_group.update()
         self.spaceship_group.update()
         
+        
     
     def draw(self):
-        self.bouncer_group.draw(self.surface)
-        self.bullet_group.draw(self.surface)
-        self.spaceship_group.draw(self.surface)
-        self.herb_group.draw(self.surface)
-
-        print(self.status())
-
-        text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
+        match(self.scene_status):
+            case scene_flags.game:
+                self.bouncer_group.draw(self.surface)
+                self.bullet_group.draw(self.surface)
+                self.spaceship_group.draw(self.surface)
+                self.herb_group.draw(self.surface)
+                text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
+            case scene_flags.game_over:
+                text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+            case scene_flags.start_menu:
+                text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
+            
+        status = self.status()
+        status[0] = 0
+        
     
     def status(self):
         status = []
@@ -123,14 +153,15 @@ class Enviroment:
 
    
     def sustain(self):
-        if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
-            self.herb_group.add(Herb.Herb(self.randomPosition()))
-        
-        if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
-            x, y = self.randomPosition()
-            bouncer = Bouncer.Bouncer((x,y))
-                
-            self.bouncer_group.add(bouncer)
+        if self.scene_status == scene_flags.game:
+            if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
+                self.herb_group.add(Herb.Herb(self.randomPosition()))
+            
+            if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
+                x, y = self.randomPosition()
+                bouncer = Bouncer.Bouncer((x,y))
+                    
+                self.bouncer_group.add(bouncer)
 
         
         
