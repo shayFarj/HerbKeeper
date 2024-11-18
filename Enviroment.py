@@ -65,7 +65,7 @@ class Enviroment:
                     for i in range(Constants.HERB_NUMBER):
                         self.herb_group.add(Herb.Herb(self.randomPosition()))
 
-        text_to_screen(self.surface,str(self.spaceship.action),128,256,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+        text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
 
     def gameOver(self):
         return self.spaceship.energy <= 0
@@ -100,13 +100,17 @@ class Enviroment:
         
 
         self.bouncer_group.update(delta)
-        self.bullet_group.update()
+        self.bullet_group.update(delta)
         self.spaceship_group.update(delta)
         if len(self.delta_avg) < 10:
-            text_to_screen(self.surface,round(1000/delta),64,256,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
         else:
             self.delta_avg.pop(0)
-            text_to_screen(self.surface,round(1000/self.delta_avg.mean),64,256,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            avg = 0
+            for i in self.delta_avg:
+                avg += i
+            avg /= len(self.delta_avg)
+            text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
 
 
 

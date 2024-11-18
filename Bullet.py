@@ -3,6 +3,7 @@ import pygame
 import Constants
 import CircleSprite
 import random
+import math
 class Bullet(CircleSprite.CircleSprite):
 
     def __init__(self,pos,dir) -> None:
@@ -10,8 +11,8 @@ class Bullet(CircleSprite.CircleSprite):
         self.pos = pos
         self.dir = dir
     
-    def update(self) -> None:
-        self.setPosition((self.pos[0] + self.dir[0] + random.randint(-10,10), self.pos[1] + self.dir[1] + random.randint(-10,10)))
+    def update(self,delta) -> None:
+        self.setPosition((self.pos[0] + math.ceil((self.dir[0] + random.randint(-10,10))*delta/10), self.pos[1] + math.ceil((self.dir[1] + random.randint(-10,10))*delta/10)))
         
 
 
