@@ -129,10 +129,7 @@ class Enviroment:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
             case scene_flags.start_menu:
                 text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
-            
-        status = self.status()
-        status[0] = 0
-        
+                    
     
     def status(self):
         status = []
@@ -140,10 +137,21 @@ class Enviroment:
 
         for i in self.herb_group.sprites():
             vector = (i.pos[0] - self.spaceship.pos[0],i.pos[1] - self.spaceship.pos[1])
-            status.append(pygame.Vector2(vector[0],vector[1]).as_polar())
+            position = pygame.Vector2(vector[0],vector[1]).as_polar()
+            status.append(position[0])
+            status.append(position[1])
+        for i in range(len(self.herb_group.sprites()) - Constants.HERB_NUMBER):
+            status.append(0)
+            status.append(0)
+        
         for i in self.bouncer_group.sprites():
             vector = (i.pos[0] - self.spaceship.pos[0],i.pos[1] - self.spaceship.pos[1])
-            status.append(pygame.Vector2(vector[0],vector[1]).as_polar())
+            position = pygame.Vector2(vector[0],vector[1]).as_polar()
+            status.append(position[0])
+            status.append(position[1])
+        for i in range(len(self.bouncer_group_group.sprites()) - Constants.BOUNCER_NUMBER):
+            status.append(0)
+            status.append(0)
         
         return status
 
