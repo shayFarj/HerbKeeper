@@ -36,7 +36,7 @@ failing = False
 
 human = HumanAgent.humanAgent()
 
-env = Enviroment.Enviroment(main_surf)
+env = Enviroment.Enviroment(main_surf,human)
 
 pygame.mixer.music.load("opening.wav")
 pygame.mixer.music.play(-1)
@@ -58,6 +58,7 @@ def main():
         env.update()
         env.draw()
         env.sustain()
+        
 
         screen.blit(main_surf,(0,0))
         pygame.display.update()

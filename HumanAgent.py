@@ -3,8 +3,13 @@ import pygame
 class humanAgent:
     def __init__(self) -> None:
         self.action = [0,0]
-    
+        self.active = True
+
+
     def getAction(self,events) -> tuple:
+        if not self.active:
+            self.action = [0,0]
+            return self.action
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:

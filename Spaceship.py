@@ -20,9 +20,9 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
         self.group = group
 
-        self.energy = 0
+        self.energy = 1000
 
-        self.fps_clock = pygame.time.Clock()
+        
 
         self.s_timer = Timer.timerLoop(0.1)
         self.fShoot = True
@@ -40,10 +40,10 @@ class SpaceShip(CircleSprite.CircleSprite):
     def outofBounderies(self,pos):
         return pos[0] < 0 or pos[0] > Constants.BOUNDERIES[0] or pos[1] < 0 or pos[1] > Constants.BOUNDERIES[1]
 
-    def update(self) -> None:
+    def update(self,delta) -> None:
 
-        delta = self.fps_clock.tick()
-
+        #delta = self.fps_clock.tick()
+    
         shootTime = self.s_timer.completed()
 
         if(self.energy > 0):

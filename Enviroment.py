@@ -27,7 +27,8 @@ def text_to_screen(screen, text, x, y, size = 50,
         print('Font Error, saw it coming')
 
 class Enviroment:
-    def __init__(self,surface):
+    def __init__(self,surface,agent):
+        self.agent = agent
         self.bouncer_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
         self.herb_group = pygame.sprite.Group()
@@ -35,7 +36,11 @@ class Enviroment:
         self.spaceship_group = pygame.sprite.GroupSingle()
         self.spaceship_group.add(self.spaceship)
 
+        self.fps_clock = pygame.time.Clock()
+
         self.scene_status = scene_flags.start_menu
+
+        self.delta_avg = []
 
         self.surface = surface
 
@@ -43,8 +48,7 @@ class Enviroment:
         pygame.mixer.music.play(-1)
 
     def getInput(self,events,action):
-        if self.scene_status == scene_flags.game:
-            self.spaceship.getAction(action)
+        self.spaceship.getAction(action)
         for e in events:
             if e.type == pygame.MOUSEBUTTONDOWN:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
@@ -53,14 +57,14 @@ class Enviroment:
 
                     self.spaceship.energy = 1000
 
+                    self.agent.active = True
+
                     for i in range(Constants.BOUNCER_NUMBER):
                         self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
         
                     for i in range(Constants.HERB_NUMBER):
                         self.herb_group.add(Herb.Herb(self.randomPosition()))
 
-                    self.spaceship.getAction((0,0))
-                    print(self.spaceship.action)
         text_to_screen(self.surface,str(self.spaceship.action),128,256,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
 
     def gameOver(self):
@@ -83,16 +87,29 @@ class Enviroment:
             self.bouncer_group.empty()
             self.bullet_group.empty()
             self.herb_group.empty()
-            self.spaceship.action = [0,0]
-            print(self.spaceship.action)
+            self.agent.active = False
 
             pygame.mixer.music.load("ending.wav")
             pygame.mixer.music.play(-1)
             return
         
-        self.bouncer_group.update()
+        
+        delta = self.fps_clock.tick()
+        self.delta_avg.append(delta)
+
+        
+
+        self.bouncer_group.update(delta)
         self.bullet_group.update()
-        self.spaceship_group.update()
+        self.spaceship_group.update(delta)
+        if len(self.delta_avg) < 10:
+            text_to_screen(self.surface,round(1000/delta),64,256,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+        else:
+            self.delta_avg.pop(0)
+            text_to_screen(self.surface,round(1000/self.delta_avg.mean),64,256,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+
+
+
         
         
     
