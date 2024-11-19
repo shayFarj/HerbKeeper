@@ -8,18 +8,6 @@ import RectSprite
 
 from timeit import default_timer as timer
 
-def text_to_screen(screen, text, x, y, size = 50,
-            color = (200, 000, 000), font_type = 'basis33.ttf'):
-    try:
-
-        text = str(text)
-        font = pygame.font.Font(font_type, size)
-        text = font.render(text, True, color)
-        screen.blit(text, (x, y))
-
-    except Exception:
-        print('Font Error, saw it coming')
-
 pygame.init()
 
 clock = pygame.time.Clock()
