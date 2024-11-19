@@ -33,7 +33,25 @@ class SpaceShip(CircleSprite.CircleSprite):
     
     def shoot(self):
         self.energy -= Constants.BULLET_ENERGY
-        angle = self.action[1]
+        match self.action[1]:
+                    case 0:
+                        angle = 0
+                    case 1:
+                        angle = -135
+                    case 2:
+                        angle = -90
+                    case 3:
+                        angle = -45
+                    case 4:
+                        angle = 0
+                    case 5:
+                        angle = 45
+                    case 6:
+                        angle = 90
+                    case 7:
+                        angle = 135
+                    case 8:
+                        angle = 180
         vector = pygame.math.Vector2(Constants.BULLET_SPEED,0).rotate(angle)
         self.group.add(Bullet.Bullet(self.pos,vector))
 
@@ -51,7 +69,28 @@ class SpaceShip(CircleSprite.CircleSprite):
                 if not self.fShoot:
                     self.fShoot = True
                     self.s_timer.reset()
-                angle = self.action[1]
+                
+                match self.action[1]:
+                    case 0:
+                        angle = 0
+                    case 1:
+                        angle = -135
+                    case 2:
+                        angle = -90
+                    case 3:
+                        angle = -45
+                    case 4:
+                        angle = 0
+                    case 5:
+                        angle = 45
+                    case 6:
+                        angle = 90
+                    case 7:
+                        angle = 135
+                    case 8:
+                        angle = 180
+
+                
                 speed = self.action[0] * Constants.SPACESHIP_SPEED * delta/10
 
                 self.energy -= math.ceil(speed)
