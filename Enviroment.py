@@ -138,8 +138,8 @@ class Enviroment:
         state.append(self.spaceship.pos[0])
         state.append(self.spaceship.pos[1])
 
-        state.append(self.spaceship.speedVec[0])
-        state.append(self.spaceship.speedVec[1])
+        # state.append(self.spaceship.speedVec[0])
+        # state.append(self.spaceship.speedVec[1])
 
         for i in self.herb_group.sprites():
             state.append(i.pos[0])
@@ -154,7 +154,18 @@ class Enviroment:
 
             state.append(i.dir[0])
             state.append(i.dir[1])
-        for i in range(max(len(self.bouncer_group_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
+        for i in range(max(len(self.bouncer_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
+            state.append(0)
+            state.append(0)
+        
+
+        for i in self.bullet_group.sprites():
+            state.append(i.pos[0])
+            state.append(i.pos[1])
+
+            state.append(i.f_dir[0])
+            state.append(i.f_dir[1])
+        for i in range(max(len(self.bullet_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
             state.append(0)
             state.append(0)
         
