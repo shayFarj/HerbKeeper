@@ -131,29 +131,34 @@ class Enviroment:
                 text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
                     
     
-    def status(self):
-        status = []
-        status.append(self.spaceship.energy)
+    def state(self):
+        state = []
+        state.append(self.spaceship.energy)
+        
+        state.append(self.spaceship.pos[0])
+        state.append(self.spaceship.pos[1])
+
+        state.append(self.spaceship.speedVec[0])
+        state.append(self.spaceship.speedVec[1])
 
         for i in self.herb_group.sprites():
-            vector = (i.pos[0] - self.spaceship.pos[0],i.pos[1] - self.spaceship.pos[1])
-            position = pygame.Vector2(vector[0],vector[1]).as_polar()
-            status.append(position[0])
-            status.append(position[1])
-        for i in range(len(self.herb_group.sprites()) - Constants.HERB_NUMBER):
-            status.append(0)
-            status.append(0)
+            state.append(i.pos[0])
+            state.append(i.pos[1])
+        for i in range(max(len(self.herb_group.sprites()) - Constants.HERB_NUMBER,0)):
+            state.append(0)
+            state.append(0)
         
         for i in self.bouncer_group.sprites():
-            vector = (i.pos[0] - self.spaceship.pos[0],i.pos[1] - self.spaceship.pos[1])
-            position = pygame.Vector2(vector[0],vector[1]).as_polar()
-            status.append(position[0])
-            status.append(position[1])
-        for i in range(len(self.bouncer_group_group.sprites()) - Constants.BOUNCER_NUMBER):
-            status.append(0)
-            status.append(0)
+            state.append(i.pos[0])
+            state.append(i.pos[1])
+
+            state.append(i.dir[0])
+            state.append(i.dir[1])
+        for i in range(max(len(self.bouncer_group_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
+            state.append(0)
+            state.append(0)
         
-        return status
+        return state
 
 
     def collisions(self):

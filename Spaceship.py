@@ -22,6 +22,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.energy = 1000
 
+        self.speedVec = pygame.Vector2()
         
 
         self.s_timer = Timer.timerLoop(0.1)
@@ -97,6 +98,7 @@ class SpaceShip(CircleSprite.CircleSprite):
                 
                 vector = pygame.math.Vector2(speed,0).rotate(angle)
 
+                self.speedVec = vector
 
                 nextPos = (round(self.pos[0] + vector[0]),round(self.pos[1] + vector[1]))
                 if not self.outofBounderies(nextPos):
