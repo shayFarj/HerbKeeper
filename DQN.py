@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-input_size = 1 + Constants.BOUNCER_NUMBER*2 + Constants.HERB_NUMBER*2 # state: energy,herb position, bouncer position
+input_size = 1 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2 + Constants.BULLET_NUMBER*4
 layer1 = 128
 layer2 = 64
 output_size = 1 # Q(s,a)
