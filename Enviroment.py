@@ -42,9 +42,6 @@ class Enviroment:
 
         self.surface = surface
 
-        self.c_status = [None]*123
-
-
         pygame.mixer.music.load("opening.wav")
         pygame.mixer.music.play(-1)
 
@@ -181,7 +178,7 @@ class Enviroment:
             state.append(0)
             state.append(0)
             state.append(0)
-        # print(f"\r"+ str(len(state)),end ="")
+        print(f"\r"+ str(len(state)),end ="")
         return state
 
 
