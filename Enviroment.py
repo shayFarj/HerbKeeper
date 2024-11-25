@@ -6,8 +6,6 @@ import pygame
 import Constants
 import random
 import Timer
-import RectSprite
-
 
 class scene_flags:
     game = 1
@@ -183,37 +181,29 @@ class Enviroment:
             state.append(0)
             state.append(0)
             state.append(0)
-        print(f"\r"+ str(len(state)),end ="")
+        # print(f"\r"+ str(len(state)),end ="")
         return state
 
 
     def collisions(self):
-        for i in self.herb_group.sprites():
-            if i.collides(self.spaceship):
-                self.spaceship.energy += Constants.HERB_ENERGY
-                self.herb_group.remove(i)
-
+        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        for i in herb_c:
+            self.spaceship.energy += Constants.HERB_ENERGY
+                
         for i in self.bouncer_group.sprites():
-            for j in self.herb_group.sprites():
-                if i.collides(j):
-                    self.herb_group.remove(j)
+            herb_bounce_c = pygame.sprite.spritecollide(i,self.herb_group,True)
+
+
 
         for i in self.bullet_group.sprites():
-            for j in self.bouncer_group.sprites():
-                if i.collides(j):
-                    self.bullet_group.remove(i)
-                    self.bouncer_group.remove(j)
+            bullet_bounce_c = pygame.sprite.spritecollide(i,self.bouncer_group,True)
+            if len(bullet_bounce_c) != 0:
+                self.bullet_group.remove(i)
 
         for i in self.bouncer_group.sprites():
-            if i.collides(self.spaceship):
-                # print(i)
-                # print(i.cShape.pos)
-                # print(self.spaceship.cShape.pos)
-                # if(type(i) is Spaceship.SpaceShip):
-                #     print(i.cShape.corners)
-                # print(self.spaceship.cShape.corners)
+            ship_bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
+            for i in ship_bounce_c:
                 self.spaceship.energy -= Constants.BOUNCER_DAMAGE
-                self.bouncer_group.remove(i)
 
         for i in self.bullet_group.sprites():
             if self.outofBounderies(i):

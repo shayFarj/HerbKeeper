@@ -4,7 +4,6 @@ import Constants
 import Enviroment
 import HumanAgent
 import Bouncer
-import RectSprite
 
 from timeit import default_timer as timer
 
