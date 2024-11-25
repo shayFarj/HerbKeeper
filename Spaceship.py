@@ -11,7 +11,7 @@ import Timer
 
 class SpaceShip(CircleSprite.CircleSprite):
 
-    def __init__(self,pos,group):
+    def __init__(self,pos,group,shoot_hold=False):
         self.action = (0,0)
         super().__init__(pos,16,Constants.PASTEL_BLUE)
         pygame.gfxdraw.aaellipse(self.image,16,16,12,4,(0,0,0))
@@ -19,6 +19,8 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.aaellipse(self.image,16,16,4,12,(0,0,0))
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
         self.group = group
+
+        self.shoot_hold = shoot_hold
 
         self.energy = 1000
 
@@ -33,6 +35,8 @@ class SpaceShip(CircleSprite.CircleSprite):
 
     
     def shoot(self):
+        if len(self.group.sprites()) >= Constants.BULLET_NUMBER:
+            return
         self.energy -= Constants.BULLET_ENERGY
         match self.action[1]:
                     case 0:
@@ -62,8 +66,9 @@ class SpaceShip(CircleSprite.CircleSprite):
     def update(self,delta) -> None:
 
         #delta = self.fps_clock.tick()
-    
-        shootTime = self.s_timer.completed()
+
+        if self.shoot_hold:
+            shootTime = self.s_timer.completed()
 
         if(self.energy > 0):
             if(self.action[0] != -1):
@@ -105,10 +110,13 @@ class SpaceShip(CircleSprite.CircleSprite):
                     self.setPosition(nextPos)
                 
             else:
-                if self.fShoot:
-                    self.shoot()
-                    self.fShoot = False
-                else:
-                    if shootTime:
+                if self.shoot_hold:
+                    if self.fShoot:
                         self.shoot()
+                        self.fShoot = False
+                    else:
+                        if shootTime:
+                            self.shoot()
+                else:
+                    self.shoot()
 

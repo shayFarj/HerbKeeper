@@ -42,10 +42,11 @@ def main():
         action = human.getAction(events)
         
         env.getInput(events,action)
-        env.collisions()
-        env.update()
-        env.draw()
         env.sustain()
+        env.update()
+        env.collisions()
+        env.draw()
+        
         
 
         screen.blit(main_surf,(0,0))

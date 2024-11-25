@@ -44,6 +44,9 @@ class Enviroment:
 
         self.surface = surface
 
+        self.c_status = [None]*123
+
+
         pygame.mixer.music.load("opening.wav")
         pygame.mixer.music.play(-1)
 
@@ -61,7 +64,7 @@ class Enviroment:
 
                     for i in range(Constants.BOUNCER_NUMBER):
                         self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
-        
+
                     for i in range(Constants.HERB_NUMBER):
                         self.herb_group.add(Herb.Herb(self.randomPosition()))
 
@@ -79,7 +82,7 @@ class Enviroment:
 
     def randomPosition(self):
         return (random.randint(0,Constants.BOUNDERIES[0]),random.randint(0,Constants.BOUNDERIES[1]))
-    
+
 
     def update(self):
         if self.gameOver() and self.scene_status != scene_flags.game_over:
@@ -92,17 +95,24 @@ class Enviroment:
             pygame.mixer.music.load("ending.wav")
             pygame.mixer.music.play(-1)
             return
-        
-        
+
+
         delta = self.fps_clock.tick()
         self.delta_avg.append(delta)
 
-        
+
 
         self.bouncer_group.update(delta)
         self.bullet_group.update(delta)
         self.spaceship_group.update(delta)
-        if len(self.delta_avg) < 10:
+
+        str_state = str(self.state())
+
+
+
+        text_to_screen(self.surface,"state : " +str_state,64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+
+        if len(self.delta_avg) < 20:
             text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
         else:
             self.delta_avg.pop(0)
@@ -114,9 +124,9 @@ class Enviroment:
 
 
 
-        
-        
-    
+
+
+
     def draw(self):
         match(self.scene_status):
             case scene_flags.game:
@@ -129,35 +139,38 @@ class Enviroment:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
             case scene_flags.start_menu:
                 text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
-                    
-    
+
+
     def state(self):
         state = []
         state.append(self.spaceship.energy)
-        
+
         state.append(self.spaceship.pos[0])
         state.append(self.spaceship.pos[1])
 
-        # state.append(self.spaceship.speedVec[0])
-        # state.append(self.spaceship.speedVec[1])
 
         for i in self.herb_group.sprites():
             state.append(i.pos[0])
             state.append(i.pos[1])
-        for i in range(max(len(self.herb_group.sprites()) - Constants.HERB_NUMBER,0)):
+
+
+
+        for i in range(Constants.HERB_NUMBER - len(self.herb_group.sprites())):
             state.append(0)
             state.append(0)
-        
+
         for i in self.bouncer_group.sprites():
             state.append(i.pos[0])
             state.append(i.pos[1])
 
             state.append(i.dir[0])
             state.append(i.dir[1])
-        for i in range(max(len(self.bouncer_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
+        for i in range(Constants.BOUNCER_NUMBER - len(self.bouncer_group.sprites())):
             state.append(0)
             state.append(0)
-        
+            state.append(0)
+            state.append(0)
+
 
         for i in self.bullet_group.sprites():
             state.append(i.pos[0])
@@ -165,10 +178,12 @@ class Enviroment:
 
             state.append(i.f_dir[0])
             state.append(i.f_dir[1])
-        for i in range(max(len(self.bullet_group.sprites()) - Constants.BOUNCER_NUMBER,0)):
+        for i in range(Constants.BULLET_NUMBER - len(self.bullet_group.sprites())):
             state.append(0)
             state.append(0)
-        
+            state.append(0)
+            state.append(0)
+        print(f"\r"+ str(len(state)),end ="")
         return state
 
 
@@ -177,12 +192,12 @@ class Enviroment:
             if i.collides(self.spaceship):
                 self.spaceship.energy += Constants.HERB_ENERGY
                 self.herb_group.remove(i)
-        
+
         for i in self.bouncer_group.sprites():
             for j in self.herb_group.sprites():
                 if i.collides(j):
                     self.herb_group.remove(j)
-        
+
         for i in self.bullet_group.sprites():
             for j in self.bouncer_group.sprites():
                 if i.collides(j):
@@ -199,27 +214,27 @@ class Enviroment:
                 # print(self.spaceship.cShape.corners)
                 self.spaceship.energy -= Constants.BOUNCER_DAMAGE
                 self.bouncer_group.remove(i)
-        
+
         for i in self.bullet_group.sprites():
             if self.outofBounderies(i):
                 self.bullet_group.remove(i)
-       
+
 
     def outofBounderies(self,sprite):
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]
 
-   
+
     def sustain(self):
         if self.scene_status == scene_flags.game:
             if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
                 self.herb_group.add(Herb.Herb(self.randomPosition()))
-            
+
             if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
                 x, y = self.randomPosition()
                 bouncer = Bouncer.Bouncer((x,y))
-                    
+
                 self.bouncer_group.add(bouncer)
 
-        
-        
-            
+
+
+
