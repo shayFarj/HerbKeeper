@@ -11,7 +11,7 @@ import Constants
 input_size = 1 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2 + Constants.BULLET_NUMBER*4
 layer1 = 128
 layer2 = 64
-output_size = 1 # Q(s,a)
+output_size = 15 # Q(s,a)
 gamma = 0.99 
 MSELoss = nn.MSELoss()
 
@@ -33,6 +33,7 @@ class DQN (nn.Module):
         x = self.linear2(x)
         x = F.relu(x)
         x = self.output(x)
+        x = torch.cat((F.softmax(x[0:8]),F.softmax(x[8:14])))
         return x
     
     def load_params(self, path):

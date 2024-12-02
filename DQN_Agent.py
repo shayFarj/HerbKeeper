@@ -26,6 +26,7 @@ class DQN_Agent:
         # self.train = train
         self.player = player
         self.env = env
+        self.active = True
 
     def train (self, train):
           self.train = train
@@ -35,6 +36,8 @@ class DQN_Agent:
               self.DQN.eval()
 
     def get_action (self, state: State, epoch = 0, events= None, train = True):
+        if not self.active:
+            return (0,0)
         epsilon = self.epsilon_greedy(epoch)
         rnd = random.random()
         actions = self.env.legal_actions(state)
