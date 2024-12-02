@@ -6,7 +6,7 @@ import pygame
 import Constants
 import random
 import Timer
-
+import torch
 class scene_flags:
     game = 1
     game_over = 2
@@ -39,7 +39,7 @@ class Enviroment:
         self.scene_status = scene_flags.start_menu
 
         self.delta_avg = []
-
+        
         self.surface = surface
 
         pygame.mixer.music.load("opening.wav")
@@ -68,11 +68,8 @@ class Enviroment:
     def gameOver(self):
         return self.spaceship.energy <= 0
 
-    def isLegal(self,action):
-        if(action[0] != -1):
-            return self.spaceship.energy - Constants.SPACESHIP_SPEED * action[0] > 0
-        else:
-            return self.spaceship.energy - 2 > 0
+    def legal_actions(self):
+        return 
 
 
     def randomPosition(self):
@@ -178,7 +175,9 @@ class Enviroment:
             state.append(0)
             state.append(0)
             state.append(0)
-        print(f"\r"+ str(len(state)),end ="")
+        # print(f"\r"+ str(len(state)),end ="")
+        state = torch.tensor(state)
+        #print(f"\r"+str(state),end ="")
         return state
 
 
