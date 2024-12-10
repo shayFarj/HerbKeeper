@@ -5,7 +5,6 @@ import torch
 import torch.nn as nn
 import numpy as np
 from DQN import DQN
-from State import State
 
 # epsilon Greedy
 epsilon_start = 1
@@ -35,7 +34,7 @@ class DQN_Agent:
           else:
               self.DQN.eval()
 
-    def get_action (self, state: State, epoch = 0, events= None, train = True):
+    def get_action (self, state, epoch = 0, events= None, train = True):
         if not self.active:
             return (0,0)
         epsilon = self.epsilon_greedy(epoch)
@@ -44,7 +43,7 @@ class DQN_Agent:
         if self.train and train and rnd < epsilon:
             return random.choice(actions)
         
-        state_tensor = state.toTensor()
+        state_tensor = state#.toTensor()
         action_np = np.array(actions)
         action_tensor = torch.from_numpy(action_np)
         expand_state_tensor = state_tensor.unsqueeze(0).repeat((len(action_tensor),1))
@@ -60,7 +59,7 @@ class DQN_Agent:
             if dones[i].item():
                 actions.append((0,0))
             else:
-                actions.append(self.get_action(State.tensorToState(state), train=True)) #SARSA = True / Q-learning = False
+                actions.append(self.get_action(state, train=True)) #SARSA = True / Q-learning = False
         return torch.tensor(actions)
 
     def epsilon_greedy(self,epoch, start = epsilon_start, final=epsilon_final, decay=epsiln_decay):

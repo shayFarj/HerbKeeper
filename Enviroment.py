@@ -40,6 +40,11 @@ class Enviroment:
 
         self.delta_avg = []
         
+        self.actions = []
+        for i in range(1,9):
+            for j in range(-1,4):
+                self.actions.append((i,j))
+
         self.surface = surface
 
         pygame.mixer.music.load("opening.wav")
@@ -68,8 +73,8 @@ class Enviroment:
     def gameOver(self):
         return self.spaceship.energy <= 0
 
-    def legal_actions(self):
-        return 
+    def legal_actions(self,state):
+        return self.actions
 
 
     def randomPosition(self):
