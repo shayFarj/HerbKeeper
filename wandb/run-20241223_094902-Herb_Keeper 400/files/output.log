@@ -1,0 +1,11 @@
+0
+Traceback (most recent call last):
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 188, in <module>
+    main ()
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 109, in main
+    action = player.get_action(state=state,epoch=epoch)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_Agent.py", line 41, in get_action
+    actions = self.env.legal_actions(state)
+              ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'legal_actions'

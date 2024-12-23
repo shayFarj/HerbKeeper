@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 188, in <module>
+    main ()
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 99, in main
+    env.restart()
+    ^^^^^^^^^^^
+AttributeError: 'Enviroment' object has no attribute 'restart'

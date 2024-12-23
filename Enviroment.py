@@ -55,26 +55,42 @@ class Enviroment:
         for e in events:
             if e.type == pygame.MOUSEBUTTONDOWN:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
-                    pygame.mixer.music.stop()
-                    self.scene_status = scene_flags.game
-
-                    self.spaceship.energy = 1000
-
-                    self.agent.active = True
-
-                    for i in range(Constants.BOUNCER_NUMBER):
-                        self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
-
-                    for i in range(Constants.HERB_NUMBER):
-                        self.herb_group.add(Herb.Herb(self.randomPosition()))
+                    self.restart()
 
         text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+    
+    def restart(self):
+        pygame.mixer.music.stop()
+        self.scene_status = scene_flags.game
 
+        self.spaceship.energy = 1000
+
+        self.agent.active = True
+
+        for i in range(Constants.BOUNCER_NUMBER):
+            self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
+
+        for i in range(Constants.HERB_NUMBER):
+            self.herb_group.add(Herb.Herb(self.randomPosition()))
+
+    
     def gameOver(self):
         return self.spaceship.energy <= 0
 
     def legal_actions(self,state):
         return self.actions
+
+    def move(self,action,events):
+        prev_eng = self.spaceship.energy
+        self.getInput(events,action)
+        self.sustain()
+        self.update()
+        self.collisions()
+        self.draw()
+        reward = prev_eng - self.spaceship.energy
+        done = self.gameOver()
+
+        return reward,done
 
 
     def randomPosition(self):

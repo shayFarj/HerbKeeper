@@ -22,7 +22,6 @@ class DQN_Agent:
         if parametes_path:
             self.DQN.load_params(parametes_path)
         self.train(train)
-        # self.train = train
         self.player = player
         self.env = env
         self.active = True
@@ -43,16 +42,15 @@ class DQN_Agent:
         if self.train and train and rnd < epsilon:
             return random.choice(actions)
         
-        state_tensor = state#.toTensor()
-        action_np = np.array(actions)
-        action_tensor = torch.from_numpy(action_np)
-        expand_state_tensor = state_tensor.unsqueeze(0).repeat((len(action_tensor),1))
-        # state_action = torch.cat((expand_state_tensor, action_tensor ), dim=1)
         with torch.no_grad():
-            Q_values = self.DQN(expand_state_tensor, action_tensor)
+            Q_values = self.DQN(state)
+        
         max_index = torch.argmax(Q_values)
         return actions[max_index]
 
+    def fix_update (self, dqn, tau=0.001):
+        self.DQN.load_state_dict(dqn.state_dict())
+    
     def get_actions (self, states, dones):
         actions = []
         for i, state in enumerate(states):

@@ -19,7 +19,7 @@ class DQN (nn.Module):
     def __init__(self) -> None:
         super().__init__()
         if torch.cuda.is_available:
-            self.device = torch.device('cpu') # 'cuda'
+            self.device = torch.device('cuda')
         else:
             self.device = torch.device('cpu')
         
@@ -51,6 +51,5 @@ class DQN (nn.Module):
         Q_new = rewards + gamma * Q_next_Values * (1- Dones)
         return MSELoss(Q_value, Q_new)
 
-    def __call__(self, states, actions):
-        state_action = torch.cat((states,actions), dim=1)
-        return self.forward(state_action)
+    def __call__(self, states):
+        return self.forward(states).to(self.device)

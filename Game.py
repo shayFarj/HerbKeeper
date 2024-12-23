@@ -17,10 +17,6 @@ main_surf.fill((0,0,0))
 
 pygame.display.set_caption("Herb's keeper")
 
-
-entering = True
-failing = False
-
 human = HumanAgent.humanAgent()
 
 env = Enviroment.Enviroment(main_surf,human)
