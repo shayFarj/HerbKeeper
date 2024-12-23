@@ -64,7 +64,7 @@ class SpaceShip(CircleSprite.CircleSprite):
         return pos[0] < 0 or pos[0] > Constants.BOUNDERIES[0] or pos[1] < 0 or pos[1] > Constants.BOUNDERIES[1]
 
     def update(self,delta) -> None:
-
+        angle = 0
         #delta = self.fps_clock.tick()
 
         if self.shoot_hold:
