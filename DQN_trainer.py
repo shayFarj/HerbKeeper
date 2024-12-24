@@ -8,7 +8,7 @@ from ReplayBuffer import ReplayBuffer
 import os
 import wandb
 #endregion
-MIN_BUFFER = 100
+MIN_BUFFER = 50
 def main ():
     #region ################ init Surface of pyGame #################
     pygame.init()
@@ -156,7 +156,7 @@ def main ():
         #endregion
             
         #region ########### Printing and saving #####################
-        print (f'epoch: {epoch} loss: {loss:.7f} LR: {scheduler.get_last_lr()} step: {step} ')
+        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} ')
         step = 0
         if epoch % 10 == 0:
             losses.append(loss.item())

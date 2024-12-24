@@ -27,8 +27,8 @@ class SpaceShip(CircleSprite.CircleSprite):
         self.speedVec = pygame.Vector2()
         
 
-        self.s_timer = Timer.timerLoop(0.1)
-        self.fShoot = True
+        # self.s_timer = Timer.timerLoop(0.1)
+        # self.fShoot = True
     
     def getAction(self,action):
         self.action = action
@@ -72,9 +72,9 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         if(self.energy > 0):
             if(self.action[0] != -1):
-                if not self.fShoot:
-                    self.fShoot = True
-                    self.s_timer.reset()
+                # if not self.fShoot:
+                #     self.fShoot = True
+                #     self.s_timer.reset()
                 
                 match self.action[1]:
                     case 0:
@@ -110,13 +110,14 @@ class SpaceShip(CircleSprite.CircleSprite):
                     self.setPosition(nextPos)
                 
             else:
-                if self.shoot_hold:
-                    if self.fShoot:
-                        self.shoot()
-                        self.fShoot = False
-                    else:
-                        if shootTime:
-                            self.shoot()
-                else:
-                    self.shoot()
+                self.shoot()
+                # if self.shoot_hold:
+                #     if self.fShoot:
+                #         self.shoot()
+                #         self.fShoot = False
+                #     else:
+                #         if shootTime:
+                #             self.shoot()
+                # else:
+                #     self.shoot()
 

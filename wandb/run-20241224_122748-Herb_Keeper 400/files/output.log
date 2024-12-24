@@ -1,0 +1,24 @@
+epoch: 0 loss: 0.0000000 LR: [0.0001] step: 1
+epoch: 1 loss: 177071.0312500 LR: [0.0001] step: 51
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 196475.4062500 LR: [0.0001] step: 4
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 3 loss: 143476.4531250 LR: [0.0001] step: 86
+epoch: 4 loss: 92352.9375000 LR: [0.0001] step: 84
+epoch: 5 loss: 14477.2763672 LR: [0.0001] step: 118
+epoch: 6 loss: 50411.7500000 LR: [0.0001] step: 77
+epoch: 7 loss: 1600.5313721 LR: [0.0001] step: 77
+epoch: 8 loss: 19133.9687500 LR: [0.0001] step: 83
+epoch: 9 loss: 12622.0957031 LR: [0.0001] step: 86
+epoch: 10 loss: 2998.9553223 LR: [0.0001] step: 86
+epoch: 11 loss: 49902.4296875 LR: [0.0001] step: 82
+epoch: 12 loss: 197.2047577 LR: [0.0001] step: 86
+75
