@@ -1,0 +1,39 @@
+epoch: 0 loss: 0.00 LR: [0.005] step: 1
+epoch: 1 loss: 58952.15 LR: [0.005] step: 127
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 1929.31 LR: [0.005] step: 105
+epoch: 3 loss: 104.58 LR: [0.005] step: 104
+epoch: 4 loss: 1944.47 LR: [0.005] step: 94
+epoch: 5 loss: 2039.46 LR: [0.005] step: 151
+epoch: 6 loss: 1924.57 LR: [0.005] step: 120
+epoch: 7 loss: 115.45 LR: [0.005] step: 94
+epoch: 8 loss: 55343.06 LR: [0.005] step: 95
+epoch: 9 loss: 121.71 LR: [0.005] step: 62
+epoch: 10 loss: 112.18 LR: [0.005] step: 153
+epoch: 11 loss: 148.09 LR: [0.005] step: 61
+epoch: 12 loss: 1952.21 LR: [0.005] step: 104
+epoch: 13 loss: 139.51 LR: [0.005] step: 58
+epoch: 14 loss: 1462.70 LR: [0.005] step: 88
+epoch: 15 loss: 133.39 LR: [0.005] step: 96
+epoch: 16 loss: 137.47 LR: [0.005] step: 106
+epoch: 17 loss: 145.14 LR: [0.005] step: 101
+epoch: 18 loss: 134.61 LR: [0.005] step: 96
+epoch: 19 loss: 57280.76 LR: [0.005] step: 93
+epoch: 20 loss: 129.30 LR: [0.005] step: 94
+epoch: 21 loss: 125.30 LR: [0.005] step: 101
+34
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 194, in <module>
+    main()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 119, in main
+    reward, done = env.move(action=action,events=events)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 90, in move
+    self.draw()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 153, in draw
+    text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 21, in text_to_screen
+    text = font.render(text, True, color)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

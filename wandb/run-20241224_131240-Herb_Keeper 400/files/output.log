@@ -1,0 +1,42 @@
+epoch: 0 loss: 0.00 LR: [0.002] step: 1
+epoch: 1 loss: 3226.05 LR: [0.002] step: 177
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 3226.11 LR: [0.002] step: 103
+epoch: 3 loss: 65838.42 LR: [0.002] step: 100
+epoch: 4 loss: 1275.65 LR: [0.002] step: 107
+epoch: 5 loss: 2555.36 LR: [0.002] step: 63
+epoch: 6 loss: 3223.19 LR: [0.002] step: 97
+epoch: 7 loss: 22.13 LR: [0.002] step: 74
+epoch: 8 loss: 22.76 LR: [0.002] step: 106
+epoch: 9 loss: 23.14 LR: [0.002] step: 93
+epoch: 10 loss: 1268.79 LR: [0.002] step: 144
+epoch: 11 loss: 22.56 LR: [0.002] step: 89
+epoch: 12 loss: 25.60 LR: [0.002] step: 100
+epoch: 13 loss: 21.99 LR: [0.002] step: 97
+epoch: 14 loss: 62684.66 LR: [0.002] step: 99
+epoch: 15 loss: 22.94 LR: [0.002] step: 101
+epoch: 16 loss: 1271.29 LR: [0.002] step: 104
+epoch: 17 loss: 25.00 LR: [0.002] step: 100
+epoch: 18 loss: 24.60 LR: [0.002] step: 88
+epoch: 19 loss: 1274.59 LR: [0.002] step: 93
+epoch: 20 loss: 24.03 LR: [0.002] step: 87
+epoch: 21 loss: 1271.98 LR: [0.002] step: 93
+epoch: 22 loss: 1305.75 LR: [0.002] step: 96
+epoch: 23 loss: 23.73 LR: [0.002] step: 99
+epoch: 24 loss: 22.66 LR: [0.002] step: 89
+epoch: 25 loss: 1270.50 LR: [0.002] step: 93
+epoch: 26 loss: 25.16 LR: [0.002] step: 95
+epoch: 27 loss: 27.75 LR: [0.002] step: 93
+epoch: 28 loss: 28.45 LR: [0.002] step: 91
+59
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 194, in <module>
+    main()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 139, in main
+    states, actions, rewards, next_states, dones = buffer.sample(batch_size)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\ReplayBuffer.py", line 22, in sample
+    states = torch.vstack(state_tensors)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

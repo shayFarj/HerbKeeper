@@ -1,0 +1,45 @@
+epoch: 0 loss: 13559.61 LR: [0.001] step: 71
+c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 1 loss: 8795.95 LR: [0.001] step: 59
+epoch: 2 loss: 5589.55 LR: [0.001] step: 92
+epoch: 3 loss: 8817.17 LR: [0.001] step: 127
+epoch: 4 loss: 1472.33 LR: [0.001] step: 74
+epoch: 5 loss: 8833.47 LR: [0.001] step: 72
+epoch: 6 loss: 1506.31 LR: [0.001] step: 51
+epoch: 7 loss: 8273.66 LR: [0.001] step: 82
+epoch: 8 loss: 188.13 LR: [0.001] step: 79
+epoch: 9 loss: 2138.37 LR: [0.001] step: 69
+epoch: 10 loss: 1485.22 LR: [0.001] step: 82
+epoch: 11 loss: 2117.88 LR: [0.001] step: 78
+epoch: 12 loss: 4693.78 LR: [0.001] step: 79
+epoch: 13 loss: 1481.26 LR: [0.001] step: 72
+epoch: 14 loss: 1512.62 LR: [0.001] step: 51
+epoch: 15 loss: 1488.13 LR: [0.001] step: 69
+epoch: 16 loss: 2086.41 LR: [0.001] step: 71
+epoch: 17 loss: 239.21 LR: [0.001] step: 79
+epoch: 18 loss: 220.43 LR: [0.001] step: 72
+epoch: 19 loss: 187.17 LR: [0.001] step: 72
+epoch: 20 loss: 290.24 LR: [0.001] step: 90
+epoch: 21 loss: 5678.88 LR: [0.001] step: 76
+epoch: 22 loss: 2106.94 LR: [0.001] step: 71
+epoch: 23 loss: 229.62 LR: [0.001] step: 85
+epoch: 24 loss: 247.57 LR: [0.001] step: 78
+epoch: 25 loss: 186.13 LR: [0.001] step: 89
+epoch: 26 loss: 284.80 LR: [0.001] step: 74
+epoch: 27 loss: 5773.78 LR: [0.001] step: 76
+epoch: 28 loss: 207.27 LR: [0.001] step: 69
+epoch: 29 loss: 2097.78 LR: [0.001] step: 72
+epoch: 30 loss: 306.04 LR: [0.001] step: 75
+epoch: 31 loss: 220.47 LR: [0.001] step: 80
+epoch: 32 loss: 272.15 LR: [0.001] step: 80
+epoch: 33 loss: 207.35 LR: [0.001] step: 78
+epoch: 34 loss: 231.71 LR: [0.001] step: 73
+epoch: 35 loss: 190.66 LR: [0.001] step: 81
+epoch: 36 loss: 228.96 LR: [0.001] step: 74
+epoch: 37 loss: 198.98 LR: [0.001] step: 70
+epoch: 38 loss: 215.96 LR: [0.001] step: 68
+epoch: 39 loss: 210.64 LR: [0.001] step: 67
+epoch: 40 loss: 235.25 LR: [0.001] step: 38
+epoch: 41 loss: 1536.21 LR: [0.001] step: 74
+27

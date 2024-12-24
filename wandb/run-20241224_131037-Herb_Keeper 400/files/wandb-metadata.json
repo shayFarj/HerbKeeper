@@ -1,0 +1,32 @@
+{
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "CPython 3.11.4",
+  "startedAt": "2024-12-24T11:10:37.754631Z",
+  "program": "c:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\DQN_trainer.py",
+  "codePath": "DQN_trainer.py",
+  "git": {
+    "remote": "https://github.com/shayFarj/HerbKeeper.git",
+    "commit": "9b18c93ad22f9b20db15b8284aaf2e3919095d41"
+  },
+  "email": "shayfarjoon0@gmail.com",
+  "root": "C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper",
+  "host": "LAPTOP-3SO07O6J",
+  "username": "User",
+  "executable": "C:\\Python311\\python.exe",
+  "codePathLocal": "DQN_trainer.py",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "254721126400",
+      "used": "219561967616"
+    }
+  },
+  "memory": {
+    "total": "8428179456"
+  },
+  "cpu": {
+    "count": 4,
+    "countLogical": 8
+  }
+}

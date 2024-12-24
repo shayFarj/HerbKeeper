@@ -88,7 +88,7 @@ class Enviroment:
         self.update()
         self.collisions()
         self.draw()
-        reward = prev_eng - self.spaceship.energy
+        reward = self.spaceship.energy - prev_eng + 1
         done = self.gameOver()
 
         return reward,done

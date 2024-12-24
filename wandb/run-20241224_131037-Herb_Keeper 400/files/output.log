@@ -1,0 +1,36 @@
+epoch: 0 loss: 0.00 LR: [0.002] step: 1
+epoch: 1 loss: 18313.03 LR: [0.002] step: 112
+c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 1964.58 LR: [0.002] step: 156
+epoch: 3 loss: 112.18 LR: [0.002] step: 107
+epoch: 4 loss: 17890.79 LR: [0.002] step: 99
+epoch: 5 loss: 116.40 LR: [0.002] step: 104
+epoch: 6 loss: 1946.51 LR: [0.002] step: 101
+epoch: 7 loss: 107.65 LR: [0.002] step: 98
+epoch: 8 loss: 1949.88 LR: [0.002] step: 97
+epoch: 9 loss: 144.18 LR: [0.002] step: 100
+epoch: 10 loss: 1950.14 LR: [0.002] step: 90
+epoch: 11 loss: 16054.35 LR: [0.002] step: 104
+epoch: 12 loss: 141.02 LR: [0.002] step: 95
+epoch: 13 loss: 131.11 LR: [0.002] step: 89
+epoch: 14 loss: 1975.59 LR: [0.002] step: 97
+epoch: 15 loss: 1946.24 LR: [0.002] step: 94
+epoch: 16 loss: 111.81 LR: [0.002] step: 96
+epoch: 17 loss: 180.57 LR: [0.002] step: 92
+epoch: 18 loss: 16107.83 LR: [0.002] step: 100
+79
+Traceback (most recent call last):
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 194, in <module>
+    main()
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 119, in main
+    reward, done = env.move(action=action,events=events)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 86, in move
+    self.getInput(events,action)
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 60, in getInput
+    text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 21, in text_to_screen
+    text = font.render(text, True, color)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

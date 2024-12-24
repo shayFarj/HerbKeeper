@@ -1,0 +1,86 @@
+epoch: 0 loss: 0.00 LR: [0.0001] step: 1
+epoch: 1 loss: 77869.62 LR: [0.0001] step: 71
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 1528.74 LR: [0.0001] step: 85
+epoch: 3 loss: 43317.93 LR: [0.0001] step: 70
+epoch: 4 loss: 43325.44 LR: [0.0001] step: 84
+epoch: 5 loss: 1579.24 LR: [0.0001] step: 80
+epoch: 6 loss: 41919.81 LR: [0.0001] step: 71
+epoch: 7 loss: 232.36 LR: [0.0001] step: 76
+epoch: 8 loss: 1604.45 LR: [0.0001] step: 82
+epoch: 9 loss: 201.43 LR: [0.0001] step: 79
+epoch: 10 loss: 191.44 LR: [0.0001] step: 82
+epoch: 11 loss: 183.27 LR: [0.0001] step: 45
+epoch: 12 loss: 187.16 LR: [0.0001] step: 80
+epoch: 13 loss: 201.17 LR: [0.0001] step: 85
+epoch: 14 loss: 190.98 LR: [0.0001] step: 82
+epoch: 15 loss: 1549.94 LR: [0.0001] step: 87
+epoch: 16 loss: 1604.82 LR: [0.0001] step: 83
+epoch: 17 loss: 188.18 LR: [0.0001] step: 79
+epoch: 18 loss: 1616.25 LR: [0.0001] step: 67
+epoch: 19 loss: 221.14 LR: [0.0001] step: 68
+epoch: 20 loss: 1590.71 LR: [0.0001] step: 77
+epoch: 21 loss: 1614.09 LR: [0.0001] step: 75
+epoch: 22 loss: 248.01 LR: [0.0001] step: 57
+epoch: 23 loss: 204.71 LR: [0.0001] step: 69
+epoch: 24 loss: 41968.30 LR: [0.0001] step: 77
+epoch: 25 loss: 1577.34 LR: [0.0001] step: 82
+epoch: 26 loss: 1550.21 LR: [0.0001] step: 78
+epoch: 27 loss: 231.78 LR: [0.0001] step: 88
+epoch: 28 loss: 219.73 LR: [0.0001] step: 80
+epoch: 29 loss: 180.35 LR: [0.0001] step: 74
+epoch: 30 loss: 41955.81 LR: [0.0001] step: 69
+epoch: 31 loss: 219.71 LR: [0.0001] step: 46
+epoch: 32 loss: 218.92 LR: [0.0001] step: 52
+epoch: 33 loss: 1565.42 LR: [0.0001] step: 76
+epoch: 34 loss: 216.06 LR: [0.0001] step: 80
+epoch: 35 loss: 250.63 LR: [0.0001] step: 46
+epoch: 36 loss: 231.67 LR: [0.0001] step: 77
+epoch: 37 loss: 216.58 LR: [0.0001] step: 66
+epoch: 38 loss: 232.34 LR: [0.0001] step: 60
+epoch: 39 loss: 223.19 LR: [0.0001] step: 65
+epoch: 40 loss: 270.62 LR: [0.0001] step: 62
+epoch: 41 loss: 215.50 LR: [0.0001] step: 65
+epoch: 42 loss: 258.08 LR: [0.0001] step: 46
+epoch: 43 loss: 2928.33 LR: [0.0001] step: 39
+epoch: 44 loss: 232.05 LR: [0.0001] step: 61
+epoch: 45 loss: 3021.49 LR: [0.0001] step: 71
+epoch: 46 loss: 1651.86 LR: [0.0001] step: 81
+epoch: 47 loss: 221.90 LR: [0.0001] step: 81
+epoch: 48 loss: 2101.80 LR: [0.0001] step: 73
+epoch: 49 loss: 199.02 LR: [0.0001] step: 80
+epoch: 50 loss: 246.05 LR: [0.0001] step: 82
+epoch: 51 loss: 252.71 LR: [0.0001] step: 76
+21
+Traceback (most recent call last):
+  File "C:\Python311\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 193, in <module>
+    if __name__ == "__main__":
+        ^^^^^^^
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 118, in main
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 88, in move
+    self.update()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 129, in update
+    text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\Enviroment.py", line 21, in text_to_screen
+    text = font.render(text, True, color)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

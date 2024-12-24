@@ -1,0 +1,43 @@
+epoch: 0 loss: 0.00 LR: [0.001] step: 34
+epoch: 1 loss: 7182.76 LR: [0.001] step: 101
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 6689.38 LR: [0.001] step: 77
+epoch: 3 loss: 3994.61 LR: [0.001] step: 69
+epoch: 4 loss: 4027.39 LR: [0.001] step: 74
+epoch: 5 loss: 5372.22 LR: [0.001] step: 78
+epoch: 6 loss: 1552.27 LR: [0.001] step: 79
+epoch: 7 loss: 4015.16 LR: [0.001] step: 79
+epoch: 8 loss: 2889.39 LR: [0.001] step: 79
+epoch: 9 loss: 177.54 LR: [0.001] step: 82
+epoch: 10 loss: 5918.61 LR: [0.001] step: 73
+epoch: 11 loss: 201.69 LR: [0.001] step: 89
+epoch: 12 loss: 189.52 LR: [0.001] step: 82
+epoch: 13 loss: 193.09 LR: [0.001] step: 87
+epoch: 14 loss: 182.52 LR: [0.001] step: 81
+epoch: 15 loss: 1531.07 LR: [0.001] step: 54
+epoch: 16 loss: 4011.77 LR: [0.001] step: 86
+epoch: 17 loss: 176.74 LR: [0.001] step: 59
+31
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 194, in <module>
+    main()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 145, in main
+    optim.step()
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\adam.py", line 166, in step
+    adam(
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\adam.py", line 316, in adam
+    func(params,
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\optim\adam.py", line 382, in _single_tensor_adam
+    if torch.is_complex(param):
+       ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

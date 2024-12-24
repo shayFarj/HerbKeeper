@@ -1,0 +1,114 @@
+epoch: 0 loss: 0.00 LR: [0.002] step: 37
+epoch: 1 loss: 4355.44 LR: [0.002] step: 102
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2 loss: 4356.59 LR: [0.002] step: 77
+epoch: 3 loss: 4354.87 LR: [0.002] step: 102
+epoch: 4 loss: 97.29 LR: [0.002] step: 102
+epoch: 5 loss: 4384.56 LR: [0.002] step: 99
+epoch: 6 loss: 108.21 LR: [0.002] step: 102
+epoch: 7 loss: 89.00 LR: [0.002] step: 100
+epoch: 8 loss: 95.37 LR: [0.002] step: 101
+epoch: 9 loss: 102.26 LR: [0.002] step: 89
+epoch: 10 loss: 94.51 LR: [0.002] step: 89
+epoch: 11 loss: 1443.45 LR: [0.002] step: 92
+epoch: 12 loss: 182.20 LR: [0.002] step: 60
+epoch: 13 loss: 107.05 LR: [0.002] step: 89
+epoch: 14 loss: 96.87 LR: [0.002] step: 97
+epoch: 15 loss: 137.51 LR: [0.002] step: 100
+epoch: 16 loss: 107.24 LR: [0.002] step: 84
+epoch: 17 loss: 1358.09 LR: [0.002] step: 83
+epoch: 18 loss: 1389.12 LR: [0.002] step: 83
+epoch: 19 loss: 120.67 LR: [0.002] step: 89
+epoch: 20 loss: 1389.50 LR: [0.002] step: 86
+epoch: 21 loss: 124.21 LR: [0.002] step: 91
+epoch: 22 loss: 132.09 LR: [0.002] step: 94
+epoch: 23 loss: 126.02 LR: [0.002] step: 96
+epoch: 24 loss: 108.94 LR: [0.002] step: 97
+epoch: 25 loss: 1397.66 LR: [0.002] step: 98
+epoch: 26 loss: 113.61 LR: [0.002] step: 89
+epoch: 27 loss: 1369.73 LR: [0.002] step: 93
+epoch: 28 loss: 113.76 LR: [0.002] step: 83
+epoch: 29 loss: 130.33 LR: [0.002] step: 87
+epoch: 30 loss: 121.43 LR: [0.002] step: 88
+epoch: 31 loss: 129.58 LR: [0.002] step: 89
+epoch: 32 loss: 110.45 LR: [0.002] step: 95
+epoch: 33 loss: 1409.01 LR: [0.002] step: 95
+epoch: 34 loss: 115.15 LR: [0.002] step: 90
+epoch: 35 loss: 120.40 LR: [0.002] step: 143
+epoch: 36 loss: 113.61 LR: [0.002] step: 73
+epoch: 37 loss: 121.07 LR: [0.002] step: 81
+epoch: 38 loss: 113.41 LR: [0.002] step: 52
+epoch: 39 loss: 2077.11 LR: [0.002] step: 84
+epoch: 40 loss: 131.73 LR: [0.002] step: 72
+epoch: 41 loss: 167.11 LR: [0.002] step: 88
+epoch: 42 loss: 133.99 LR: [0.002] step: 85
+epoch: 43 loss: 122.75 LR: [0.002] step: 92
+epoch: 44 loss: 138.57 LR: [0.002] step: 100
+epoch: 45 loss: 127.57 LR: [0.002] step: 62
+epoch: 46 loss: 1424.28 LR: [0.002] step: 93
+epoch: 47 loss: 138.16 LR: [0.002] step: 93
+epoch: 48 loss: 133.41 LR: [0.002] step: 89
+epoch: 49 loss: 1452.63 LR: [0.002] step: 59
+epoch: 50 loss: 145.20 LR: [0.002] step: 85
+epoch: 51 loss: 1416.95 LR: [0.002] step: 135
+epoch: 52 loss: 4381.45 LR: [0.002] step: 88
+epoch: 53 loss: 139.34 LR: [0.002] step: 80
+epoch: 54 loss: 127.25 LR: [0.002] step: 87
+epoch: 55 loss: 137.21 LR: [0.002] step: 86
+epoch: 56 loss: 139.18 LR: [0.002] step: 88
+epoch: 57 loss: 137.10 LR: [0.002] step: 91
+epoch: 58 loss: 128.45 LR: [0.002] step: 88
+epoch: 59 loss: 139.97 LR: [0.002] step: 97
+epoch: 60 loss: 171.23 LR: [0.002] step: 88
+epoch: 61 loss: 117.65 LR: [0.002] step: 85
+epoch: 62 loss: 115.85 LR: [0.002] step: 88
+epoch: 63 loss: 131.77 LR: [0.002] step: 77
+epoch: 64 loss: 1464.97 LR: [0.002] step: 136
+epoch: 65 loss: 172.67 LR: [0.002] step: 95
+epoch: 66 loss: 124.37 LR: [0.002] step: 54
+epoch: 67 loss: 148.14 LR: [0.002] step: 96
+epoch: 68 loss: 127.76 LR: [0.002] step: 96
+epoch: 69 loss: 148.00 LR: [0.002] step: 93
+epoch: 70 loss: 135.74 LR: [0.002] step: 93
+epoch: 71 loss: 119.90 LR: [0.002] step: 74
+epoch: 72 loss: 112.78 LR: [0.002] step: 85
+epoch: 73 loss: 137.16 LR: [0.002] step: 88
+epoch: 74 loss: 130.79 LR: [0.002] step: 95
+epoch: 75 loss: 170.33 LR: [0.002] step: 58
+epoch: 76 loss: 128.21 LR: [0.002] step: 86
+epoch: 77 loss: 2099.72 LR: [0.002] step: 88
+epoch: 78 loss: 131.80 LR: [0.002] step: 89
+epoch: 79 loss: 4403.71 LR: [0.002] step: 98
+epoch: 80 loss: 4398.79 LR: [0.002] step: 87
+epoch: 81 loss: 210.48 LR: [0.002] step: 86
+epoch: 82 loss: 1985.69 LR: [0.002] step: 64
+epoch: 83 loss: 136.04 LR: [0.002] step: 53
+epoch: 84 loss: 143.49 LR: [0.002] step: 70
+epoch: 85 loss: 137.13 LR: [0.002] step: 63
+epoch: 86 loss: 129.79 LR: [0.002] step: 83
+epoch: 87 loss: 145.56 LR: [0.002] step: 55
+epoch: 88 loss: 1495.72 LR: [0.002] step: 40
+epoch: 89 loss: 151.62 LR: [0.002] step: 82
+epoch: 90 loss: 127.77 LR: [0.002] step: 80
+epoch: 91 loss: 168.78 LR: [0.002] step: 74
+epoch: 92 loss: 149.54 LR: [0.002] step: 78
+epoch: 93 loss: 128.15 LR: [0.002] step: 71
+epoch: 94 loss: 141.20 LR: [0.002] step: 115
+epoch: 95 loss: 1505.75 LR: [0.002] step: 90
+59
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 194, in <module>
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer.py", line 140, in main
+    continue
+           ^^
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py", line 55, in __call__
+    return self.forward(states).to(self.device)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py", line 32, in forward
+    x = F.relu(x)
+        ^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python311\site-packages\torch\nn\functional.py", line 1473, in relu
+    result = torch.relu(input)
+             ^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

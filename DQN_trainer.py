@@ -34,7 +34,7 @@ def main ():
     player_hat.DQN = player.DQN.copy()
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.0001
+    learning_rate = 0.002
     ephocs = 200000
     start_epoch = 0
     C, tau = 3, 0.001
@@ -68,6 +68,7 @@ def main ():
     #endregion
     
     #region ################ Wandb.init #############################
+    
     wandb.init(
         # set the wandb project where this run will be logged
         project="Herb_Keeper",
@@ -135,6 +136,8 @@ def main ():
             # endregion
 
             #region ############# Train ################
+            if epoch % 10 != 0: #await training after aquiring enough episodes
+                continue
             states, actions, rewards, next_states, dones = buffer.sample(batch_size)
             Q_values = player.DQN(states)
             Q_hat_Values = player.DQN(next_states)
@@ -190,4 +193,4 @@ def main ():
 
         
 if __name__ == "__main__":
-    main ()
+    main()
