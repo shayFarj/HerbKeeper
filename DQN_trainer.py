@@ -100,26 +100,28 @@ def main ():
         #region ########### Episode loop - one game loop ############
         env.restart()
         end_of_game = False
-        state = env.state()
 
         while not end_of_game:
             print (step, end='\r')
             step += 1
+            
             #region ############# Play and Sample Environement #########################
             main_surf.fill((0,0,0))
             events = pygame.event.get()
             
-            action = player.get_action(state=state,epoch=epoch)
+            state = env.state()
+
+            action = player.get_action(state=state,epoch=epoch)            
             
-            events = pygame.event.get()
             
-            
+
             reward, done = env.move(action=action,events=events)
 
             next_state = env.state()
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                         next_state, torch.tensor(done, dtype=torch.float32))
             if done:
+                env.clear()
                 break
 
             state = next_state

@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-input_size = 1 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2 + Constants.BULLET_NUMBER*4
+input_size = 3 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2 + Constants.BULLET_NUMBER*4
 layer1 = 128
 layer2 = 64
 output_size = 40 # Q(s,a) number of all combinations of direction and gear
@@ -18,7 +18,7 @@ MSELoss = nn.MSELoss()
 class DQN (nn.Module):
     def __init__(self) -> None:
         super().__init__()
-        if torch.cuda.is_available:
+        if torch.cuda.is_available():
             self.device = torch.device('cuda')
         else:
             self.device = torch.device('cpu')

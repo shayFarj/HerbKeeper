@@ -58,7 +58,8 @@ class Enviroment:
                     self.restart()
 
         text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
-    
+     
+
     def restart(self):
         pygame.mixer.music.stop()
         self.scene_status = scene_flags.game
@@ -96,17 +97,19 @@ class Enviroment:
     def randomPosition(self):
         return (random.randint(0,Constants.BOUNDERIES[0]),random.randint(0,Constants.BOUNDERIES[1]))
 
+    def clear(self):
+        self.scene_status = scene_flags.game_over
+        self.bouncer_group.empty()
+        self.bullet_group.empty()
+        self.herb_group.empty()
+        self.agent.active = False
+
+        pygame.mixer.music.load("ending.wav")
+        pygame.mixer.music.play(-1)
 
     def update(self):
         if self.gameOver() and self.scene_status != scene_flags.game_over:
-            self.scene_status = scene_flags.game_over
-            self.bouncer_group.empty()
-            self.bullet_group.empty()
-            self.herb_group.empty()
-            self.agent.active = False
-
-            pygame.mixer.music.load("ending.wav")
-            pygame.mixer.music.play(-1)
+            self.clear()
             return
 
 
@@ -119,11 +122,11 @@ class Enviroment:
         self.bullet_group.update(delta)
         self.spaceship_group.update(delta)
 
-        str_state = str(self.state())
+        str_state = self.state()
 
 
 
-        text_to_screen(self.surface,"state : " +str_state,64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+        text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
 
         if len(self.delta_avg) < 20:
             text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
@@ -196,8 +199,8 @@ class Enviroment:
             state.append(0)
             state.append(0)
             state.append(0)
-        # print(f"\r"+ str(len(state)),end ="")
-        state = torch.tensor(state)
+        # print(f"\r length : "+ str(len(state)) + "///",end ="")
+        state = torch.tensor(state,dtype=torch.float32)
         #print(f"\r"+str(state),end ="")
         return state
 
