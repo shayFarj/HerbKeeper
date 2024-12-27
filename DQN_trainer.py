@@ -139,7 +139,7 @@ def main ():
             # endregion
 
             #region ############# Train ################
-            if epoch % 15 != 0: #await training after aquiring enough episodes
+            if epoch % 10 != 0: #await training after aquiring enough episodes
                 continue
 
             
@@ -179,7 +179,7 @@ def main ():
         deltas.clear()
         print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {avg_delta*step:.2f} sec fps: {1/avg_delta}')
         step = 0
-        if epoch % 15 == 0:
+        if epoch % 10 == 0:
             losses.append(loss.item())
 
         if (epoch + 1) % 10 == 0:
