@@ -35,6 +35,9 @@ class Enviroment:
         self.spaceship_group.add(self.spaceship)
 
         self.fps_clock = pygame.time.Clock()
+        self.survive_clock = pygame.time.Clock()
+
+        self.survive_time = 0
 
         self.scene_status = scene_flags.start_menu
 
@@ -57,12 +60,14 @@ class Enviroment:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
                     self.restart()
 
-        text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+        # text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
      
 
     def restart(self):
         pygame.mixer.music.stop()
-        self.scene_status = scene_flags.game
+        self.scene_status = scene_flags.
+        
+        self.survive_time = 0
 
         self.spaceship.energy = 1000
 
@@ -82,13 +87,14 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events):
+        self.survive_time += self.survive_clock.tick()
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
         delta = self.update()
         self.collisions()
         #self.draw()
-        reward = self.spaceship.energy - prev_eng + 1
+        reward = self.spaceship.energy - prev_eng + self.survive_time/10
         done = self.gameOver()
 
         return reward,done, delta
