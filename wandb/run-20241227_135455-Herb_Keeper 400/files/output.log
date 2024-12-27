@@ -56,4 +56,12 @@ epoch: 1053 loss: 530942.88 LR: [0.002] step: 262 time: 1.14 sec fps: 230.783495
 epoch: 1054 loss: 530942.88 LR: [0.002] step: 439 time: 1.86 sec fps: 236.64425341163835
 epoch: 1055 loss: 530942.88 LR: [0.002] step: 427 time: 1.93 sec fps: 221.14100362526244
 epoch: 1056 loss: 530942.88 LR: [0.002] step: 449 time: 1.94 sec fps: 230.92956526446918
-epoc
+epoch: 1057 loss: 530942.88 LR: [0.002] step: 437 time: 1.93 sec fps: 226.1411918509644
+epoch: 1058 loss: 530942.88 LR: [0.002] step: 419 time: 2.05 sec fps: 204.14914350189758
+epoch: 1059 loss: 530942.88 LR: [0.002] step: 396 time: 2.01 sec fps: 196.70073984993863
+epoch: 1060 loss: 530942.88 LR: [0.002] step: 426 time: 1.85 sec fps: 230.38169242592465
+epoch: 1061 loss: 530942.88 LR: [0.002] step: 439 time: 1.94 sec fps: 226.49758322924052
+epoch: 1062 loss: 530942.88 LR: [0.002] step: 435 time: 1.89 sec fps: 230.22925429677747
+epoch: 1063 loss: 530942.88 LR: [0.002] step: 436 time: 1.89 sec fps: 230.87427886625267
+epoch: 1064 loss: 530942.88 LR: [0.002] step: 437 time: 1.89 sec fps: 230.91470367383295
+60

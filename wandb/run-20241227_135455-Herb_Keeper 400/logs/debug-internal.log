@@ -6,3 +6,4 @@
 {"time":"2024-12-27T13:54:56.0968472+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 400"}
 {"time":"2024-12-27T13:54:56.0968472+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 400"}
 {"time":"2024-12-27T13:54:56.6461816+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-27T13:55:06.6462534+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
