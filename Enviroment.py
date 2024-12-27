@@ -85,13 +85,13 @@ class Enviroment:
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
-        self.update()
+        delta = self.update()
         self.collisions()
-        self.draw()
+        #self.draw()
         reward = self.spaceship.energy - prev_eng + 1
         done = self.gameOver()
 
-        return reward,done
+        return reward,done, delta
 
 
     def randomPosition(self):
@@ -130,6 +130,7 @@ class Enviroment:
 
         if len(self.delta_avg) < 20:
             text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            return delta
         else:
             self.delta_avg.pop(0)
             avg = 0
@@ -137,6 +138,9 @@ class Enviroment:
                 avg += i
             avg /= len(self.delta_avg)
             text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            return avg
+        
+        
 
 
 
