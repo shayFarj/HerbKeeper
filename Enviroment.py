@@ -65,7 +65,9 @@ class Enviroment:
 
     def restart(self):
         pygame.mixer.music.stop()
-        self.scene_status = scene_flags.
+        self.survive_time = 0
+
+        self.scene_status = scene_flags.game
         
         self.survive_time = 0
 
