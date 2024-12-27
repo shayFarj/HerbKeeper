@@ -163,12 +163,6 @@ def main ():
         #endregion
         
         #region ########### Update target network ###################
-        avg_delta = 0
-        for i in deltas:
-            avg_delta += i
-        avg_delta /= len(deltas)*1000
-        
-        deltas.clear()
 
         if epoch % C == 0:
             player_hat.fix_update(dqn=player.DQN)
@@ -177,6 +171,12 @@ def main ():
         #endregion
             
         #region ########### Printing and saving #####################
+        avg_delta = 0
+        for i in deltas:
+            avg_delta += i
+        avg_delta /= len(deltas)*1000
+        
+        deltas.clear()
         print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {avg_delta*step:.2f} sec fps: {1/avg_delta}')
         step = 0
         if epoch % 15 == 0:

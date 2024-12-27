@@ -96,7 +96,11 @@ class Enviroment:
         delta = self.update()
         self.collisions()
         #self.draw()
-        reward = self.spaceship.energy - prev_eng + self.survive_time/10
+        if (self.spaceship.energy - prev_eng) < 0:
+            reward = (self.spaceship.energy - prev_eng) * self.survive_time
+        else:
+            reward = (self.spaceship.energy - prev_eng) / self.survive_time
+        
         done = self.gameOver()
 
         return reward,done, delta
