@@ -1,0 +1,43 @@
+epoch: 0 loss: 0.00 LR: [0.002] step: 1
+epoch: 1 loss: 0.00 LR: [0.002] step: 353
+epoch: 2 loss: 0.00 LR: [0.002] step: 368
+epoch: 3 loss: 0.00 LR: [0.002] step: 580
+epoch: 4 loss: 0.00 LR: [0.002] step: 374
+epoch: 5 loss: 0.00 LR: [0.002] step: 384
+c:\Users\Farjoon\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 6 loss: 0.00 LR: [0.002] step: 395
+epoch: 7 loss: 0.00 LR: [0.002] step: 395
+epoch: 8 loss: 0.00 LR: [0.002] step: 406
+epoch: 9 loss: 0.00 LR: [0.002] step: 582
+epoch: 10 loss: 8.17 LR: [0.002] step: 209
+epoch: 11 loss: 8.17 LR: [0.002] step: 211
+epoch: 12 loss: 8.17 LR: [0.002] step: 380
+epoch: 13 loss: 8.17 LR: [0.002] step: 373
+epoch: 14 loss: 8.17 LR: [0.002] step: 372
+epoch: 15 loss: 8.17 LR: [0.002] step: 408
+epoch: 16 loss: 8.17 LR: [0.002] step: 408
+epoch: 17 loss: 8.17 LR: [0.002] step: 440
+epoch: 18 loss: 8.17 LR: [0.002] step: 457
+epoch: 19 loss: 8.17 LR: [0.002] step: 403
+epoch: 20 loss: 5.17 LR: [0.002] step: 212
+epoch: 21 loss: 5.17 LR: [0.002] step: 418
+epoch: 22 loss: 5.17 LR: [0.002] step: 430
+epoch: 23 loss: 5.17 LR: [0.002] step: 408
+epoch: 24 loss: 5.17 LR: [0.002] step: 436
+epoch: 25 loss: 5.17 LR: [0.002] step: 411
+epoch: 26 loss: 5.17 LR: [0.002] step: 408
+epoch: 27 loss: 5.17 LR: [0.002] step: 435
+epoch: 28 loss: 5.17 LR: [0.002] step: 384
+epoch: 29 loss: 5.17 LR: [0.002] step: 385
+epoch: 30 loss: 4.41 LR: [0.002] step: 220
+epoch: 31 loss: 4.41 LR: [0.002] step: 411
+epoch: 32 loss: 4.41 LR: [0.002] step: 415
+epoch: 33 loss: 4.41 LR: [0.002] step: 394
+epoch: 34 loss: 4.41 LR: [0.002] step: 413
+epoch: 35 loss: 4.41 LR: [0.002] step: 428
+epoch: 36 loss: 4.41 LR: [0.002] step: 421
+epoch: 37 loss: 4.41 LR: [0.002] step: 399
+epoch: 38 loss: 4.41 LR: [0.002] step: 408
+epoch: 39 loss: 4.41 LR: [0.002] step: 432
+33

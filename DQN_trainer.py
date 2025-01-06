@@ -41,6 +41,7 @@ def main ():
     loss = torch.tensor(0)
     avg = 0
     losses = []
+    deltas = []
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
     # scheduler = torch.optim.lr_scheduler.StepLR(optim,100000, gamma=0.50)
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
@@ -116,7 +117,9 @@ def main ():
             
             
 
-            reward, done = env.move(action=action,events=events,or_delta=1.0/Constants.FPS)
+            reward, done , delta = env.move(action=action,events=events,or_delta=1.0/Constants.FPS)
+
+            deltas.append(delta)
 
             next_state = env.state()
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
@@ -138,6 +141,9 @@ def main ():
             #region ############# Train ################
             if epoch % 10 != 0: #await training after aquiring enough episodes
                 continue
+
+            
+
             states, actions, rewards, next_states, dones = buffer.sample(batch_size)
             Q_values = player.DQN(states)
             Q_hat_Values = player.DQN(next_states)
@@ -147,11 +153,17 @@ def main ():
             optim.step()
             optim.zero_grad()
             scheduler.step()
+
+            
+
             #endregion
         
+        
+
         #endregion
         
         #region ########### Update target network ###################
+
         if epoch % C == 0:
             player_hat.fix_update(dqn=player.DQN)
             # player_hat.soft_update(dqn=player.DQN, tau=tau)
@@ -159,7 +171,13 @@ def main ():
         #endregion
             
         #region ########### Printing and saving #####################
-        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} ')
+        avg_delta = 0
+        for i in deltas:
+            avg_delta += i
+        avg_delta /= len(deltas)*1000
+        
+        deltas.clear()
+        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {avg_delta*step:.2f} sec fps: {1/avg_delta}')
         step = 0
         if epoch % 10 == 0:
             losses.append(loss.item())

@@ -1,0 +1,14 @@
+epoch: 0 loss: 0.00 LR: [0.002] step: 1 time: 1.70 sec delta: 1.704 sec
+epoch: 1 loss: 0.00 LR: [0.002] step: 432 time: 2.11 sec delta: 0.0048927875243664825 sec
+epoch: 2 loss: 0.00 LR: [0.002] step: 241 time: 1.17 sec delta: 0.00486219698624154 sec
+epoch: 3 loss: 0.00 LR: [0.002] step: 407 time: 1.98 sec delta: 0.004859433596275717 sec
+epoch: 4 loss: 0.00 LR: [0.002] step: 406 time: 1.95 sec delta: 0.004798807363235696 sec
+epoch: 5 loss: 0.00 LR: [0.002] step: 397 time: 1.94 sec delta: 0.004889168765743082 sec
+epoch: 6 loss: 0.00 LR: [0.002] step: 352 time: 2.04 sec delta: 0.005800388755980871 sec
+C:\Users\Farjoon\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 7 loss: 0.00 LR: [0.002] step: 388 time: 1.96 sec delta: 0.005041915355398808 sec
+epoch: 8 loss: 0.00 LR: [0.002] step: 389 time: 1.93 sec delta: 0.0049556217020700795 sec
+epoch: 9 loss: 0.00 LR: [0.002] step: 430 time: 1.98 sec delta: 0.004612362301101592 sec
+epoch: 10 loss: 0.00 LR: [0.002] step: 395 time: 1.87 sec delta: 0.004730179880079943 sec
+84

@@ -35,6 +35,9 @@ class Enviroment:
         self.spaceship_group.add(self.spaceship)
 
         self.fps_clock = pygame.time.Clock()
+        self.survive_clock = pygame.time.Clock()
+
+        self.survive_time = 0
 
         self.scene_status = scene_flags.start_menu
 
@@ -57,12 +60,16 @@ class Enviroment:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
                     self.restart()
 
-        text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+        # text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
      
 
     def restart(self):
         pygame.mixer.music.stop()
+        self.survive_time = 0
+
         self.scene_status = scene_flags.game
+        
+        self.survive_time = 0
 
         self.spaceship.energy = 1000
 
@@ -82,16 +89,21 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events,or_delta = None):
+        self.survive_time += self.survive_clock.tick()
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
-        self.update(or_delta=or_delta)
+        self.update()
         self.collisions()
-        self.draw()
-        reward = self.spaceship.energy - prev_eng + 1
+        #self.draw()
+        if (self.spaceship.energy - prev_eng) < 0:
+            reward = (self.spaceship.energy - prev_eng) * self.survive_time
+        else:
+            reward = (self.spaceship.energy - prev_eng) / self.survive_time
+        
         done = self.gameOver()
 
-        return reward,done
+        return reward,done, delta
 
 
     def randomPosition(self):
@@ -132,6 +144,7 @@ class Enviroment:
 
         if len(self.delta_avg) < 20:
             text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            return delta
         else:
             self.delta_avg.pop(0)
             avg = 0
@@ -139,6 +152,9 @@ class Enviroment:
                 avg += i
             avg /= len(self.delta_avg)
             text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+            return avg
+        
+        
 
 
 

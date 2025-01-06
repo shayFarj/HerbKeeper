@@ -1,0 +1,22 @@
+2024-12-27 12:43:51,956 INFO    MainThread:1492 [wandb_setup.py:_flush():68] Current SDK version is 0.19.1
+2024-12-27 12:43:51,957 INFO    MainThread:1492 [wandb_setup.py:_flush():68] Configure stats pid to 1492
+2024-12-27 12:43:51,957 INFO    MainThread:1492 [wandb_setup.py:_flush():68] Loading settings from C:\Users\Farjoon\.config\wandb\settings
+2024-12-27 12:43:51,957 INFO    MainThread:1492 [wandb_setup.py:_flush():68] Loading settings from C:\Users\Farjoon\Documents\herbskeeper\HerbKeeper\wandb\settings
+2024-12-27 12:43:51,957 INFO    MainThread:1492 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2024-12-27 12:43:51,957 INFO    MainThread:1492 [wandb_init.py:_log_setup():528] Logging user logs to C:\Users\Farjoon\Documents\herbskeeper\HerbKeeper\wandb\run-20241227_124351-Herb_Keeper 400\logs\debug.log
+2024-12-27 12:43:51,958 INFO    MainThread:1492 [wandb_init.py:_log_setup():529] Logging internal logs to C:\Users\Farjoon\Documents\herbskeeper\HerbKeeper\wandb\run-20241227_124351-Herb_Keeper 400\logs\debug-internal.log
+2024-12-27 12:43:51,958 INFO    MainThread:1492 [wandb_init.py:init():644] calling init triggers
+2024-12-27 12:43:51,958 INFO    MainThread:1492 [wandb_init.py:init():650] wandb.init called with sweep_config: {}
+config: {'name': 'Herb_Keeper DDQN 400', 'checkpoint': 'Data/checkpoint400.pth', 'learning_rate': 0.002, 'Schedule': 'Counter({5000000: 1, 10000000: 1, 15000000: 1, 20000000: 1, 25000000: 1, 30000000: 1}) gamma=0.5', 'epochs': 200000, 'start_epoch': 0, 'decay': 0, 'gamma': 0.99, 'batch_size': 128, 'C': 3, 'tau': 0.001, 'Model': 'DQN(\n  (linear1): Linear(in_features=123, out_features=128, bias=True)\n  (linear2): Linear(in_features=128, out_features=64, bias=True)\n  (output): Linear(in_features=64, out_features=40, bias=True)\n)', 'device': 'cpu'}
+2024-12-27 12:43:51,958 INFO    MainThread:1492 [wandb_init.py:init():680] starting backend
+2024-12-27 12:43:51,958 INFO    MainThread:1492 [wandb_init.py:init():684] sending inform_init request
+2024-12-27 12:43:51,975 INFO    MainThread:1492 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn, using: spawn
+2024-12-27 12:43:51,976 INFO    MainThread:1492 [wandb_init.py:init():697] backend started and connected
+2024-12-27 12:43:51,979 INFO    MainThread:1492 [wandb_init.py:init():790] updated telemetry
+2024-12-27 12:43:52,018 INFO    MainThread:1492 [wandb_init.py:init():822] communicating run to backend with 90.0 second timeout
+2024-12-27 12:43:52,346 INFO    MainThread:1492 [wandb_init.py:init():874] starting run threads in backend
+2024-12-27 12:43:52,507 INFO    MainThread:1492 [wandb_run.py:_console_start():2374] atexit reg
+2024-12-27 12:43:52,507 INFO    MainThread:1492 [wandb_run.py:_redirect():2224] redirect: wrap_raw
+2024-12-27 12:43:52,507 INFO    MainThread:1492 [wandb_run.py:_redirect():2289] Wrapping output streams.
+2024-12-27 12:43:52,507 INFO    MainThread:1492 [wandb_run.py:_redirect():2314] Redirects installed.
+2024-12-27 12:43:52,512 INFO    MainThread:1492 [wandb_init.py:init():916] run started, returning control to user process
