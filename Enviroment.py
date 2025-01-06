@@ -81,11 +81,11 @@ class Enviroment:
     def legal_actions(self,state):
         return self.actions
 
-    def move(self,action,events):
+    def move(self,action,events,or_delta = None):
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
-        self.update()
+        self.update(or_delta=or_delta)
         self.collisions()
         self.draw()
         reward = self.spaceship.energy - prev_eng + 1
@@ -107,13 +107,15 @@ class Enviroment:
         pygame.mixer.music.load("ending.wav")
         pygame.mixer.music.play(-1)
 
-    def update(self):
+    def update(self,or_delta=None):
         if self.gameOver() and self.scene_status != scene_flags.game_over:
             self.clear()
             return
 
-
-        delta = self.fps_clock.tick()
+        if or_delta:
+            delta = or_delta
+        else:
+            delta = self.fps_clock.tick()
         self.delta_avg.append(delta)
 
 

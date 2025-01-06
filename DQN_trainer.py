@@ -49,7 +49,7 @@ def main ():
     #endregion
 
     #region ################ checkpoint Load ########################
-    num = 400
+    num = 1
     checkpoint_path = f"Data/checkpoint{num}.pth"
     buffer_path = f"Data/buffer{num}.pth"
     resume_wandb = False
@@ -116,7 +116,7 @@ def main ():
             
             
 
-            reward, done = env.move(action=action,events=events)
+            reward, done = env.move(action=action,events=events,or_delta=1.0/Constants.FPS)
 
             next_state = env.state()
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 

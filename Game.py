@@ -46,7 +46,7 @@ def main():
 
         screen.blit(main_surf,(0,0))
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(Constants.FPS)
 
 if __name__ == "__main__":
     main()
