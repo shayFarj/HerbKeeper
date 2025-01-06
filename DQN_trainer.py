@@ -187,7 +187,7 @@ def main ():
                 "loss": loss.item(),
             })
 
-        if epoch % 1000 == 0 and epoch > 0:
+        if epoch % 250 == 0 and epoch > 0:
             checkpoint = {
                 'epoch': epoch,
                 'model_state_dict': player.DQN.state_dict(),
