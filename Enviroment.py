@@ -93,7 +93,7 @@ class Enviroment:
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
-        self.update(or_delta=or_delta)
+        delta = self.update(or_delta=or_delta)
         self.collisions()
         #self.draw()
         if (self.spaceship.energy - prev_eng) < 0:
@@ -102,8 +102,11 @@ class Enviroment:
             reward = (self.spaceship.energy - prev_eng) / self.survive_time
         
         done = self.gameOver()
-
-        return reward,done, delta
+        if or_delta:
+            return reward,done, or_delta
+        else:
+            return reward,done, delta
+        
 
 
     def randomPosition(self):
