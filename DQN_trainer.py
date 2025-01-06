@@ -104,7 +104,7 @@ def main ():
         end_of_game = False
 
         while not end_of_game:
-            print (step, end='\r')
+            #print (step, end='\r')
             step += 1
             
             #region ############# Play and Sample Environement #########################
@@ -174,7 +174,7 @@ def main ():
         avg_delta = 0
         for i in deltas:
             avg_delta += i
-        avg_delta /= len(deltas)*1000
+        avg_delta /= len(deltas)
         
         deltas.clear()
         print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {avg_delta*step:.2f} sec fps: {1/avg_delta}')
