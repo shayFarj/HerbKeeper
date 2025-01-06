@@ -93,7 +93,7 @@ class Enviroment:
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
-        self.update()
+        self.update(or_delta=or_delta)
         self.collisions()
         #self.draw()
         if (self.spaceship.energy - prev_eng) < 0:
