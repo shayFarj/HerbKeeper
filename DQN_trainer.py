@@ -8,7 +8,7 @@ from ReplayBuffer import ReplayBuffer
 import os
 import wandb
 #endregion
-MIN_BUFFER = 50
+MIN_BUFFER = 75
 def main ():
     #region ################ init Surface of pyGame #################
     pygame.init()
@@ -139,8 +139,8 @@ def main ():
             # endregion
 
             #region ############# Train ################
-            if epoch % 10 != 0: #await training after aquiring enough episodes
-                continue
+            # if epoch % 10 != 0: #await training after aquiring enough episodes
+            #     continue
 
             
 
