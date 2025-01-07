@@ -89,7 +89,10 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events,or_delta = None):
-        self.survive_time += self.survive_clock.tick()
+        if or_delta:
+            self.survive_time += or_delta * 1000
+        else:
+            self.survive_time += self.survive_clock.tick()
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
@@ -97,9 +100,9 @@ class Enviroment:
         self.collisions()
         #self.draw()
         if (self.spaceship.energy - prev_eng) < 0:
-            reward = (self.spaceship.energy - prev_eng) * self.survive_time
+            reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         else:
-            reward = (self.spaceship.energy - prev_eng) / self.survive_time
+            reward = (self.spaceship.energy - prev_eng) / (self.survive_time/10)
         
         done = self.gameOver()
         if or_delta:
