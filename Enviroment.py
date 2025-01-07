@@ -99,7 +99,7 @@ class Enviroment:
         delta = self.update(or_delta=or_delta)
         self.collisions()
         #self.draw()
-        reward = self.spaceship.energy - prev_eng + 100
+        reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
