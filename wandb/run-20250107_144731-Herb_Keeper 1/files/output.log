@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "C:\Python311\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 166, in <module>
+    main()
+  File "C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 144, in main
+    print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {1/Constants.FPS}')
+                                   ^^^^
+UnboundLocalError: cannot access local variable 'loss' where it is not associated with a value

@@ -1,0 +1,13 @@
+c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 11.28 LR: [0.002] step: 144 time: 2.40 sec fps: 0.016666666666666666
+Traceback (most recent call last):
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 166, in <module>
+    main()
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 128, in main
+    states, actions, rewards, next_states, dones = buffer.sample(batch_size)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\ReplayBuffer.py", line 22, in sample
+    states = torch.vstack(state_tensors)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 0. Expected size 123 but got size 183 for tensor number 39 in the list.

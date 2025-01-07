@@ -17,10 +17,10 @@ def main ():
 
     screen = pygame.display.set_mode(Constants.BOUNDERIES)
     main_surf = pygame.Surface(Constants.BOUNDERIES)
-    main_surf.fill((0,0,0))
+    main_surf.fill((255,0,0))
 
     pygame.display.set_caption("Herb's keeper")
-
+    pygame.display.update()
 
     #endregion
 
@@ -54,7 +54,7 @@ def main ():
     checkpoint_path = f"Data/checkpoint{num}.pth"
     buffer_path = f"Data/buffer{num}.pth"
     resume_wandb = False
-    if os.path.exists(checkpoint_path):
+    if os.path.exists(checkpoint_path) and False:
         resume_wandb = True
         checkpoint = torch.load(checkpoint_path)
         start_epoch = checkpoint['epoch']+1
@@ -108,7 +108,8 @@ def main ():
             step += 1
             
             #region ############# Play and Sample Environement #########################
-            main_surf.fill((0,0,0))
+            main_surf.fill((255,255,255))
+            pygame.event.pump()
             events = pygame.event.get()
             
             state = env.state()
@@ -132,15 +133,15 @@ def main ():
 
         
             pygame.display.update()
-            # clock.tick(FPS)
+            clock.tick(Constants.FPS)
             
             if len(buffer) < MIN_BUFFER:
                 continue
             # endregion
 
             #region ############# Train ################
-            # if epoch % 10 != 0: #await training after aquiring enough episodes
-            #     continue
+            if epoch % 10 != 0: #await training after aquiring enough episodes
+                continue
 
             
 

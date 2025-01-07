@@ -3,7 +3,9 @@ import pygame
 import Constants
 import Enviroment
 import HumanAgent
+from DQN_Agent import DQN_Agent
 import Bouncer
+import torch
 
 from timeit import default_timer as timer
 
@@ -17,9 +19,11 @@ main_surf.fill((0,0,0))
 
 pygame.display.set_caption("Herb's keeper")
 
-human = HumanAgent.humanAgent()
-
+human =  HumanAgent.humanAgent()#DQN_Agent(train=False)#
+checkpoint = torch.load("Data\checkpoint1.pth")
 env = Enviroment.Enviroment(main_surf,human)
+
+human.env = env
 
 pygame.mixer.music.load("opening.wav")
 pygame.mixer.music.play(-1)
@@ -34,7 +38,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         
-        action = human.getAction(events)
+        action = human.getAction(events=events)
         
         env.getInput(events,action)
         env.sustain()

@@ -19,6 +19,9 @@ class ReplayBuffer:
         if (batch_size > self.__len__()):
             batch_size = self.__len__()
         state_tensors, action_tensor, reward_tensors, next_state_tensors, dones_tensor = zip(*random.sample(self.buffer, batch_size))
+        # for i in state_tensors:
+        #     print(i.shape)
+        # idk = 1
         states = torch.vstack(state_tensors)
         actions= torch.vstack(action_tensor)
         rewards = torch.vstack(reward_tensors)

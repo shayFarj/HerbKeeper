@@ -46,7 +46,7 @@ class Enviroment:
         self.actions = []
         for i in range(1,9):
             for j in range(-1,4):
-                self.actions.append((i,j))
+                self.actions.append((j,i))
 
         self.surface = surface
 
@@ -60,10 +60,11 @@ class Enviroment:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
                     self.restart()
 
-        # text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+        text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
      
 
     def restart(self):
+        self.clear()
         pygame.mixer.music.stop()
         self.survive_time = 0
 
@@ -98,7 +99,7 @@ class Enviroment:
         self.sustain()
         delta = self.update(or_delta=or_delta)
         self.collisions()
-        #self.draw()
+        self.draw()
         reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
@@ -132,7 +133,7 @@ class Enviroment:
             return
 
         if or_delta:
-            delta = or_delta
+            delta = or_delta*1000
         else:
             delta = self.fps_clock.tick()
         self.delta_avg.append(delta)
