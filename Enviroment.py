@@ -33,7 +33,8 @@ class Enviroment:
         self.spaceship = Spaceship.SpaceShip((200,200),self.bullet_group)
         self.spaceship_group = pygame.sprite.GroupSingle()
         self.spaceship_group.add(self.spaceship)
-
+        self.graze_group = pygame.sprite.GroupSingle()
+        self.graze_group.add(self.spaceship.graze)
         self.fps_clock = pygame.time.Clock()
         self.survive_clock = pygame.time.Clock()
 
@@ -101,12 +102,20 @@ class Enviroment:
         self.collisions()
         if render:
             self.draw()
+        grazeB = 0
         reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
         #     reward = (self.spaceship.energy - prev_eng) / (self.survive_time/10)
+        for i in self.bouncer_group.sprites():
+            if pygame.sprite.collide_circle(i,self.spaceship.graze):
+                grazeB += 1
         
+        text_to_screen(self.surface,str(grazeB),170,64,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
+        
+        
+
         done = self.gameOver()
         if or_delta:
             return reward,done, or_delta
@@ -173,6 +182,7 @@ class Enviroment:
     def draw(self):
         match(self.scene_status):
             case scene_flags.game:
+                self.graze_group.draw(self.surface)
                 self.bouncer_group.draw(self.surface)
                 self.bullet_group.draw(self.surface)
                 self.spaceship_group.draw(self.surface)

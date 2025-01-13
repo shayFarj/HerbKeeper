@@ -22,7 +22,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.shoot_hold = shoot_hold
 
-        self.graze = CircleSprite.CircleSprite(pos,32,(0,0,0,0))
+        self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
 
         self.energy = 1000
 
@@ -38,7 +38,7 @@ class SpaceShip(CircleSprite.CircleSprite):
     def setPosition(self, pos):
         super().setPosition(pos)
         self.graze.setPosition(pos)
-        
+
     def shoot(self):
         if len(self.group.sprites()) >= Constants.BULLET_NUMBER:
             return
