@@ -59,8 +59,7 @@ if os.path.exists(checkpoint_path):
     losses = checkpoint['loss']
     player.DQN.train()
     player_hat.DQN.eval()
-    print("finished loading checkpoint")
-    
+
 wandb.init(
         # set the wandb project where this run will be logged
         project="Herb_Keeper",
@@ -85,7 +84,6 @@ wandb.init(
 
 
 def main():
-    render = True
     for epoch in range(start_epoch,epochs):
         env.restart()
         run = True
@@ -100,14 +98,11 @@ def main():
                 if event.type == pygame.QUIT:
                     run = False
                     quit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
-                        render = not render
 
             state = env.state()
 
 
-            action = player.get_action(state=state,events=events,epoch=epoch)
+            action = player.get_action(state=state,events=events)
             
 
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = True)
@@ -119,7 +114,7 @@ def main():
 
             screen.blit(main_surf,(0,0))
             pygame.display.update()
-            clock.tick(Constants.FPS)
+            #clock.tick(Constants.FPS)
 
             if env.gameOver():
                 env.restart()
@@ -146,18 +141,22 @@ def main():
         if epoch % update_hat == 0:
             player_hat.fix_update(dqn=player.DQN)
 
-        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {1/Constants.FPS}')
-        step = 0
-
+        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {Constants.FPS}')
         if epoch % 10 == 0:
             losses.append(loss.item())
         if (epoch + 1) % 10 == 0:
             wandb.log ({
                 "loss": loss.item(),
             })
+            wandb.log ({
+                "time" : ((1/Constants.FPS)*step),
+            })
+        step = 0
+
+        
+            
         
         if epoch % 250 == 0 and epoch > 0:
-            print("Checkpoint at epoch " + str(epoch) + "! Loading...")
             checkpoint = {
                 'epoch': epoch,
                 'model_state_dict': player.DQN.state_dict(),
@@ -167,7 +166,6 @@ def main():
             }
             torch.save(checkpoint, checkpoint_path)
             torch.save(buffer, buffer_path)
-            print("Finished saving.")
 
 if __name__ == "__main__":
     main()

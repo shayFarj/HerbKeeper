@@ -1,0 +1,12 @@
+{"time":"2025-01-07T15:51:42.7499461+02:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-01-07T15:51:42.7499461+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\wandb\\run-20250107_155142-Herb_Keeper 2\\logs\\debug-core.log"}
+{"time":"2025-01-07T15:51:42.8604387+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 2"}
+{"time":"2025-01-07T15:51:42.8604387+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 2"}
+{"time":"2025-01-07T15:51:42.8604387+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 2"}
+{"time":"2025-01-07T15:51:42.8604387+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 2"}
+{"time":"2025-01-07T15:51:42.8604387+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 2"}
+{"time":"2025-01-07T15:51:43.4345789+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T15:59:24.5824861+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%202/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-07T15:59:35.6477699+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%202/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-07T15:59:51.437603+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%202/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-07T16:00:12.1716967+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%202/file_stream\": dial tcp: lookup api.wandb.ai: getaddrinfow: This is usually a temporary error during hostname resolution and means that the local server did not receive a response from an authoritative server."}

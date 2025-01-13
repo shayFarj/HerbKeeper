@@ -73,7 +73,6 @@ class Enviroment:
         self.survive_time = 0
 
         self.spaceship.energy = 1000
-        self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
 
@@ -90,7 +89,7 @@ class Enviroment:
     def legal_actions(self,state):
         return self.actions
 
-    def move(self,action,events,or_delta = None):
+    def move(self,action,events,or_delta = None,render = True):
         if or_delta:
             self.survive_time += or_delta * 1000
         else:
@@ -100,7 +99,8 @@ class Enviroment:
         self.sustain()
         delta = self.update(or_delta=or_delta)
         self.collisions()
-        self.draw()
+        if render:
+            self.draw()
         reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
@@ -255,7 +255,7 @@ class Enviroment:
         for i in self.bullet_group.sprites():
             if self.outofBounderies(i):
                 self.bullet_group.remove(i)
- 
+
 
     def outofBounderies(self,sprite):
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]

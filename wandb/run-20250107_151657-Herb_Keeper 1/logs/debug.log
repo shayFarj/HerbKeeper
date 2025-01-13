@@ -1,0 +1,23 @@
+2025-01-07 15:16:57,716 INFO    MainThread:9976 [wandb_setup.py:_flush():68] Current SDK version is 0.19.0
+2025-01-07 15:16:57,718 INFO    MainThread:9976 [wandb_setup.py:_flush():68] Configure stats pid to 9976
+2025-01-07 15:16:57,718 INFO    MainThread:9976 [wandb_setup.py:_flush():68] Loading settings from C:\Users\User\.config\wandb\settings
+2025-01-07 15:16:57,718 INFO    MainThread:9976 [wandb_setup.py:_flush():68] Loading settings from C:\Users\User\Documents\herbskeeper\HerbKeeper\wandb\settings
+2025-01-07 15:16:57,718 INFO    MainThread:9976 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-01-07 15:16:57,719 INFO    MainThread:9976 [wandb_init.py:_log_setup():528] Logging user logs to C:\Users\User\Documents\herbskeeper\HerbKeeper\wandb\run-20250107_151657-Herb_Keeper 1\logs\debug.log
+2025-01-07 15:16:57,719 INFO    MainThread:9976 [wandb_init.py:_log_setup():529] Logging internal logs to C:\Users\User\Documents\herbskeeper\HerbKeeper\wandb\run-20250107_151657-Herb_Keeper 1\logs\debug-internal.log
+2025-01-07 15:16:57,719 INFO    MainThread:9976 [wandb_init.py:init():639] calling init triggers
+2025-01-07 15:16:57,720 INFO    MainThread:9976 [wandb_init.py:init():645] wandb.init called with sweep_config: {}
+config: {'name': 'Herb_Keeper DDQN 1', 'checkpoint': 'Data/checkpoint1.pth', 'learning_rate': 0.002, 'Schedule': 'Counter({5000000: 1, 10000000: 1, 15000000: 1, 20000000: 1, 25000000: 1, 30000000: 1}) gamma=0.5', 'epochs': 20000, 'start_epoch': 0, 'decay': 0, 'gamma': 0.99, 'batch_size': 128, 'epochs per hat update': 3, 'Model': 'DQN(\n  (linear1): Linear(in_features=123, out_features=128, bias=True)\n  (linear2): Linear(in_features=128, out_features=64, bias=True)\n  (output): Linear(in_features=64, out_features=40, bias=True)\n)', 'device': 'cpu'}
+2025-01-07 15:16:57,720 INFO    MainThread:9976 [wandb_init.py:init():688] starting backend
+2025-01-07 15:16:57,720 INFO    MainThread:9976 [wandb_init.py:init():692] sending inform_init request
+2025-01-07 15:16:57,736 INFO    MainThread:9976 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn, using: spawn
+2025-01-07 15:16:57,738 INFO    MainThread:9976 [wandb_init.py:init():705] backend started and connected
+2025-01-07 15:16:57,741 INFO    MainThread:9976 [wandb_init.py:init():798] updated telemetry
+2025-01-07 15:16:57,786 INFO    MainThread:9976 [wandb_init.py:init():830] communicating run to backend with 90.0 second timeout
+2025-01-07 15:16:58,122 INFO    MainThread:9976 [wandb_init.py:init():882] starting run threads in backend
+2025-01-07 15:16:58,382 INFO    MainThread:9976 [wandb_run.py:_console_start():2443] atexit reg
+2025-01-07 15:16:58,383 INFO    MainThread:9976 [wandb_run.py:_redirect():2293] redirect: wrap_raw
+2025-01-07 15:16:58,383 INFO    MainThread:9976 [wandb_run.py:_redirect():2358] Wrapping output streams.
+2025-01-07 15:16:58,383 INFO    MainThread:9976 [wandb_run.py:_redirect():2383] Redirects installed.
+2025-01-07 15:16:58,389 INFO    MainThread:9976 [wandb_init.py:init():925] run started, returning control to user process
+2025-01-07 15:17:39,131 WARNING MsgRouterThr:9976 [router.py:message_loop():75] message_loop has been closed
