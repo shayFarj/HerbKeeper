@@ -41,7 +41,7 @@ losses = []
 optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-run_id = 3
+run_id = 4
 
 checkpoint_path = f"Data/checkpoint{run_id}.pth"
 buffer_path = f"Data/buffer{run_id}.pth"

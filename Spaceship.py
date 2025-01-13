@@ -35,7 +35,6 @@ class SpaceShip(CircleSprite.CircleSprite):
 
     def setPosition(self, pos):
         self.cGraze.setPosition(pos)
-        self.cGraze.
         super().setPosition(pos)
     
     def shoot(self):
