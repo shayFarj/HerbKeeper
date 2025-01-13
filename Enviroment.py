@@ -90,7 +90,7 @@ class Enviroment:
     def legal_actions(self,state):
         return self.actions
 
-    def move(self,action,events,or_delta = None,render = True):
+    def move(self,action,events,or_delta = None):
         if or_delta:
             self.survive_time += or_delta * 1000
         else:
@@ -100,24 +100,8 @@ class Enviroment:
         self.sustain()
         delta = self.update(or_delta=or_delta)
         self.collisions()
-        if render:
-            self.draw()
-        
-        grazeB = 0
-        grazeH = 0
-        reward = self.spaceship.energy - prev_eng + 10 #reward for getting energy + survival
-        # for i in self.bouncer_group.sprites():
-        #     if pygame.sprite.collide_circle(i,self.spaceship.cGraze):
-        #         reward -= 40
-        #         grazeB += 1
-        
-        # for i in self.herb_group.sprites():
-        #     if pygame.sprite.collide_circle(i,self.spaceship.cGraze):
-        #         reward += 40
-        #         grazeH += 1
-        
-        text_to_screen(self.surface,"Graze : " + str(grazeH) + "," + str(grazeB),170,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-
+        self.draw()
+        reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
