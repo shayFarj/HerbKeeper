@@ -22,6 +22,8 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.shoot_hold = shoot_hold
 
+        self.graze = CircleSprite.CircleSprite(pos,32,(0,0,0,0))
+
         self.energy = 1000
 
         self.speedVec = pygame.Vector2()
@@ -33,7 +35,10 @@ class SpaceShip(CircleSprite.CircleSprite):
     def getAction(self,action):
         self.action = action
 
-    
+    def setPosition(self, pos):
+        super().setPosition(pos)
+        self.graze.setPosition(pos)
+        
     def shoot(self):
         if len(self.group.sprites()) >= Constants.BULLET_NUMBER:
             return
