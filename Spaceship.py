@@ -19,7 +19,7 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.aaellipse(self.image,16,16,4,12,(0,0,0))
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
         self.group = group
-
+        self.cGraze = CircleSprite.CircleSprite(pos,48,(0,0,0,0))
         self.shoot_hold = shoot_hold
 
         self.energy = 1000
@@ -33,6 +33,10 @@ class SpaceShip(CircleSprite.CircleSprite):
     def getAction(self,action):
         self.action = action
 
+    def setPosition(self, pos):
+        self.cGraze.setPosition(pos)
+        self.cGraze.
+        super().setPosition(pos)
     
     def shoot(self):
         if len(self.group.sprites()) >= Constants.BULLET_NUMBER:

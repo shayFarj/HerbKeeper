@@ -102,7 +102,16 @@ class Enviroment:
         self.collisions()
         if render:
             self.draw()
+        
         reward = self.spaceship.energy - prev_eng + 10 #reward for getting energy + survival
+        for i in self.bouncer_group.sprites():
+            if pygame.sprite.collide_circle(i,self.spaceship.cGraze):
+                reward -= Constants.BOUNCER_DAMAGE*0.25
+        
+        for i in self.herb_group.sprites():
+            if pygame.sprite.collide_circle(i,self.spaceship.cGraze):
+                reward += Constants.HERB_ENERGY*0.4
+
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
@@ -256,7 +265,7 @@ class Enviroment:
         for i in self.bullet_group.sprites():
             if self.outofBounderies(i):
                 self.bullet_group.remove(i)
-
+ 
 
     def outofBounderies(self,sprite):
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]
