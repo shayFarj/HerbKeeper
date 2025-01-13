@@ -94,22 +94,18 @@ def main():
             step += 1
             main_surf.fill((0,0,0))
             events = pygame.event.get()
-            render = True
             for event in events:
                 if event.type == pygame.QUIT:
                     run = False
                     quit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
-                        render = not render
 
             state = env.state()
 
 
-            action = player.get_action(state=state,events=events,epoch=epoch)
+            action = player.get_action(state=state,events=events)
             
 
-            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
+            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = True)
 
             next_state = env.state()
 

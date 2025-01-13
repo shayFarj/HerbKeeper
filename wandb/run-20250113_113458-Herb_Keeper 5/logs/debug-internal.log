@@ -1,0 +1,16 @@
+{"time":"2025-01-13T11:34:58.8539884+02:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-01-13T11:34:58.8545334+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\wandb\\run-20250113_113458-Herb_Keeper 5\\logs\\debug-core.log"}
+{"time":"2025-01-13T11:34:58.9874423+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:34:58.9880395+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:34:58.9880395+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:34:58.9880395+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:34:58.9880395+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:34:59.5232246+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-13T11:35:26.4282294+02:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:35:26.4282294+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-13T11:35:26.4341176+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-13T11:35:28.2396324+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-13T11:35:28.7532831+02:00","level":"INFO","msg":"handler: closed","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:35:28.7533674+02:00","level":"INFO","msg":"sender: closed","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:35:28.7532831+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Herb_Keeper 5"}
+{"time":"2025-01-13T11:35:28.7536876+02:00","level":"INFO","msg":"stream: closed","id":"Herb_Keeper 5"}
