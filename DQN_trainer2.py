@@ -41,13 +41,14 @@ losses = []
 optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-run_id = 2
+run_id = 3
 
 checkpoint_path = f"Data/checkpoint{run_id}.pth"
 buffer_path = f"Data/buffer{run_id}.pth"
 resume_wandb = False
 
 if os.path.exists(checkpoint_path):
+    print("loading " + checkpoint_path+ "...")
     resume_wandb = True
     checkpoint = torch.load(checkpoint_path)
     start_epoch = checkpoint['epoch']+1
@@ -59,7 +60,7 @@ if os.path.exists(checkpoint_path):
     losses = checkpoint['loss']
     player.DQN.train()
     player_hat.DQN.eval()
-
+print("finished loading checkpoint")
 wandb.init(
         # set the wandb project where this run will be logged
         project="Herb_Keeper",
@@ -84,6 +85,7 @@ wandb.init(
 
 
 def main():
+    render = True
     for epoch in range(start_epoch,epochs):
         env.restart()
         run = True
@@ -98,14 +100,17 @@ def main():
                 if event.type == pygame.QUIT:
                     run = False
                     quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
+                        render = not render
 
             state = env.state()
 
 
-            action = player.get_action(state=state,events=events)
+            action = player.get_action(state=state,events=events,epoch=epoch)
             
 
-            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = True)
+            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
 
             next_state = env.state()
 
@@ -157,6 +162,7 @@ def main():
             
         
         if epoch % 250 == 0 and epoch > 0:
+            print("Checkpoint at epoch " + str(epoch) + "! Loading...")
             checkpoint = {
                 'epoch': epoch,
                 'model_state_dict': player.DQN.state_dict(),
@@ -166,6 +172,7 @@ def main():
             }
             torch.save(checkpoint, checkpoint_path)
             torch.save(buffer, buffer_path)
+            print("Finished saving.")
 
 if __name__ == "__main__":
     main()

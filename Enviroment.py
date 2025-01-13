@@ -73,6 +73,7 @@ class Enviroment:
         self.survive_time = 0
 
         self.spaceship.energy = 1000
+        self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
 
@@ -101,7 +102,7 @@ class Enviroment:
         self.collisions()
         if render:
             self.draw()
-        reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
+        reward = self.spaceship.energy - prev_eng + 10 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
