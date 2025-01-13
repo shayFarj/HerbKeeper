@@ -102,7 +102,7 @@ def main():
             state = env.state()
 
 
-            action = player.get_action(state=state,events=events)
+            action = player.get_action(state=state,events=events,epoch=epoch)
             
 
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = True)
