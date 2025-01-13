@@ -37,11 +37,10 @@ start_epoch = 0
 loss = torch.tensor(0)
 
 losses = []
-
 optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-run_id = 3
+run_id = 4
 
 checkpoint_path = f"Data/checkpoint{run_id}.pth"
 buffer_path = f"Data/buffer{run_id}.pth"
@@ -84,6 +83,7 @@ wandb.init(
 
 
 def main():
+    render=True
     for epoch in range(start_epoch,epochs):
         env.restart()
         run = True
@@ -98,14 +98,17 @@ def main():
                 if event.type == pygame.QUIT:
                     run = False
                     quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
+                        render = not render
 
             state = env.state()
 
 
-            action = player.get_action(state=state,events=events)
+            action = player.get_action(state=state,events=events,epoch = epoch)
             
 
-            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = True)
+            reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
 
             next_state = env.state()
 
