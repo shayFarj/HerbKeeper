@@ -1,0 +1,20 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 3559.31 LR: [0.002] step: 96 time: 1.60 sec fps: 60
+epoch: 1 loss: 2958.76 LR: [0.002] step: 65 time: 1.08 sec fps: 60
+epoch: 2 loss: 964.72 LR: [0.002] step: 56 time: 0.93 sec fps: 60
+epoch: 3 loss: 2979.92 LR: [0.002] step: 40 time: 0.67 sec fps: 60
+epoch: 4 loss: 3355.40 LR: [0.002] step: 48 time: 0.80 sec fps: 60
+epoch: 5 loss: 1103.63 LR: [0.002] step: 35 time: 0.58 sec fps: 60
+epoch: 6 loss: 3065.02 LR: [0.002] step: 48 time: 0.80 sec fps: 60
+epoch: 7 loss: 4569.90 LR: [0.002] step: 44 time: 0.73 sec fps: 60
+epoch: 8 loss: 2226.04 LR: [0.002] step: 10 time: 0.17 sec fps: 60
+epoch: 9 loss: 2053.17 LR: [0.002] step: 69 time: 1.15 sec fps: 60
+epoch: 10 loss: 3667.27 LR: [0.002] step: 131 time: 2.18 sec fps: 60
+epoch: 11 loss: 4516.19 LR: [0.002] step: 53 time: 0.88 sec fps: 60
+epoch: 12 loss: 1411.95 LR: [0.002] step: 61 time: 1.02 sec fps: 60
+epoch: 13 loss: 6726.34 LR: [0.002] step: 31 time: 0.52 sec fps: 60
+epoch: 14 loss: 2167.68 LR: [0.002] step: 47 time: 0.78 sec fps: 60
+epoch: 15 loss: 4617.28 LR: [0.002] step: 55 time: 0.92 sec fps: 60
+epoch: 16 loss: 7102.32 LR: [0.002] step: 44 time: 0.73 sec fps: 60
+epoch: 17 loss: 8171.02 LR: [0.002] step: 85 time: 1.42 sec fps: 60
