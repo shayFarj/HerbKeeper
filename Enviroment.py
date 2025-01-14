@@ -103,6 +103,7 @@ class Enviroment:
         if render:
             self.draw()
         grazeB = 0
+        grazeH = 0
         reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
@@ -111,8 +112,12 @@ class Enviroment:
         for i in self.bouncer_group.sprites():
             if pygame.sprite.collide_circle(i,self.spaceship.graze):
                 grazeB += 1
+        for i in self.herb_group.sprites():
+            if pygame.sprite.collide_circle(i,self.spaceship.graze):
+                grazeH += 1
+        reward += grazeH * 10 - grazeB * 10
         
-        text_to_screen(self.surface,str(grazeB),170,64,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
+        text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         
         
 

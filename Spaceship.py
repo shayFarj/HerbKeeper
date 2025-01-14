@@ -22,7 +22,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.shoot_hold = shoot_hold
 
-        self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
+        self.graze = CircleSprite.CircleSprite(pos,64,Constants.GREEN_DARK)
 
         self.energy = 1000
 
