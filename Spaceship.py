@@ -19,7 +19,7 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.aaellipse(self.image,16,16,4,12,(0,0,0))
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
 
-        self.graze = CircleSprite.CircleSprite(pos,64,Constants.GREEN_DARK)
+        self.graze = CircleSprite.CircleSprite(pos,48,Constants.GREEN_DARK)
 
         self.energy = 1000
 

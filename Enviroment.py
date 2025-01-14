@@ -99,7 +99,7 @@ class Enviroment:
             self.draw()
         grazeB = 0
         grazeH = 0
-        reward = (self.spaceship.energy - prev_eng + 10) / Constants.HERB_ENERGY #reward for getting energy + survival
+        reward = (self.spaceship.energy - prev_eng + 50) / Constants.HERB_ENERGY #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
@@ -113,7 +113,7 @@ class Enviroment:
             grazeH += 1
 
 
-        reward += (grazeH * 200 - grazeB * 100)/300
+        reward += (grazeH * 300 - grazeB * 60)/300
         
         text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         

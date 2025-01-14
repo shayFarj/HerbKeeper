@@ -1,0 +1,31 @@
+C:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 2001 loss: 0.20 LR: [0.002] step: 105 time: 1.75 sec fps: 60
+epoch: 2002 loss: 0.26 LR: [0.002] step: 222 time: 3.70 sec fps: 60
+epoch: 2003 loss: 0.17 LR: [0.002] step: 332 time: 5.53 sec fps: 60
+epoch: 2004 loss: 0.16 LR: [0.002] step: 356 time: 5.93 sec fps: 60
+epoch: 2005 loss: 0.19 LR: [0.002] step: 153 time: 2.55 sec fps: 60
+epoch: 2006 loss: 0.31 LR: [0.002] step: 337 time: 5.62 sec fps: 60
+epoch: 2007 loss: 0.28 LR: [0.002] step: 347 time: 5.78 sec fps: 60
+epoch: 2008 loss: 0.21 LR: [0.002] step: 217 time: 3.62 sec fps: 60
+epoch: 2009 loss: 0.26 LR: [0.002] step: 187 time: 3.12 sec fps: 60
+epoch: 2010 loss: 0.24 LR: [0.002] step: 368 time: 6.13 sec fps: 60
+epoch: 2011 loss: 0.17 LR: [0.002] step: 364 time: 6.07 sec fps: 60
+epoch: 2012 loss: 0.19 LR: [0.002] step: 380 time: 6.33 sec fps: 60
+epoch: 2013 loss: 0.22 LR: [0.002] step: 581 time: 9.68 sec fps: 60
+epoch: 2014 loss: 0.24 LR: [0.002] step: 348 time: 5.80 sec fps: 60
+epoch: 2015 loss: 0.19 LR: [0.002] step: 387 time: 6.45 sec fps: 60
+epoch: 2016 loss: 0.29 LR: [0.002] step: 219 time: 3.65 sec fps: 60
+epoch: 2017 loss: 0.30 LR: [0.002] step: 364 time: 6.07 sec fps: 60
+epoch: 2018 loss: 0.35 LR: [0.002] step: 346 time: 5.77 sec fps: 60
+epoch: 2019 loss: 0.34 LR: [0.002] step: 346 time: 5.77 sec fps: 60
+epoch: 2020 loss: 0.24 LR: [0.002] step: 74 time: 1.23 sec fps: 60
+epoch: 2021 loss: 0.26 LR: [0.002] step: 355 time: 5.92 sec fps: 60
+epoch: 2022 loss: 0.19 LR: [0.002] step: 400 time: 6.67 sec fps: 60
+epoch: 2023 loss: 0.20 LR: [0.002] step: 235 time: 3.92 sec fps: 60
+epoch: 2024 loss: 0.25 LR: [0.002] step: 442 time: 7.37 sec fps: 60
+epoch: 2025 loss: 0.29 LR: [0.002] step: 224 time: 3.73 sec fps: 60
+epoch: 2026 loss: 0.28 LR: [0.002] step: 341 time: 5.68 sec fps: 60
+epoch: 2027 loss: 0.18 LR: [0.002] step: 216 time: 3.60 sec fps: 60
+epoch: 2028 loss: 0.24 LR: [0.002] step: 352 time: 5.87 sec fps: 60
+epoch: 2029 loss: 0.24 LR: [0.002] step: 128 time: 2.13 sec fps: 60
