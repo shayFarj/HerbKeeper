@@ -118,7 +118,6 @@ def main():
             screen.blit(main_surf,(0,0))
             pygame.display.update()
             #clock.tick(Constants.FPS)
-
             if env.gameOver():
                 # env.restart()
                 break
