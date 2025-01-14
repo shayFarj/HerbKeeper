@@ -24,7 +24,7 @@ def text_to_screen(screen, text, x, y, size = 50,
         print('Font Error, saw it coming')
 
 class Enviroment:
-    def __init__(self,surface,agent):
+    def __init__(self,surface,agent,training = False):
         self.agent = agent
         self.bouncer_group = pygame.sprite.Group()
         self.herb_group = pygame.sprite.Group()
@@ -49,8 +49,9 @@ class Enviroment:
 
         self.surface = surface
 
-        pygame.mixer.music.load("opening.wav")
-        pygame.mixer.music.play(-1)
+        if not training:
+            pygame.mixer.music.load("opening.wav")
+            pygame.mixer.music.play(-1)
 
     def getInput(self,events,action):
         self.spaceship.getAction(action)
@@ -64,7 +65,8 @@ class Enviroment:
 
     def restart(self):
         self.clear()
-        pygame.mixer.music.stop()
+        if not self.training:
+            pygame.mixer.music.stop()
         self.survive_time = 0
 
         self.scene_status = scene_flags.game
@@ -138,8 +140,9 @@ class Enviroment:
         self.herb_group.empty()
         self.agent.active = False
 
-        pygame.mixer.music.load("ending.wav")
-        pygame.mixer.music.play(-1)
+        if not self.training:
+            pygame.mixer.music.load("ending.wav")
+            pygame.mixer.music.play(-1)
 
     def update(self,or_delta=None):
         if self.gameOver() and self.scene_status != scene_flags.game_over:
