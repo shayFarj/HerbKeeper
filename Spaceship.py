@@ -43,8 +43,6 @@ class SpaceShip(CircleSprite.CircleSprite):
             if(self.action[0] != -1):
                 
                 match self.action[1]:
-                    case 0:
-                        angle = 0
                     case 1:
                         angle = -135
                     case 2:

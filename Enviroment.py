@@ -43,7 +43,7 @@ class Enviroment:
         self.delta_avg = []
         
         self.actions = []
-        for i in range(0,9):
+        for i in range(1,9):
             for j in range(0,4):
                 self.actions.append((j,i))
 
