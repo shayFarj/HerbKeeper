@@ -150,7 +150,7 @@ class Enviroment:
             delta = or_delta*1000
         else:
             delta = self.fps_clock.tick()
-        self.delta_avg.append(delta)
+            self.delta_avg.append(delta)
 
 
 
@@ -161,19 +161,21 @@ class Enviroment:
 
 
 
-        text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-
-        if len(self.delta_avg) < 20:
-            text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-            return delta
+        # text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+        if not or_delta:
+            if len(self.delta_avg) < 20:
+                text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+                return delta
+            else:
+                self.delta_avg.pop(0)
+                avg = 0
+                for i in self.delta_avg:
+                    avg += i
+                avg /= len(self.delta_avg)
+                text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+                return avg
         else:
-            self.delta_avg.pop(0)
-            avg = 0
-            for i in self.delta_avg:
-                avg += i
-            avg /= len(self.delta_avg)
-            text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-            return avg
+            return delta
         
         
 
