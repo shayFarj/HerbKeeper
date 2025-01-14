@@ -6,6 +6,8 @@ import Constants
 import random
 import Timer
 import torch
+import math
+
 class scene_flags:
     game = 1
     game_over = 2
@@ -97,7 +99,7 @@ class Enviroment:
             self.draw()
         grazeB = 0
         grazeH = 0
-        reward = self.spaceship.energy - prev_eng + 5 #reward for getting energy + survival
+        reward = (self.spaceship.energy - prev_eng + 5) / Constants.HERB_ENERGY #reward for getting energy + survival
         # if (self.spaceship.energy - prev_eng) < 0:
         #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
         # else:
@@ -109,7 +111,7 @@ class Enviroment:
         for i in herbs_g:
             grazeB += 1
         
-        reward += grazeH * 10 - grazeB * 10
+        reward += (grazeH * 100 - grazeB * 100)/300
         
         text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         
@@ -152,9 +154,6 @@ class Enviroment:
         self.bouncer_group.update(delta)
         self.spaceship_group.update(delta)
 
-        str_state = self.state()
-
-
 
         # text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
         if not or_delta:
@@ -193,17 +192,17 @@ class Enviroment:
                 text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
 
 
-    def state(self):
+    def state(self, delta):
         state = []
-        state.append(self.spaceship.energy)
+        state.append(self.spaceship.energy / 3000)
 
-        state.append(self.spaceship.pos[0])
-        state.append(self.spaceship.pos[1])
+        state.append(self.spaceship.pos[0] / Constants.BOUNDERIES[0])
+        state.append(self.spaceship.pos[1] / Constants.BOUNDERIES[1])
 
 
         for i in self.herb_group.sprites():
-            state.append(i.pos[0])
-            state.append(i.pos[1])
+            state.append(i.pos[0] / Constants.BOUNDERIES[0])
+            state.append(i.pos[1] / Constants.BOUNDERIES[1])
 
 
 
@@ -212,11 +211,11 @@ class Enviroment:
             state.append(0)
 
         for i in self.bouncer_group.sprites():
-            state.append(i.pos[0])
-            state.append(i.pos[1])
+            state.append(i.pos[0] / Constants.BOUNDERIES[0])
+            state.append(i.pos[1] / Constants.BOUNDERIES[1])
 
-            state.append(i.dir[0])
-            state.append(i.dir[1])
+            state.append(i.dir[0] / math.ceil(delta/10))
+            state.append(i.dir[1] / math.ceil(delta/10))
         for i in range(Constants.BOUNCER_NUMBER - len(self.bouncer_group.sprites())):
             state.append(0)
             state.append(0)

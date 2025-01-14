@@ -29,6 +29,5 @@ class Bouncer(CircleSprite.CircleSprite):
         if(self.pos[1] > Constants.BOUNDERIES[1] or self.pos[1] < 0):
             self.dir[1] *= -1
             self.dir[0] = random.randint(-1,1)
-        
         self.setPosition((self.pos[0] + self.dir[0] * math.ceil(delta/10), self.pos[1] + self.dir[1]* math.ceil(delta/10)))
         
