@@ -20,7 +20,6 @@ main_surf.fill((0,0,0))
 pygame.display.set_caption("Herb's keeper")
 
 human =  HumanAgent.humanAgent()#DQN_Agent(train=False)#
-checkpoint = torch.load("Data\checkpoint1.pth")
 env = Enviroment.Enviroment(main_surf,human)
 
 human.env = env
