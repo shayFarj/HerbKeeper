@@ -11,79 +11,81 @@ import wandb
 
 MIN_BUFFER = 60
 
-pygame.init()
-
-clock = pygame.time.Clock()
-
-screen = pygame.display.set_mode(Constants.BOUNDERIES)
-main_surf = pygame.Surface(Constants.BOUNDERIES)
-main_surf.fill((0,0,0))
-
-pygame.display.set_caption("Herb's keeper")
-
-player = DQN_Agent()
-player_hat = DQN_Agent()
-env = Enviroment.Enviroment(main_surf,player)
-player.env = env
-player_hat.env = env
-
-batch_size = 128
-buffer = ReplayBuffer(path=None)
-learning_rate = 0.002
-update_hat = 3
-epochs = 20000
-start_epoch = 0
-
-loss = torch.tensor(0)
-
-losses = []
-optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
-scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
-
-run_id = 5
-
-checkpoint_path = f"Data/checkpoint{run_id}.pth"
-buffer_path = f"Data/buffer{run_id}.pth"
-resume_wandb = False
-
-if os.path.exists(checkpoint_path):
-    resume_wandb = True
-    checkpoint = torch.load(checkpoint_path)
-    start_epoch = checkpoint['epoch']+1
-    player.DQN.load_state_dict(checkpoint['model_state_dict'])
-    player_hat.DQN.load_state_dict(checkpoint['model_state_dict'])
-    optim.load_state_dict(checkpoint['optimizer_state_dict'])
-    scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
-    buffer = torch.load(buffer_path)
-    losses = checkpoint['loss']
-    player.DQN.train()
-    player_hat.DQN.eval()
-
-wandb.init(
-        # set the wandb project where this run will be logged
-        project="Herb_Keeper",
-        resume=resume_wandb,
-        id=f'Herb_Keeper {run_id}',
-        # track hyperparameters and run metadata
-        config={
-        "name": f"Herb_Keeper DDQN {run_id}",
-        "checkpoint": checkpoint_path,
-        "learning_rate": learning_rate,
-        "Schedule": f'{str(scheduler.milestones)} gamma={str(scheduler.gamma)}',
-        "epochs": epochs,
-        "start_epoch": start_epoch,
-        "decay": 0,
-        "gamma": 0.99,
-        "batch_size": batch_size,
-        "epochs per hat update": update_hat,
-        "Model":str(player.DQN),
-        "device": str(player.DQN.device)
-        }
-    )
-
 
 def main():
+    #region ###### init ##################
+    pygame.init()
+
+    clock = pygame.time.Clock()
+
+    screen = pygame.display.set_mode(Constants.BOUNDERIES)
+    main_surf = pygame.Surface(Constants.BOUNDERIES)
+    main_surf.fill((0,0,0))
+
+    pygame.display.set_caption("Herb's keeper")
+
+    player = DQN_Agent()
+    player_hat = DQN_Agent()
+    env = Enviroment.Enviroment(main_surf,player)
+    player.env = env
+    player_hat.env = env
+
+    batch_size = 128
+    buffer = ReplayBuffer(path=None)
+    learning_rate = 0.002
+    update_hat = 3
+    epochs = 20000
+    start_epoch = 0
+    loss = torch.tensor(0)
+    losses = []
+    optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
+
+    run_id = 5
+
+    checkpoint_path = f"Data/checkpoint{run_id}.pth"
+    buffer_path = f"Data/buffer{run_id}.pth"
+    resume_wandb = False
+    ######   Checkpoint init ##########
+    if os.path.exists(checkpoint_path):
+        resume_wandb = True
+        checkpoint = torch.load(checkpoint_path)
+        start_epoch = checkpoint['epoch']+1
+        player.DQN.load_state_dict(checkpoint['model_state_dict'])
+        player_hat.DQN.load_state_dict(checkpoint['model_state_dict'])
+        optim.load_state_dict(checkpoint['optimizer_state_dict'])
+        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+        buffer = torch.load(buffer_path)
+        losses = checkpoint['loss']
+        player.DQN.train()
+        player_hat.DQN.eval()
+    ###### WandB init ##################
+    wandb.init(
+            # set the wandb project where this run will be logged
+            project="Herb_Keeper",
+            resume=resume_wandb,
+            id=f'Herb_Keeper {run_id}',
+            # track hyperparameters and run metadata
+            config={
+            "name": f"Herb_Keeper DDQN {run_id}",
+            "checkpoint": checkpoint_path,
+            "learning_rate": learning_rate,
+            "Schedule": f'{str(scheduler.milestones)} gamma={str(scheduler.gamma)}',
+            "epochs": epochs,
+            "start_epoch": start_epoch,
+            "decay": 0,
+            "gamma": 0.99,
+            "batch_size": batch_size,
+            "epochs per hat update": update_hat,
+            "Model":str(player.DQN),
+            "device": str(player.DQN.device)
+            }
+        )
+
+
+    #endregion
     render=True
+    
     for epoch in range(start_epoch,epochs):
         env.restart()
         run = True
@@ -91,6 +93,7 @@ def main():
         step = 0
 
         while run:
+            #region ############## Sample Environment ###########
             step += 1
             main_surf.fill((0,0,0))
             events = pygame.event.get()
@@ -103,15 +106,9 @@ def main():
                         render = not render
 
             state = env.state()
-
-
             action = player.get_action(state=state,events=events,epoch = epoch)
-            
-
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
-
             next_state = env.state()
-
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                          next_state, torch.tensor(done, dtype=torch.float32))
 
@@ -120,12 +117,12 @@ def main():
             #clock.tick(Constants.FPS)
 
             if env.gameOver():
-                env.restart()
-                continue
+                # env.restart()
+                break
             
             if len(buffer) < MIN_BUFFER:
                 continue
-            
+            #endregion
             #region ##################train##################
             
             states, actions, rewards, next_states, dones = buffer.sample(batch_size)
@@ -137,7 +134,6 @@ def main():
             optim.step()
             optim.zero_grad()
             scheduler.step()
-
             #endregion
 
         
