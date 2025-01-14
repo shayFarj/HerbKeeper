@@ -41,7 +41,7 @@ def main():
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-    run_id = 6
+    run_id = 7 # 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
@@ -111,7 +111,7 @@ def main():
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
 
             next_state = env.state((1/Constants.FPS)*1000)
-            
+
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                          next_state, torch.tensor(done, dtype=torch.float32))
 
