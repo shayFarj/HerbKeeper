@@ -8,10 +8,10 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-input_size = 3 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2 + Constants.BULLET_NUMBER*4
+input_size = 3 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2
 layer1 = 128
 layer2 = 64
-output_size = 40 # Q(s,a) number of all combinations of direction and gear
+output_size = 32 # Q(s,a) number of all combinations of direction and gear
 gamma = 0.95
 MSELoss = nn.MSELoss()
 

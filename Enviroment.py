@@ -1,5 +1,4 @@
 import Herb
-import Bullet
 import Spaceship
 import Bouncer
 import pygame
@@ -28,9 +27,8 @@ class Enviroment:
     def __init__(self,surface,agent):
         self.agent = agent
         self.bouncer_group = pygame.sprite.Group()
-        self.bullet_group = pygame.sprite.Group()
         self.herb_group = pygame.sprite.Group()
-        self.spaceship = Spaceship.SpaceShip((200,200),self.bullet_group)
+        self.spaceship = Spaceship.SpaceShip((200,200))
         self.spaceship_group = pygame.sprite.GroupSingle()
         self.spaceship_group.add(self.spaceship)
         self.graze_group = pygame.sprite.GroupSingle()
@@ -45,8 +43,8 @@ class Enviroment:
         self.delta_avg = []
         
         self.actions = []
-        for i in range(1,9):
-            for j in range(-1,4):
+        for i in range(0,9):
+            for j in range(0,4):
                 self.actions.append((j,i))
 
         self.surface = surface
@@ -135,7 +133,6 @@ class Enviroment:
     def clear(self):
         self.scene_status = scene_flags.game_over
         self.bouncer_group.empty()
-        self.bullet_group.empty()
         self.herb_group.empty()
         self.agent.active = False
 
@@ -156,7 +153,6 @@ class Enviroment:
 
 
         self.bouncer_group.update(delta)
-        self.bullet_group.update(delta)
         self.spaceship_group.update(delta)
 
         str_state = self.state()
@@ -189,7 +185,6 @@ class Enviroment:
             case scene_flags.game:
                 self.graze_group.draw(self.surface)
                 self.bouncer_group.draw(self.surface)
-                self.bullet_group.draw(self.surface)
                 self.spaceship_group.draw(self.surface)
                 self.herb_group.draw(self.surface)
                 text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
@@ -230,17 +225,7 @@ class Enviroment:
             state.append(0)
 
 
-        for i in self.bullet_group.sprites():
-            state.append(i.pos[0])
-            state.append(i.pos[1])
 
-            state.append(i.f_dir[0])
-            state.append(i.f_dir[1])
-        for i in range(Constants.BULLET_NUMBER - len(self.bullet_group.sprites())):
-            state.append(0)
-            state.append(0)
-            state.append(0)
-            state.append(0)
         # print(f"\r length : "+ str(len(state)) + "///",end ="")
         state = torch.tensor(state,dtype=torch.float32)
         #print(f"\r"+str(state),end ="")
@@ -257,19 +242,14 @@ class Enviroment:
 
 
 
-        for i in self.bullet_group.sprites():
-            bullet_bounce_c = pygame.sprite.spritecollide(i,self.bouncer_group,True)
-            if len(bullet_bounce_c) != 0:
-                self.bullet_group.remove(i)
+
 
         for i in self.bouncer_group.sprites():
             ship_bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
             for i in ship_bounce_c:
                 self.spaceship.energy -= Constants.BOUNCER_DAMAGE
 
-        for i in self.bullet_group.sprites():
-            if self.outofBounderies(i):
-                self.bullet_group.remove(i)
+
 
 
     def outofBounderies(self,sprite):
