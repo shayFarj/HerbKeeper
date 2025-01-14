@@ -26,7 +26,7 @@ def main():
 
     player = DQN_Agent()
     player_hat = DQN_Agent()
-    env = Enviroment.Enviroment(main_surf,player)
+    env = Enviroment.Enviroment(main_surf,player,training=True)
     player.env = env
     player_hat.env = env
 

@@ -25,6 +25,7 @@ def text_to_screen(screen, text, x, y, size = 50,
 
 class Enviroment:
     def __init__(self,surface,agent,training = False):
+        self.training = training
         self.agent = agent
         self.bouncer_group = pygame.sprite.Group()
         self.herb_group = pygame.sprite.Group()
