@@ -104,11 +104,14 @@ def main():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_1:
                         render = not render
+            
+            state = env.state((1/Constants.FPS)*1000)
 
-            state = env.state()
             action = player.get_action(state=state,events=events,epoch = epoch)
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
-            next_state = env.state()
+
+            next_state = env.state((1/Constants.FPS)*1000)
+            
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                          next_state, torch.tensor(done, dtype=torch.float32))
 
