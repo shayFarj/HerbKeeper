@@ -37,8 +37,5 @@ class humanAgent:
                     self.action[0] = 2
                 if event.key == pygame.K_m:
                     self.action[0] = 3
-                
-                if event.key == pygame.K_h:
-                    self.action[0] = -1
 
         return self.action
