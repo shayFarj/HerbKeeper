@@ -34,9 +34,6 @@ class Enviroment:
         self.graze_group = pygame.sprite.GroupSingle()
         self.graze_group.add(self.spaceship.graze)
         self.fps_clock = pygame.time.Clock()
-        self.survive_clock = pygame.time.Clock()
-
-        self.survive_time = 0
 
         self.scene_status = scene_flags.start_menu
 
@@ -67,12 +64,9 @@ class Enviroment:
         self.clear()
         if not self.training:
             pygame.mixer.music.stop()
-        self.survive_time = 0
 
         self.scene_status = scene_flags.game
         
-        self.survive_time = 0
-
         self.spaceship.energy = 1000
         self.spaceship.setPosition(self.randomPosition())
 
@@ -92,10 +86,7 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events,or_delta = None,render = True):
-        if or_delta:
-            self.survive_time += or_delta * 1000
-        else:
-            self.survive_time += self.survive_clock.tick()
+
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
