@@ -1,0 +1,32 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 1271.29 LR: [0.002] step: 232 time: 3.87 sec fps: 60
+epoch: 1 loss: 1273.25 LR: [0.002] step: 210 time: 3.50 sec fps: 60
+epoch: 2 loss: 30.41 LR: [0.002] step: 371 time: 6.18 sec fps: 60
+epoch: 3 loss: 3199.70 LR: [0.002] step: 236 time: 3.93 sec fps: 60
+epoch: 4 loss: 1955.60 LR: [0.002] step: 405 time: 6.75 sec fps: 60
+epoch: 5 loss: 41.47 LR: [0.002] step: 451 time: 7.52 sec fps: 60
+epoch: 6 loss: 3261.99 LR: [0.002] step: 81 time: 1.35 sec fps: 60
+epoch: 7 loss: 36.73 LR: [0.002] step: 216 time: 3.60 sec fps: 60
+epoch: 8 loss: 1292.77 LR: [0.002] step: 368 time: 6.13 sec fps: 60
+epoch: 9 loss: 2475.45 LR: [0.002] step: 234 time: 3.90 sec fps: 60
+epoch: 10 loss: 2017.51 LR: [0.002] step: 286 time: 4.77 sec fps: 60
+epoch: 11 loss: 1955.70 LR: [0.002] step: 345 time: 5.75 sec fps: 60
+epoch: 12 loss: 34.51 LR: [0.002] step: 310 time: 5.17 sec fps: 60
+epoch: 13 loss: 31.83 LR: [0.002] step: 338 time: 5.63 sec fps: 60
+epoch: 14 loss: 37.77 LR: [0.002] step: 401 time: 6.68 sec fps: 60
+epoch: 15 loss: 30.66 LR: [0.002] step: 389 time: 6.48 sec fps: 60
+epoch: 16 loss: 1352.09 LR: [0.002] step: 554 time: 9.23 sec fps: 60
+epoch: 17 loss: 41.81 LR: [0.002] step: 206 time: 3.43 sec fps: 60
+epoch: 18 loss: 36.69 LR: [0.002] step: 316 time: 5.27 sec fps: 60
+epoch: 19 loss: 28.43 LR: [0.002] step: 249 time: 4.15 sec fps: 60
+epoch: 20 loss: 39.61 LR: [0.002] step: 375 time: 6.25 sec fps: 60
+epoch: 21 loss: 44.95 LR: [0.002] step: 361 time: 6.02 sec fps: 60
+epoch: 22 loss: 43.27 LR: [0.002] step: 219 time: 3.65 sec fps: 60
+epoch: 23 loss: 42.62 LR: [0.002] step: 368 time: 6.13 sec fps: 60
+epoch: 24 loss: 1275.79 LR: [0.002] step: 221 time: 3.68 sec fps: 60
+epoch: 25 loss: 2004.26 LR: [0.002] step: 213 time: 3.55 sec fps: 60
+epoch: 26 loss: 41.85 LR: [0.002] step: 198 time: 3.30 sec fps: 60
+epoch: 27 loss: 2609.77 LR: [0.002] step: 385 time: 6.42 sec fps: 60
+epoch: 28 loss: 1354.51 LR: [0.002] step: 359 time: 5.98 sec fps: 60
+epoch: 29 loss: 1292.30 LR: [0.002] step: 368 time: 6.13 sec fps: 60

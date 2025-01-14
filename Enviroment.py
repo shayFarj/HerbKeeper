@@ -72,6 +72,7 @@ class Enviroment:
         self.survive_time = 0
 
         self.spaceship.energy = 1000
+        self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
 
