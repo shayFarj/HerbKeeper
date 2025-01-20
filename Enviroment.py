@@ -190,8 +190,10 @@ class Enviroment:
                 text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
             case scene_flags.game_over:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
+                text_to_screen(self.surface,'Click to restart',128,128+64,size=30,color=Constants.PASTEL_BLUE,font_type='pixelated-papyrus.ttf')
             case scene_flags.start_menu:
                 text_to_screen(self.surface,'Herb\'s Keeper',128,128,size=100,color=Constants.PASTEL_GREEN,font_type='pixelated-papyrus.ttf')
+                text_to_screen(self.surface,'Click to start',128,128+64,size=30,color=Constants.PASTEL_BLUE,font_type='pixelated-papyrus.ttf')
 
 
     def state(self, delta):
