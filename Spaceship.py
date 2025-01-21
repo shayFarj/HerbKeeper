@@ -21,7 +21,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
 
-        self.energy = 1000
+        self.energy = 3 #1000
 
         self.speedVec = pygame.Vector2()
         
@@ -61,9 +61,10 @@ class SpaceShip(CircleSprite.CircleSprite):
                         angle = 180
 
                 
-                speed = self.action[0] * Constants.SPACESHIP_SPEED * delta/10
+                speed = self.action[0] * 4 * Constants.SPACESHIP_SPEED * delta/10
 
-                self.energy -= math.ceil(speed)
+                #TODO return this
+                # self.energy -= math.ceil(speed) 
                 
                 vector = pygame.math.Vector2(speed,0).rotate(angle)
 

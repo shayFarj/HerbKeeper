@@ -44,7 +44,7 @@ class Enviroment:
         
         self.actions = []
         for i in range(1,9):
-            for j in range(0,4):
+            for j in range(0,2):
                 self.actions.append((j,i))
 
         self.surface = surface
@@ -70,7 +70,7 @@ class Enviroment:
 
         self.scene_status = scene_flags.game
         
-        self.spaceship.energy = 1000
+        self.spaceship.energy = 3
         self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
@@ -97,25 +97,27 @@ class Enviroment:
         self.collisions()
         if render:
             self.draw()
-        grazeB = 0
-        grazeH = 0
-        reward = (self.spaceship.energy - prev_eng + 10) / Constants.HERB_ENERGY #reward for getting energy + survival
-        # if (self.spaceship.energy - prev_eng) < 0:
-        #     reward = (self.spaceship.energy - prev_eng) * (self.survive_time/10)
-        # else:
-        #     reward = (self.spaceship.energy - prev_eng) / (self.survive_time/10)
-        bouncers_g = pygame.sprite.spritecollide(self.spaceship.graze,self.bouncer_group,dokill=False)
-        for i in bouncers_g:
-            grazeB += 1
-
-        herbs_g = pygame.sprite.spritecollide(self.spaceship.graze,self.herb_group,dokill=False)
-        for i in herbs_g:
-            grazeH += 1
-
-
-        reward += (grazeH * 150 - grazeB * 100)/300
+        reward = 0
+        #TODO return this
+        # grazeB = 0
+        # grazeH = 0
+        # reward = (self.spaceship.energy - prev_eng + 10) / Constants.HERB_ENERGY #reward for getting energy + survival
         
-        text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
+    
+        # bouncers_g = pygame.sprite.spritecollide(self.spaceship.graze,self.bouncer_group,dokill=False)
+        # for i in bouncers_g:
+        #     grazeB += 1
+
+        # herbs_g = pygame.sprite.spritecollide(self.spaceship.graze,self.herb_group,dokill=False)
+        # for i in herbs_g:
+        #     grazeH += 1
+                #all that
+
+
+
+        reward += self.spaceship.energy - prev_eng - 0.5#(grazeH * 150 - grazeB * 100)/300
+        
+        # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         
         
@@ -199,7 +201,7 @@ class Enviroment:
 
     def state(self, delta):
         state = []
-        state.append(self.spaceship.energy / 3000)
+        state.append(self.spaceship.energy)
 
         state.append(self.spaceship.pos[0] / Constants.BOUNDERIES[0])
         state.append(self.spaceship.pos[1] / Constants.BOUNDERIES[1])
@@ -238,11 +240,11 @@ class Enviroment:
     def collisions(self):
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
         for i in herb_c:
-            self.spaceship.energy += Constants.HERB_ENERGY
+            self.spaceship.energy += 1#Constants.HERB_ENERGY
 
         bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
         for i in bounce_c:
-            self.spaceship.energy -= Constants.BOUNCER_DAMAGE
+            self.spaceship.energy -= 1#Constants.BOUNCER_DAMAGE
 
 
 
