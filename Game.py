@@ -39,13 +39,12 @@ def main():
         
         action = human.getAction(events=events)
         
-        env.getInput(events,action)
-        env.sustain()
-        env.update()
-        env.collisions()
-        env.draw()
-        
-        
+        env.move(action,events)
+        # env.getInput(events,action)
+        # env.sustain()
+        # env.update()
+        # env.collisions()
+        # env.draw()        
 
         screen.blit(main_surf,(0,0))
         pygame.display.update()
