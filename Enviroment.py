@@ -201,7 +201,7 @@ class Enviroment:
 
     def state(self, delta):
         state = []
-        state.append(self.spaceship.energy)
+        state.append(self.spaceship.energy / 3)
 
         state.append(self.spaceship.pos[0] / Constants.BOUNDERIES[0])
         state.append(self.spaceship.pos[1] / Constants.BOUNDERIES[1])
