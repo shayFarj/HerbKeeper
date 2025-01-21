@@ -9,7 +9,7 @@ import torch
 import os
 import wandb
 
-MIN_BUFFER = 60
+MIN_BUFFER = 80
 
 
 def main():
@@ -48,6 +48,7 @@ def main():
     resume_wandb = False
     ######   Checkpoint init ##########
     if os.path.exists(checkpoint_path):
+        print("loading checkpoint")
         resume_wandb = True
         checkpoint = torch.load(checkpoint_path)
         start_epoch = checkpoint['epoch']+1
@@ -59,6 +60,7 @@ def main():
         losses = checkpoint['loss']
         player.DQN.train()
         player_hat.DQN.eval()
+        print("checkpoint loaded")
     ###### WandB init ##################
     wandb.init(
             # set the wandb project where this run will be logged
