@@ -238,9 +238,9 @@ class Enviroment:
 
 
     def collisions(self):
-        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
-        for i in herb_c:
-            self.spaceship.energy += 1#Constants.HERB_ENERGY
+        # herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        # for i in herb_c:
+        #     self.spaceship.energy += Constants.HERB_ENERGY
 
         bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
         for i in bounce_c:
