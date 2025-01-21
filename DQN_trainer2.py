@@ -76,7 +76,7 @@ def main():
             "epochs": epochs,
             "start_epoch": start_epoch,
             "decay": 0,
-            "gamma": 0.99,
+            "gamma": 0.95,
             "batch_size": batch_size,
             "epochs per hat update": update_hat,
             "Model":str(player.DQN),
