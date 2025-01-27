@@ -1,0 +1,182 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 0.25 LR: [0.002] step: 1063 time: 17.72 sec fps: 60
+epoch: 1 loss: 0.25 LR: [0.002] step: 89 time: 1.48 sec fps: 60
+epoch: 2 loss: 0.27 LR: [0.002] step: 239 time: 3.98 sec fps: 60
+epoch: 3 loss: 0.25 LR: [0.002] step: 822 time: 13.70 sec fps: 60
+epoch: 4 loss: 0.25 LR: [0.002] step: 307 time: 5.12 sec fps: 60
+epoch: 5 loss: 0.27 LR: [0.002] step: 302 time: 5.03 sec fps: 60
+epoch: 6 loss: 0.25 LR: [0.002] step: 667 time: 11.12 sec fps: 60
+epoch: 7 loss: 0.25 LR: [0.002] step: 155 time: 2.58 sec fps: 60
+epoch: 8 loss: 0.29 LR: [0.002] step: 478 time: 7.97 sec fps: 60
+epoch: 9 loss: 0.27 LR: [0.002] step: 216 time: 3.60 sec fps: 60
+epoch: 10 loss: 0.25 LR: [0.002] step: 573 time: 9.55 sec fps: 60
+epoch: 11 loss: 0.25 LR: [0.002] step: 227 time: 3.78 sec fps: 60
+epoch: 12 loss: 0.25 LR: [0.002] step: 1447 time: 24.12 sec fps: 60
+epoch: 13 loss: 0.25 LR: [0.002] step: 325 time: 5.42 sec fps: 60
+epoch: 14 loss: 0.29 LR: [0.002] step: 269 time: 4.48 sec fps: 60
+epoch: 15 loss: 0.25 LR: [0.002] step: 1260 time: 21.00 sec fps: 60
+epoch: 16 loss: 0.25 LR: [0.002] step: 1336 time: 22.27 sec fps: 60
+epoch: 17 loss: 0.27 LR: [0.002] step: 354 time: 5.90 sec fps: 60
+epoch: 18 loss: 0.25 LR: [0.002] step: 798 time: 13.30 sec fps: 60
+epoch: 19 loss: 0.29 LR: [0.002] step: 649 time: 10.82 sec fps: 60
+epoch: 20 loss: 0.29 LR: [0.002] step: 391 time: 6.52 sec fps: 60
+epoch: 21 loss: 0.25 LR: [0.002] step: 230 time: 3.83 sec fps: 60
+epoch: 22 loss: 0.27 LR: [0.002] step: 397 time: 6.62 sec fps: 60
+epoch: 23 loss: 0.27 LR: [0.002] step: 144 time: 2.40 sec fps: 60
+epoch: 24 loss: 0.27 LR: [0.002] step: 356 time: 5.93 sec fps: 60
+epoch: 25 loss: 0.27 LR: [0.002] step: 97 time: 1.62 sec fps: 60
+epoch: 26 loss: 0.25 LR: [0.002] step: 168 time: 2.80 sec fps: 60
+epoch: 27 loss: 0.28 LR: [0.002] step: 674 time: 11.23 sec fps: 60
+epoch: 28 loss: 0.25 LR: [0.002] step: 304 time: 5.07 sec fps: 60
+epoch: 29 loss: 0.25 LR: [0.002] step: 362 time: 6.03 sec fps: 60
+epoch: 30 loss: 0.28 LR: [0.002] step: 77 time: 1.28 sec fps: 60
+epoch: 31 loss: 0.27 LR: [0.002] step: 155 time: 2.58 sec fps: 60
+epoch: 32 loss: 0.28 LR: [0.002] step: 29 time: 0.48 sec fps: 60
+epoch: 33 loss: 0.27 LR: [0.002] step: 394 time: 6.57 sec fps: 60
+epoch: 34 loss: 0.29 LR: [0.002] step: 382 time: 6.37 sec fps: 60
+epoch: 35 loss: 0.27 LR: [0.002] step: 826 time: 13.77 sec fps: 60
+epoch: 36 loss: 0.27 LR: [0.002] step: 347 time: 5.78 sec fps: 60
+epoch: 37 loss: 0.27 LR: [0.002] step: 68 time: 1.13 sec fps: 60
+epoch: 38 loss: 0.25 LR: [0.002] step: 410 time: 6.83 sec fps: 60
+epoch: 39 loss: 0.25 LR: [0.002] step: 740 time: 12.33 sec fps: 60
+epoch: 40 loss: 0.28 LR: [0.002] step: 956 time: 15.93 sec fps: 60
+epoch: 41 loss: 0.27 LR: [0.002] step: 327 time: 5.45 sec fps: 60
+epoch: 42 loss: 0.25 LR: [0.002] step: 1166 time: 19.43 sec fps: 60
+epoch: 43 loss: 0.25 LR: [0.002] step: 1009 time: 16.82 sec fps: 60
+epoch: 44 loss: 0.25 LR: [0.002] step: 831 time: 13.85 sec fps: 60
+epoch: 45 loss: 0.27 LR: [0.002] step: 328 time: 5.47 sec fps: 60
+epoch: 46 loss: 0.27 LR: [0.002] step: 174 time: 2.90 sec fps: 60
+epoch: 47 loss: 0.25 LR: [0.002] step: 987 time: 16.45 sec fps: 60
+epoch: 48 loss: 0.27 LR: [0.002] step: 669 time: 11.15 sec fps: 60
+epoch: 49 loss: 0.25 LR: [0.002] step: 399 time: 6.65 sec fps: 60
+epoch: 50 loss: 0.25 LR: [0.002] step: 655 time: 10.92 sec fps: 60
+epoch: 51 loss: 0.25 LR: [0.002] step: 555 time: 9.25 sec fps: 60
+epoch: 52 loss: 0.27 LR: [0.002] step: 237 time: 3.95 sec fps: 60
+epoch: 53 loss: 0.25 LR: [0.002] step: 1808 time: 30.13 sec fps: 60
+epoch: 54 loss: 0.25 LR: [0.002] step: 210 time: 3.50 sec fps: 60
+epoch: 55 loss: 0.25 LR: [0.002] step: 717 time: 11.95 sec fps: 60
+epoch: 56 loss: 0.27 LR: [0.002] step: 942 time: 15.70 sec fps: 60
+epoch: 57 loss: 0.25 LR: [0.002] step: 1029 time: 17.15 sec fps: 60
+epoch: 58 loss: 0.25 LR: [0.002] step: 760 time: 12.67 sec fps: 60
+epoch: 59 loss: 0.27 LR: [0.002] step: 847 time: 14.12 sec fps: 60
+epoch: 60 loss: 0.25 LR: [0.002] step: 59 time: 0.98 sec fps: 60
+epoch: 61 loss: 0.25 LR: [0.002] step: 171 time: 2.85 sec fps: 60
+epoch: 62 loss: 0.27 LR: [0.002] step: 232 time: 3.87 sec fps: 60
+epoch: 63 loss: 0.29 LR: [0.002] step: 328 time: 5.47 sec fps: 60
+epoch: 64 loss: 0.28 LR: [0.002] step: 575 time: 9.58 sec fps: 60
+epoch: 65 loss: 0.29 LR: [0.002] step: 217 time: 3.62 sec fps: 60
+epoch: 66 loss: 0.27 LR: [0.002] step: 414 time: 6.90 sec fps: 60
+epoch: 67 loss: 0.25 LR: [0.002] step: 946 time: 15.77 sec fps: 60
+epoch: 68 loss: 0.28 LR: [0.002] step: 387 time: 6.45 sec fps: 60
+epoch: 69 loss: 0.25 LR: [0.002] step: 587 time: 9.78 sec fps: 60
+epoch: 70 loss: 0.27 LR: [0.002] step: 853 time: 14.22 sec fps: 60
+epoch: 71 loss: 0.30 LR: [0.002] step: 858 time: 14.30 sec fps: 60
+epoch: 72 loss: 0.25 LR: [0.002] step: 610 time: 10.17 sec fps: 60
+epoch: 73 loss: 0.25 LR: [0.002] step: 508 time: 8.47 sec fps: 60
+epoch: 74 loss: 0.25 LR: [0.002] step: 380 time: 6.33 sec fps: 60
+epoch: 75 loss: 0.25 LR: [0.002] step: 223 time: 3.72 sec fps: 60
+epoch: 76 loss: 0.25 LR: [0.002] step: 178 time: 2.97 sec fps: 60
+epoch: 77 loss: 0.25 LR: [0.002] step: 1548 time: 25.80 sec fps: 60
+epoch: 78 loss: 0.25 LR: [0.002] step: 93 time: 1.55 sec fps: 60
+epoch: 79 loss: 0.25 LR: [0.002] step: 291 time: 4.85 sec fps: 60
+epoch: 80 loss: 0.25 LR: [0.002] step: 323 time: 5.38 sec fps: 60
+epoch: 81 loss: 0.27 LR: [0.002] step: 934 time: 15.57 sec fps: 60
+epoch: 82 loss: 0.25 LR: [0.002] step: 357 time: 5.95 sec fps: 60
+epoch: 83 loss: 0.25 LR: [0.002] step: 1100 time: 18.33 sec fps: 60
+epoch: 84 loss: 0.25 LR: [0.002] step: 459 time: 7.65 sec fps: 60
+epoch: 85 loss: 0.29 LR: [0.002] step: 341 time: 5.68 sec fps: 60
+epoch: 86 loss: 0.27 LR: [0.002] step: 1427 time: 23.78 sec fps: 60
+epoch: 87 loss: 0.28 LR: [0.002] step: 775 time: 12.92 sec fps: 60
+epoch: 88 loss: 0.25 LR: [0.002] step: 398 time: 6.63 sec fps: 60
+epoch: 89 loss: 0.27 LR: [0.002] step: 85 time: 1.42 sec fps: 60
+epoch: 90 loss: 0.27 LR: [0.002] step: 117 time: 1.95 sec fps: 60
+epoch: 91 loss: 0.29 LR: [0.002] step: 1059 time: 17.65 sec fps: 60
+epoch: 92 loss: 0.27 LR: [0.002] step: 304 time: 5.07 sec fps: 60
+epoch: 93 loss: 0.25 LR: [0.002] step: 118 time: 1.97 sec fps: 60
+epoch: 94 loss: 0.29 LR: [0.002] step: 163 time: 2.72 sec fps: 60
+epoch: 95 loss: 0.25 LR: [0.002] step: 1851 time: 30.85 sec fps: 60
+epoch: 96 loss: 0.25 LR: [0.002] step: 631 time: 10.52 sec fps: 60
+epoch: 97 loss: 0.25 LR: [0.002] step: 742 time: 12.37 sec fps: 60
+epoch: 98 loss: 0.27 LR: [0.002] step: 935 time: 15.58 sec fps: 60
+epoch: 99 loss: 0.25 LR: [0.002] step: 1826 time: 30.43 sec fps: 60
+epoch: 100 loss: 0.27 LR: [0.002] step: 1390 time: 23.17 sec fps: 60
+epoch: 101 loss: 0.27 LR: [0.002] step: 66 time: 1.10 sec fps: 60
+epoch: 102 loss: 0.25 LR: [0.002] step: 338 time: 5.63 sec fps: 60
+epoch: 103 loss: 0.25 LR: [0.002] step: 283 time: 4.72 sec fps: 60
+epoch: 104 loss: 0.25 LR: [0.002] step: 931 time: 15.52 sec fps: 60
+epoch: 105 loss: 0.27 LR: [0.002] step: 665 time: 11.08 sec fps: 60
+epoch: 106 loss: 0.25 LR: [0.002] step: 849 time: 14.15 sec fps: 60
+epoch: 107 loss: 0.27 LR: [0.002] step: 241 time: 4.02 sec fps: 60
+epoch: 108 loss: 0.25 LR: [0.002] step: 104 time: 1.73 sec fps: 60
+epoch: 109 loss: 0.27 LR: [0.002] step: 396 time: 6.60 sec fps: 60
+epoch: 110 loss: 0.25 LR: [0.002] step: 428 time: 7.13 sec fps: 60
+epoch: 111 loss: 0.30 LR: [0.002] step: 381 time: 6.35 sec fps: 60
+epoch: 112 loss: 0.25 LR: [0.002] step: 353 time: 5.88 sec fps: 60
+epoch: 113 loss: 0.27 LR: [0.002] step: 114 time: 1.90 sec fps: 60
+epoch: 114 loss: 0.27 LR: [0.002] step: 454 time: 7.57 sec fps: 60
+epoch: 115 loss: 0.25 LR: [0.002] step: 1090 time: 18.17 sec fps: 60
+epoch: 116 loss: 0.27 LR: [0.002] step: 116 time: 1.93 sec fps: 60
+epoch: 117 loss: 0.29 LR: [0.002] step: 351 time: 5.85 sec fps: 60
+epoch: 118 loss: 0.25 LR: [0.002] step: 134 time: 2.23 sec fps: 60
+epoch: 119 loss: 0.25 LR: [0.002] step: 992 time: 16.53 sec fps: 60
+epoch: 120 loss: 0.27 LR: [0.002] step: 522 time: 8.70 sec fps: 60
+epoch: 121 loss: 0.27 LR: [0.002] step: 879 time: 14.65 sec fps: 60
+epoch: 122 loss: 0.25 LR: [0.002] step: 94 time: 1.57 sec fps: 60
+epoch: 123 loss: 0.29 LR: [0.002] step: 549 time: 9.15 sec fps: 60
+epoch: 124 loss: 0.25 LR: [0.002] step: 122 time: 2.03 sec fps: 60
+epoch: 125 loss: 0.25 LR: [0.002] step: 537 time: 8.95 sec fps: 60
+epoch: 126 loss: 0.27 LR: [0.002] step: 447 time: 7.45 sec fps: 60
+epoch: 127 loss: 0.25 LR: [0.002] step: 367 time: 6.12 sec fps: 60
+epoch: 128 loss: 0.25 LR: [0.002] step: 239 time: 3.98 sec fps: 60
+epoch: 129 loss: 0.25 LR: [0.002] step: 391 time: 6.52 sec fps: 60
+epoch: 130 loss: 0.27 LR: [0.002] step: 810 time: 13.50 sec fps: 60
+epoch: 131 loss: 0.27 LR: [0.002] step: 671 time: 11.18 sec fps: 60
+epoch: 132 loss: 0.27 LR: [0.002] step: 202 time: 3.37 sec fps: 60
+epoch: 133 loss: 0.25 LR: [0.002] step: 345 time: 5.75 sec fps: 60
+epoch: 134 loss: 0.27 LR: [0.002] step: 188 time: 3.13 sec fps: 60
+epoch: 135 loss: 0.27 LR: [0.002] step: 1190 time: 19.83 sec fps: 60
+epoch: 136 loss: 0.25 LR: [0.002] step: 439 time: 7.32 sec fps: 60
+epoch: 137 loss: 0.27 LR: [0.002] step: 125 time: 2.08 sec fps: 60
+epoch: 138 loss: 0.25 LR: [0.002] step: 1499 time: 24.98 sec fps: 60
+epoch: 139 loss: 0.25 LR: [0.002] step: 446 time: 7.43 sec fps: 60
+epoch: 140 loss: 0.27 LR: [0.002] step: 491 time: 8.18 sec fps: 60
+epoch: 141 loss: 0.25 LR: [0.002] step: 170 time: 2.83 sec fps: 60
+epoch: 142 loss: 0.25 LR: [0.002] step: 155 time: 2.58 sec fps: 60
+epoch: 143 loss: 0.25 LR: [0.002] step: 138 time: 2.30 sec fps: 60
+Traceback (most recent call last):
+  File "c:\Users\Public\wpilib\2024\vscode\data\extensions\ms-python.python-2023.23.13481009\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_vars.py", line 624, in change_attr_expression
+    value = eval(expression, frame.f_globals, frame.f_locals)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1
+    tensor([[0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0625, 0.0625],        [0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0625, 0.0625],        [0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0624, 0.0625],        ...,        [0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0625, 0.0625],        [0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0625, 0.0625],        [0.0625, 0.0625, 0.0625,  ..., 0.0625, 0.0625, 0.0625]],       grad_fn=<SoftmaxBackward0>)
+                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+SyntaxError: invalid syntax
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)

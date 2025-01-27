@@ -114,8 +114,8 @@ class Enviroment:
                 #all that
 
 
-
-        reward += self.spaceship.energy - prev_eng - 0.5#(grazeH * 150 - grazeB * 100)/300
+        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        reward += len(herb_c) +  self.spaceship.energy - prev_eng - 0.5#(grazeH * 150 - grazeB * 100)/300
         
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
@@ -238,7 +238,7 @@ class Enviroment:
 
 
     def collisions(self):
-        # herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        #herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
         # for i in herb_c:
         #     self.spaceship.energy += Constants.HERB_ENERGY
 

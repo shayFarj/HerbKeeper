@@ -1,0 +1,11 @@
+{"time":"2025-01-21T14:52:10.0118649+02:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-01-21T14:52:10.0118649+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\wandb\\run-20250121_145209-Herb_Keeper 9\\logs\\debug-core.log"}
+{"time":"2025-01-21T14:52:10.1235805+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 9"}
+{"time":"2025-01-21T14:52:10.1235805+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 9"}
+{"time":"2025-01-21T14:52:10.1241046+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 9"}
+{"time":"2025-01-21T14:52:10.1235805+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 9"}
+{"time":"2025-01-21T14:52:10.1241046+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 9"}
+{"time":"2025-01-21T14:52:10.4724391+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-21T18:11:56.5292096+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%209/file_stream\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-01-21T18:11:58.7306849+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%209/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-01-25T19:12:24.1062828+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%209/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}

@@ -1,0 +1,5 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 0.25 LR: [0.002] step: 512 time: 8.53 sec fps: 60
+epoch: 1 loss: 0.27 LR: [0.002] step: 782 time: 13.03 sec fps: 60
+epoch: 2 loss: 0.27 LR: [0.002] step: 150 time: 2.50 sec fps: 60
