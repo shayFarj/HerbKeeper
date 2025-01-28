@@ -114,13 +114,13 @@ class Enviroment:
         #     grazeH += 1
                 #all that
 
-        herb_p = numpy.zeros((2,Constants.HERB_NUMBER))
-        bounce_p = numpy.zeros((2,Constants.BOUNCER_NUMBER))
+        herb_p = numpy.zeros((Constants.HERB_NUMBER,2))
+        bounce_p = numpy.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
-            herb_p[j][0] == (i.pos[0] - self.spaceship.pos[0])
-            herb_p[j][1] == (i.pos[1] - self.spaceship.pos[1])
+            herb_p[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            herb_p[j][1] = (i.pos[1] - self.spaceship.pos[1])
         
         # k = 0
         # for i in self.bouncer_group.sprites():
@@ -128,11 +128,11 @@ class Enviroment:
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
         
-        dh_reward = numpy.sum(1 - numpy.tanh(numpy.sqrt(numpy.sum((1/23)(herb_p**2),axis=0))))
+        dh_reward = min(1,numpy.sum(1 - numpy.tanh(numpy.sqrt(numpy.sum((herb_p**2),axis=1))*0.025 - 24*0.025)))
         #db_reward = numpy.sum(numpy.tanh(numpy.sqrt(numpy.sum(bounce_p**2,axis=0))) - 1)
 
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
-        reward += len(herb_c) +  self.spaceship.energy - prev_eng - 0.2#(grazeH * 150 - grazeB * 100)/300
+        reward += dh_reward #+ len(herb_c) +  self.spaceship.energy - prev_eng - 0.2#(grazeH * 150 - grazeB * 100)/300
         
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
@@ -255,9 +255,9 @@ class Enviroment:
 
 
     def collisions(self):
-        #herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
-        # for i in herb_c:
-        #     self.spaceship.energy += Constants.HERB_ENERGY
+        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        for i in herb_c:
+             self.spaceship.energy -= 1#Constants.HERB_ENERGY
 
         bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
         for i in bounce_c:
