@@ -129,7 +129,7 @@ class Enviroment:
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
         h_dist = numpy.sqrt(numpy.sum((herb_p**2),axis=1)) - 75
-        dh_reward = 0.5 - 0.5* numpy.tanh(h_dist)
+        dh_reward = 0.5 - 0.5* numpy.tanh(0.25*h_dist)
 
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
         reward = dh_reward 
