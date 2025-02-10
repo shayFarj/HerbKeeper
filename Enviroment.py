@@ -71,7 +71,7 @@ class Enviroment:
 
         self.scene_status = scene_flags.game
         
-        self.spaceship.energy = 3
+        self.spaceship.energy = 10
         self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
@@ -113,8 +113,7 @@ class Enviroment:
         # for i in herbs_g:
         #     grazeH += 1
                 #all that
-
-        herb_p = numpy.zeros((Constants.HERB_NUMBER,2))
+        herb_p = torch.zeros((Constants.HERB_NUMBER,2))
         #bounce_p = numpy.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
@@ -128,8 +127,8 @@ class Enviroment:
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        h_dist = numpy.sqrt(numpy.sum((herb_p**2),axis=1)) - 75
-        dh_reward = 0.5 - 0.5* numpy.tanh(0.25*h_dist)
+        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 80
+        dh_reward = 0.5 - 0.5*torch.tanh(0.06*h_dist)#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
         reward = dh_reward 
