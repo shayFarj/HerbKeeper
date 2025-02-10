@@ -115,27 +115,25 @@ class Enviroment:
                 #all that
 
         herb_p = numpy.zeros((Constants.HERB_NUMBER,2))
-        print(herb_p)
         #bounce_p = numpy.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
-            print("pos!!!" + str(i.pos[0] - self.spaceship.pos[0]))
             herb_p[j][0] = (i.pos[0] - self.spaceship.pos[0])
             herb_p[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            j += 1
         
         # k = 0
         # for i in self.bouncer_group.sprites():
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        
-        dh_reward = numpy.sum(1 - numpy.tanh(numpy.sqrt(numpy.sum((herb_p**2),axis=1)) - 24))
-        #db_reward = numpy.sum(numpy.tanh(numpy.sqrt(numpy.sum(bounce_p**2,axis=0))) - 1)
+        h_dist = numpy.sqrt(numpy.sum((herb_p**2),axis=1)) - 75
+        dh_reward = 0.5 - 0.5* numpy.tanh(h_dist)
 
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
-        reward += dh_reward #+ len(herb_c) +  self.spaceship.energy - prev_eng - 0.2#(grazeH * 150 - grazeB * 100)/300
-        
+        reward = dh_reward 
+
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         
