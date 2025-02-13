@@ -271,7 +271,7 @@ class Enviroment:
         hc_count = len(herb_c)
 
         for i in herb_c:
-             self.spaceship.energy -= 1#Constants.HERB_ENERGY
+             self.spaceship.energy += 1#Constants.HERB_ENERGY
 
         bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
         bc_count = len(bounce_c)
