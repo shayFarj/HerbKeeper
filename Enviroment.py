@@ -71,7 +71,7 @@ class Enviroment:
 
         self.scene_status = scene_flags.game
         
-        self.spaceship.energy = 10
+        self.spaceship.energy = 4
         self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
@@ -131,9 +131,9 @@ class Enviroment:
         dh_reward = 0.5 * torch.sum(0.5 - 0.5*torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
-            reward = dh_reward
-        else:
             reward = hc_count
+        else:
+            reward = dh_reward
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")

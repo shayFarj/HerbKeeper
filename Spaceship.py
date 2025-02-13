@@ -21,7 +21,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
         self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
 
-        self.energy = 3 #1000
+        self.energy = 4 #1000
 
         self.speedVec = pygame.Vector2()
         
