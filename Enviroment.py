@@ -95,6 +95,7 @@ class Enviroment:
         if self.dmg_timer >= 5000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
+        
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
@@ -102,8 +103,12 @@ class Enviroment:
         hc_count, bc_count = self.collisions()
         if render:
             self.draw()
+        
         reward = 0
-        self.dmg_timer += delta
+        if not self.gameOver():
+            self.dmg_timer += delta
+        else:
+            self.dmg_timer = 0
 
         #TODO return this
         # grazeB = 0
