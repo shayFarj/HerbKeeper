@@ -41,7 +41,8 @@ def main():
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-    run_id = 10 # above 7 is with normal 5 is without
+    #run 11 is with nerfed game
+    run_id = 11 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"

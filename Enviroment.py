@@ -127,13 +127,13 @@ class Enviroment:
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 80
+        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 90
         dh_reward = 0.5 * torch.sum(0.5 - 0.5*torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
             reward = hc_count
         else:
-            reward = dh_reward
+            reward = dh_reward - 0.2
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
