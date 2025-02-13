@@ -130,7 +130,11 @@ class Enviroment:
         h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 80
         dh_reward = 0.5 * torch.sum(0.5 - 0.5*torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
-        reward = dh_reward + hc_count
+        if hc_count > 0:
+            reward = dh_reward
+        else:
+            reward = hc_count
+        
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
