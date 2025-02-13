@@ -1,0 +1,39 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py:118: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 0.05 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 1 loss: 0.07 LR: [0.002] step: 2101 time: 35.02 sec fps: 60
+epoch: 2 loss: 0.05 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 3 loss: 0.05 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 4 loss: 0.05 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 5 loss: 0.05 LR: [0.002] step: 2101 time: 35.02 sec fps: 60
+epoch: 6 loss: 0.04 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 7 loss: 0.03 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 8 loss: 0.03 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 9 loss: 0.08 LR: [0.002] step: 2101 time: 35.02 sec fps: 60
+epoch: 10 loss: 0.05 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 11 loss: 0.06 LR: [0.002] step: 2101 time: 35.02 sec fps: 60
+epoch: 12 loss: 0.04 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 13 loss: 0.06 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 14 loss: 0.04 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 15 loss: 0.06 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 16 loss: 0.04 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 17 loss: 0.05 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 18 loss: 0.05 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 19 loss: 0.07 LR: [0.002] step: 2701 time: 45.02 sec fps: 60
+epoch: 20 loss: 0.05 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 21 loss: 0.05 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 22 loss: 0.07 LR: [0.002] step: 2101 time: 35.02 sec fps: 60
+epoch: 23 loss: 0.07 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 24 loss: 0.07 LR: [0.002] step: 2401 time: 40.02 sec fps: 60
+epoch: 25 loss: 0.04 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 26 loss: 0.08 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 27 loss: 0.07 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 28 loss: 0.04 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 29 loss: 0.06 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 30 loss: 0.09 LR: [0.002] step: 2401 time: 40.02 sec fps: 60
+epoch: 31 loss: 0.09 LR: [0.002] step: 1201 time: 20.02 sec fps: 60
+epoch: 32 loss: 0.05 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 33 loss: 0.05 LR: [0.002] step: 1801 time: 30.02 sec fps: 60
+epoch: 34 loss: 0.04 LR: [0.002] step: 1501 time: 25.02 sec fps: 60

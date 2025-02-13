@@ -92,9 +92,11 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events,or_delta = None,render = True):
+        reward = 0
         if self.dmg_timer >= 5000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
+            reward -= 1
         
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
@@ -103,8 +105,7 @@ class Enviroment:
         hc_count, bc_count = self.collisions()
         if render:
             self.draw()
-        
-        reward = 0
+
         if not self.gameOver():
             self.dmg_timer += delta
         else:
