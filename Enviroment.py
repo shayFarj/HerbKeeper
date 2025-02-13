@@ -133,7 +133,7 @@ class Enviroment:
         if hc_count > 0:
             reward = hc_count
         else:
-            reward = dh_reward - 0.2
+            reward = dh_reward - 0.1
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
