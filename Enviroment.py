@@ -53,6 +53,8 @@ class Enviroment:
         if not training:
             pygame.mixer.music.load("opening.wav")
             pygame.mixer.music.play(-1)
+        
+        self.dmg_timer = 0
 
     def getInput(self,events,action):
         self.spaceship.getAction(action)
@@ -90,7 +92,9 @@ class Enviroment:
         return self.actions
 
     def move(self,action,events,or_delta = None,render = True):
-
+        if self.dmg_timer >= 5000:
+            self.dmg_timer = 0
+            self.spaceship.energy -= 1
         prev_eng = self.spaceship.energy
         self.getInput(events,action)
         self.sustain()
@@ -99,6 +103,8 @@ class Enviroment:
         if render:
             self.draw()
         reward = 0
+        self.dmg_timer += delta
+
         #TODO return this
         # grazeB = 0
         # grazeH = 0
