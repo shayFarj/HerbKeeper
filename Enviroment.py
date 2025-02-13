@@ -95,7 +95,7 @@ class Enviroment:
         self.getInput(events,action)
         self.sustain()
         delta = self.update(or_delta=or_delta)
-        self.collisions()
+        hc_count, bc_count = self.collisions()
         if render:
             self.draw()
         reward = 0
@@ -128,14 +128,12 @@ class Enviroment:
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
         h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 80
-        dh_reward = 0.5 - 0.5*torch.tanh(0.06*h_dist)#0.5 - 0.5* torch.tanh(0.015*h_dist)
+        dh_reward = 0.5 * torch.sum(0.5 - 0.5*torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
-        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
-        reward = dh_reward 
+        reward = dh_reward + hc_count
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
         text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
-        
         
 
         done = self.gameOver()
@@ -255,12 +253,18 @@ class Enviroment:
 
     def collisions(self):
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        hc_count = len(herb_c)
+
         for i in herb_c:
              self.spaceship.energy -= 1#Constants.HERB_ENERGY
 
         bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
+        bc_count = len(bounce_c)
+
         for i in bounce_c:
             self.spaceship.energy -= 1#Constants.BOUNCER_DAMAGE
+        
+        return (hc_count,bc_count)
 
 
 
