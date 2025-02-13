@@ -1,0 +1,16 @@
+{
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "CPython 3.11.4",
+  "startedAt": "2025-02-13T10:41:03.364794Z",
+  "program": "C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\DQN_trainer2.py",
+  "codePath": "DQN_trainer2.py",
+  "git": {
+    "remote": "https://github.com/shayFarj/HerbKeeper",
+    "commit": "97e8e05d7421118119a76c9fec78c36fb671e5ec"
+  },
+  "root": "C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper",
+  "host": "LAPTOP-3SO07O6J",
+  "username": "User",
+  "executable": "c:\\Python311\\python.exe",
+  "codePathLocal": "DQN_trainer2.py"
+}

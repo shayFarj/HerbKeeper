@@ -98,7 +98,18 @@ class Enviroment:
             self.spaceship.energy -= 1
             reward -= 1
         
-        prev_eng = self.spaceship.energy
+
+        herb_p = torch.zeros((Constants.HERB_NUMBER,2))
+
+        j = 0
+        for i in self.herb_group.sprites():
+            herb_p[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            herb_p[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            j += 1
+
+        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 90
+        dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist))
+
         self.getInput(events,action)
         self.sustain()
         delta = self.update(or_delta=or_delta)
@@ -106,25 +117,13 @@ class Enviroment:
         if render:
             self.draw()
 
+
         if not self.gameOver():
             self.dmg_timer += delta
         else:
             self.dmg_timer = 0
 
-        #TODO return this
-        # grazeB = 0
-        # grazeH = 0
-        # reward = (self.spaceship.energy - prev_eng + 10) / Constants.HERB_ENERGY #reward for getting energy + survival
         
-    
-        # bouncers_g = pygame.sprite.spritecollide(self.spaceship.graze,self.bouncer_group,dokill=False)
-        # for i in bouncers_g:
-        #     grazeB += 1
-
-        # herbs_g = pygame.sprite.spritecollide(self.spaceship.graze,self.herb_group,dokill=False)
-        # for i in herbs_g:
-        #     grazeH += 1
-                #all that
         herb_p = torch.zeros((Constants.HERB_NUMBER,2))
         #bounce_p = numpy.zeros((Constants.BOUNCER_NUMBER,2))
 
@@ -139,13 +138,13 @@ class Enviroment:
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 90
-        dh_reward = 0.5 * torch.sum(0.5 - 0.5*torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
+        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 110
+        dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
             reward = hc_count
         else:
-            reward = dh_reward - 0.1
+            reward = (dh_reward2 - dh_reward1)*2 - 2
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")

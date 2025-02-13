@@ -1,0 +1,6 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py:118: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN.py:36: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = F.softmax(x)
+epoch: 0 loss: 3.77 LR: [0.002] step: 1501 time: 25.02 sec fps: 60
+epoch: 1 loss: 4.03 LR: [0.002] step: 1801 time: 30.02 sec fps: 60

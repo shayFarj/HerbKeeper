@@ -1,0 +1,12 @@
+{"time":"2025-02-13T12:41:03.3653554+02:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-02-13T12:41:03.3653554+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\wandb\\run-20250213_124103-Herb_Keeper 11\\logs\\debug-core.log"}
+{"time":"2025-02-13T12:41:03.5054501+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 11"}
+{"time":"2025-02-13T12:41:03.5055578+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 11"}
+{"time":"2025-02-13T12:41:03.5055578+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T12:41:03.5065031+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T12:41:03.5065031+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T12:41:03.5641928+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-02-13T12:41:05.6574235+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-02-13T12:41:10.5806801+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-02-13T12:41:19.0372634+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-02-13T12:41:36.0098415+02:00","level":"INFO","msg":"Starting system monitor"}
