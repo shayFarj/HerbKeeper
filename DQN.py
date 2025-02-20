@@ -33,7 +33,6 @@ class DQN (nn.Module):
         x = self.linear2(x)
         x = F.relu(x)
         x = self.output(x)
-        x = F.softmax(x)
         return x
     
     def load_params(self, path):
