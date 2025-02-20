@@ -142,9 +142,9 @@ class Enviroment:
         dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
-            reward = hc_count
+            reward = hc_count * 3
         else:
-            reward = (dh_reward2 - dh_reward1)*2 - 2
+            reward = (dh_reward2 - dh_reward1)*2
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")

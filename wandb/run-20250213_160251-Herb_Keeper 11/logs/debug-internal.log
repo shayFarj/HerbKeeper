@@ -1,0 +1,10 @@
+{"time":"2025-02-13T16:02:51.838535+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-13T16:02:51.838535+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250213_160251-Herb_Keeper 11\\logs\\debug-core.log"}
+{"time":"2025-02-13T16:02:51.9528643+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 11"}
+{"time":"2025-02-13T16:02:51.9528643+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T16:02:51.9528643+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 11"}
+{"time":"2025-02-13T16:02:51.9528643+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T16:02:51.9528643+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 11"}
+{"time":"2025-02-13T16:02:52.2664526+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-13T16:03:02.267301+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-02-13T17:55:29.7946942+02:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2011/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
