@@ -1,0 +1,13 @@
+{"time":"2025-02-20T21:11:19.2537841+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-20T21:11:19.2537841+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250220_211119-Herb_Keeper 12\\logs\\debug-core.log"}
+{"time":"2025-02-20T21:11:19.3679107+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 12"}
+{"time":"2025-02-20T21:11:19.3679107+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 12"}
+{"time":"2025-02-20T21:11:19.3679107+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 12"}
+{"time":"2025-02-20T21:11:19.3679107+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 12"}
+{"time":"2025-02-20T21:11:19.3679107+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 12"}
+{"time":"2025-02-20T21:11:20.1090681+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-20T21:11:30.1100992+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-02-20T21:17:30.4491604+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2012/file_stream\": EOF"}
+{"time":"2025-02-20T21:39:24.6582329+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:50414->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-02-20T22:14:54.7882916+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:51283->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-02-21T00:06:21.1833583+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2012/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}

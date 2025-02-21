@@ -41,15 +41,15 @@ def main():
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
 
-    #run 11 is with nerfed game
-    run_id = 11 # above 7 is with normal 5 is without
+    #run 11&12&13 is with nerfed game
+    run_id = 13 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
     resume_wandb = False
     ######   Checkpoint init ##########
     if os.path.exists(checkpoint_path):
-        print("loading checkpoint")
+        print("Loading checkpoint" + str(run_id) + "...")
         resume_wandb = True
         checkpoint = torch.load(checkpoint_path)
         start_epoch = checkpoint['epoch']+1
@@ -61,7 +61,7 @@ def main():
         losses = checkpoint['loss']
         player.DQN.train()
         player_hat.DQN.eval()
-        print("checkpoint loaded")
+        print("Checkpoint loaded!")
     ###### WandB init ##################
     wandb.init(
             # set the wandb project where this run will be logged
@@ -160,7 +160,8 @@ def main():
         
             
         
-        if epoch % 250 == 0 and epoch > 0:
+        if epoch % 300 == 0 and epoch > 0:
+            print("Saving checkpoint at : " + str(epoch) + "...")
             checkpoint = {
                 'epoch': epoch,
                 'model_state_dict': player.DQN.state_dict(),
@@ -170,6 +171,7 @@ def main():
             }
             torch.save(checkpoint, checkpoint_path)
             torch.save(buffer, buffer_path)
+            print("Saved!")
 
 if __name__ == "__main__":
     main()

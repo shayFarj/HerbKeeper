@@ -99,21 +99,23 @@ class Enviroment:
             reward -= 1
         
 
-        herb_p = torch.zeros((Constants.HERB_NUMBER,2))
+        herb_p1 = torch.zeros((Constants.HERB_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
-            herb_p[j][0] = (i.pos[0] - self.spaceship.pos[0])
-            herb_p[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            herb_p1[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            herb_p1[j][1] = (i.pos[1] - self.spaceship.pos[1])
             j += 1
 
-        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 90
-        dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist))
+        h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1)) - 110
+        dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist1))
 
         self.getInput(events,action)
         self.sustain()
         delta = self.update(or_delta=or_delta)
+
         hc_count, bc_count = self.collisions()
+
         if render:
             self.draw()
 
@@ -124,13 +126,13 @@ class Enviroment:
             self.dmg_timer = 0
 
         
-        herb_p = torch.zeros((Constants.HERB_NUMBER,2))
+        herb_p2 = torch.zeros((Constants.HERB_NUMBER,2))
         #bounce_p = numpy.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
-            herb_p[j][0] = (i.pos[0] - self.spaceship.pos[0])
-            herb_p[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            herb_p2[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            herb_p2[j][1] = (i.pos[1] - self.spaceship.pos[1])
             j += 1
         
         # k = 0
@@ -138,13 +140,13 @@ class Enviroment:
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        h_dist = torch.sqrt(torch.sum((herb_p**2),axis=1)) - 110
-        dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist))#0.5 - 0.5* torch.tanh(0.015*h_dist)
+        h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) - 110
+        dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist2))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
             reward = hc_count * 3
         else:
-            reward = (dh_reward2 - dh_reward1)*2
+            reward = (dh_reward2 - dh_reward1)*2 - 0.05
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
