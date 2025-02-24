@@ -32,7 +32,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.002
+    learning_rate = 0.0007
     update_hat = 3
     epochs = 20000
     start_epoch = 0
@@ -77,7 +77,7 @@ def main():
             "epochs": epochs,
             "start_epoch": start_epoch,
             "decay": 0,
-            "gamma": 0.95,
+            "gamma": 0.94,
             "batch_size": batch_size,
             "epochs per hat update": update_hat,
             "Model":str(player.DQN),

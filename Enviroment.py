@@ -120,7 +120,7 @@ class Enviroment:
             self.draw()
 
 
-        if not self.gameOver():
+        if self.scene_status == scene_flags.game:
             self.dmg_timer += delta
         else:
             self.dmg_timer = 0

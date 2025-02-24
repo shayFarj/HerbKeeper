@@ -13,7 +13,7 @@ epsiln_decay = 5000
 
 # epochs = 1000
 # batch_size = 64
-gamma = 0.99 
+gamma = 0.94 
 MSELoss = nn.MSELoss()
 
 class DQN_Agent:
