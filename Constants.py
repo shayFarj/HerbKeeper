@@ -1,4 +1,5 @@
 
+
 BULLET_SPEED = 8
 BULLET_DIR_ERROR = 1
 BULLET_SIZE = 5
@@ -29,6 +30,9 @@ CROP_TIME = 30
 INIT_ENERGY = 4
 
 SPACESHIP_SPEED = 1
+
+STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3  #herb position, bouncer position&velocity, spaceship's position&energy 
+
 
 P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]

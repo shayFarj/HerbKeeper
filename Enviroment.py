@@ -231,41 +231,29 @@ class Enviroment:
 
 
     def state(self, delta):
-        state = []
-        state.append(self.spaceship.energy / Constants.INIT_ENERGY)
+        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
 
-        state.append(self.spaceship.pos[0] / Constants.BOUNDERIES[0])
-        state.append(self.spaceship.pos[1] / Constants.BOUNDERIES[1])
+        state[0] = self.spaceship.energy / Constants.INIT_ENERGY
 
+        state[1] =self.spaceship.pos[0] / Constants.BOUNDERIES[0]
+        state[2] =self.spaceship.pos[1] / Constants.BOUNDERIES[1]
 
+        i_iter = 3
         for i in self.herb_group.sprites():
-            state.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0])
-            state.append((i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1])
-
-
-
-        # for i in range(Constants.HERB_NUMBER - len(self.herb_group.sprites())):
-        #     state.append(0)
-        #     state.append(0)
+            state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+            i_iter += 1
+            state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            i_iter += 1
 
         for i in self.bouncer_group.sprites():
-            state.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0])
-            state.append((i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1])
-
-            state.append(i.dir[0] / math.ceil(delta/10))
-            state.append(i.dir[1] / math.ceil(delta/10))
-            
-        # for i in range(Constants.BOUNCER_NUMBER - len(self.bouncer_group.sprites())):
-        #     state.append(0)
-        #     state.append(0)
-        #     state.append(0)
-        #     state.append(0)
-
-
-
-        # print(f"\r length : "+ str(len(state)) + "///",end ="")
-        state = torch.tensor(state,dtype=torch.float32)
-        #print(f"\r"+str(state),end ="")
+            state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+            i_iter += 1
+            state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            i_iter += 1
+            state[i_iter] =  i.dir[0] / math.ceil(delta/10)
+            i_iter += 1
+            state[i_iter] = i.dir[1] / math.ceil(delta/10)
+        
         return state
 
 

@@ -8,11 +8,11 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-input_size = 3 + Constants.BOUNCER_NUMBER*4 + Constants.HERB_NUMBER*2
+input_size = Constants.STATE_LEN
 layer1 = 128
 layer2 = 64
 output_size = 16 # Q(s,a) number of all combinations of direction and gear
-gamma = Constants.SCHEDULER_GAMMA
+gamma = Constants.AGENT_GAMMA
 MSELoss = nn.MSELoss()
 
 class DQN (nn.Module):

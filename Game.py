@@ -47,7 +47,9 @@ def main():
         
         # action = human.get_action(state=env.state((1/Constants.FPS)*1000),train=False)
 
+        test1 = env.state(1000*(1/Constants.FPS))
         env.move(action,events)
+        test2 = env.state(1000*(1/Constants.FPS))
         # env.getInput(events,action)
         # env.sustain()
         # env.update()
