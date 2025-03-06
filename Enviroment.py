@@ -73,7 +73,7 @@ class Enviroment:
 
         self.scene_status = scene_flags.game
         
-        self.spaceship.energy = 4
+        self.spaceship.energy = Constants.INIT_ENERGY
         self.spaceship.setPosition(self.randomPosition())
 
         self.agent.active = True
