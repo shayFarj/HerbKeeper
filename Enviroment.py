@@ -111,7 +111,6 @@ class Enviroment:
         dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist1))
 
         self.getInput(events,action)
-        # self.sustain()
         delta = self.update(or_delta=or_delta)
 
         hc_count, bc_count = self.collisions()
@@ -279,19 +278,5 @@ class Enviroment:
 
     def outofBounderies(self,sprite):
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]
-
-
-    # def sustain(self):
-    #     if self.scene_status == scene_flags.game:
-    #         if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
-    #             self.herb_group.add(Herb.Herb(self.randomPosition()))
-
-    #         if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
-    #             x, y = self.randomPosition()
-    #             bouncer = Bouncer.Bouncer((x,y))
-
-    #             self.bouncer_group.add(bouncer)
-
-
 
 
