@@ -32,7 +32,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.0005
+    learning_rate = 0.0007
     update_hat = 3
     epochs = 20000
     start_epoch = 0
@@ -41,7 +41,7 @@ def main():
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
     milestones = []
 
-    for i in range(0,21000,1000):
+    for i in range(0,21000*1000,1000*1000):
         milestones.append(i)
 
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
