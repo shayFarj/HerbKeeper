@@ -232,33 +232,34 @@ class Enviroment:
 
     def state(self, delta):
         state = []
-        state.append(self.spaceship.energy / 3)
+        state.append(self.spaceship.energy / Constants.INIT_ENERGY)
 
         state.append(self.spaceship.pos[0] / Constants.BOUNDERIES[0])
         state.append(self.spaceship.pos[1] / Constants.BOUNDERIES[1])
 
 
         for i in self.herb_group.sprites():
-            state.append(i.pos[0] / Constants.BOUNDERIES[0])
-            state.append(i.pos[1] / Constants.BOUNDERIES[1])
+            state.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0])
+            state.append((i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1])
 
 
 
-        for i in range(Constants.HERB_NUMBER - len(self.herb_group.sprites())):
-            state.append(0)
-            state.append(0)
+        # for i in range(Constants.HERB_NUMBER - len(self.herb_group.sprites())):
+        #     state.append(0)
+        #     state.append(0)
 
         for i in self.bouncer_group.sprites():
-            state.append(i.pos[0] / Constants.BOUNDERIES[0])
-            state.append(i.pos[1] / Constants.BOUNDERIES[1])
+            state.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0])
+            state.append((i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1])
 
             state.append(i.dir[0] / math.ceil(delta/10))
             state.append(i.dir[1] / math.ceil(delta/10))
-        for i in range(Constants.BOUNCER_NUMBER - len(self.bouncer_group.sprites())):
-            state.append(0)
-            state.append(0)
-            state.append(0)
-            state.append(0)
+            
+        # for i in range(Constants.BOUNCER_NUMBER - len(self.bouncer_group.sprites())):
+        #     state.append(0)
+        #     state.append(0)
+        #     state.append(0)
+        #     state.append(0)
 
 
 
@@ -269,14 +270,14 @@ class Enviroment:
 
 
     def collisions(self):
-        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,False)
+        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,dokill=False)
         hc_count = len(herb_c)
 
         for i in herb_c:
              self.spaceship.energy += 1#Constants.HERB_ENERGY
              i.setPosition(self.randomPosition())
 
-        bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,False)
+        bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,dokill=False)
         bc_count = len(bounce_c)
 
         for i in bounce_c:
