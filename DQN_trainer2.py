@@ -42,7 +42,7 @@ def main():
     milestones = []
 
     for i in range(0,21000,1000):
-        milestones.add(i)
+        milestones.append(i)
 
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
 
