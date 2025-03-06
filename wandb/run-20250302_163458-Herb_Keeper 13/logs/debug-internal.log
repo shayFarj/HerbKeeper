@@ -1,0 +1,9 @@
+{"time":"2025-03-02T16:34:58.816997+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-03-02T16:34:58.8175144+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250302_163458-Herb_Keeper 13\\logs\\debug-core.log"}
+{"time":"2025-03-02T16:34:58.9259906+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 13"}
+{"time":"2025-03-02T16:34:58.9267051+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 13"}
+{"time":"2025-03-02T16:34:58.9267051+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 13"}
+{"time":"2025-03-02T16:34:58.9267051+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 13"}
+{"time":"2025-03-02T16:34:58.9267051+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 13"}
+{"time":"2025-03-02T16:34:59.5722128+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-02T16:35:09.5733444+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
