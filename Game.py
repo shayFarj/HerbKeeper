@@ -9,8 +9,8 @@ import torch
 
 from timeit import default_timer as timer
 
-checkpoint = torch.load("Data\checkpoint13.pth")
-print("loading checkpoint")
+# checkpoint = torch.load("Data\checkpoint13.pth")
+# print("loading checkpoint")
 
 
 pygame.init()
@@ -23,8 +23,8 @@ main_surf.fill((0,0,0))
 
 pygame.display.set_caption("Herb's keeper")
 
-human =  DQN_Agent(train=False)#HumanAgent.humanAgent()
-human.DQN.load_state_dict(checkpoint['model_state_dict'])
+human =  HumanAgent.humanAgent()#DQN_Agent(train=False)#
+#human.DQN.load_state_dict(checkpoint['model_state_dict'])
 
 env = Enviroment.Enviroment(main_surf,human)
 
@@ -43,9 +43,9 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         
-        #action = human.getAction(events=events)
+        action = human.getAction(events=events)
         
-        action = human.get_action(state=env.state((1/Constants.FPS)*1000),train=False)
+        # action = human.get_action(state=env.state((1/Constants.FPS)*1000),train=False)
 
         env.move(action,events)
         # env.getInput(events,action)

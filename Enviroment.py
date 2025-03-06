@@ -111,7 +111,7 @@ class Enviroment:
         dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist1))
 
         self.getInput(events,action)
-        self.sustain()
+        # self.sustain()
         delta = self.update(or_delta=or_delta)
 
         hc_count, bc_count = self.collisions()
@@ -269,17 +269,19 @@ class Enviroment:
 
 
     def collisions(self):
-        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,True)
+        herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,False)
         hc_count = len(herb_c)
 
         for i in herb_c:
              self.spaceship.energy += 1#Constants.HERB_ENERGY
+             i.setPosition(self.randomPosition())
 
-        bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,True)
+        bounce_c = pygame.sprite.spritecollide(self.spaceship,self.bouncer_group,False)
         bc_count = len(bounce_c)
 
         for i in bounce_c:
             self.spaceship.energy -= 1#Constants.BOUNCER_DAMAGE
+            i.setPosition(self.randomPosition())
         
         return (hc_count,bc_count)
 
@@ -290,16 +292,16 @@ class Enviroment:
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]
 
 
-    def sustain(self):
-        if self.scene_status == scene_flags.game:
-            if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
-                self.herb_group.add(Herb.Herb(self.randomPosition()))
+    # def sustain(self):
+    #     if self.scene_status == scene_flags.game:
+    #         if len(self.herb_group.sprites()) < Constants.HERB_NUMBER:
+    #             self.herb_group.add(Herb.Herb(self.randomPosition()))
 
-            if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
-                x, y = self.randomPosition()
-                bouncer = Bouncer.Bouncer((x,y))
+    #         if len(self.bouncer_group.sprites()) < Constants.BOUNCER_NUMBER:
+    #             x, y = self.randomPosition()
+    #             bouncer = Bouncer.Bouncer((x,y))
 
-                self.bouncer_group.add(bouncer)
+    #             self.bouncer_group.add(bouncer)
 
 
 
