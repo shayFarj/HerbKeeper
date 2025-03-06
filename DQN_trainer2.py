@@ -32,14 +32,19 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.0007
+    learning_rate = 0.0005
     update_hat = 3
     epochs = 20000
     start_epoch = 0
     loss = torch.tensor(0)
     losses = []
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
-    scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,[5000*1000, 10000*1000, 15000*1000, 20000*1000, 25000*1000, 30000*1000], gamma=0.5)
+    milestones = []
+
+    for i in range(0,21000,1000):
+        milestones.add(i)
+
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
 
     #run 11&12&13 is with nerfed game
     run_id = 14 # above 7 is with normal 5 is without
@@ -77,7 +82,7 @@ def main():
             "epochs": epochs,
             "start_epoch": start_epoch,
             "decay": 0,
-            "gamma": 0.94,
+            "gamma": Constants.AGENT_GAMMA,
             "batch_size": batch_size,
             "epochs per hat update": update_hat,
             "Model":str(player.DQN),
