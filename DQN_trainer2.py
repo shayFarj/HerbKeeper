@@ -19,9 +19,8 @@ def main():
     pygame.init()
 
     clock = pygame.time.Clock()
-    flags = DOUBLEBUF
 
-    screen = pygame.display.set_mode(Constants.BOUNDERIES,flags=flags)
+    screen = Constants.screen
     main_surf = pygame.Surface(Constants.BOUNDERIES)
     main_surf.fill((0,0,0))
 

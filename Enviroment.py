@@ -192,17 +192,18 @@ class Enviroment:
 
         # text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
         if not or_delta:
-            if len(self.delta_avg) < 20:
-                text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-                return delta
-            else:
-                self.delta_avg.pop(0)
-                avg = 0
-                for i in self.delta_avg:
-                    avg += i
-                avg /= len(self.delta_avg)
-                text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-                return avg
+            if not self.training:
+                if len(self.delta_avg) < 20:
+                    text_to_screen(self.surface,"fps : " + str(round(1000/delta)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+                    return delta
+                else:
+                    self.delta_avg.pop(0)
+                    avg = 0
+                    for i in self.delta_avg:
+                        avg += i
+                    avg /= len(self.delta_avg)
+                    text_to_screen(self.surface,"fps : " + str(round(1000/avg)),64,64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
+                    return avg
         else:
             return delta
         
@@ -220,7 +221,8 @@ class Enviroment:
                 self.bouncer_group.draw(self.surface)
                 self.spaceship_group.draw(self.surface)
                 self.herb_group.draw(self.surface)
-                text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
+                if not self.training:
+                    text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
             case scene_flags.game_over:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
                 text_to_screen(self.surface,'Click to restart',128,128+96,size=30,color=Constants.PASTEL_BLUE,font_type='pixelated-papyrus.ttf')
