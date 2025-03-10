@@ -252,6 +252,7 @@ class Enviroment:
             state[i_iter] =  i.dir[0] / math.ceil(delta/10)
             i_iter += 1
             state[i_iter] = i.dir[1] / math.ceil(delta/10)
+            i_iter += 1
         
         return state
 
