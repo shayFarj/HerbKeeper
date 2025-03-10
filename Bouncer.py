@@ -16,10 +16,10 @@ pygame.gfxdraw.filled_polygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
 class Bouncer(pygame.sprite.Sprite):
     def __init__(self,pos):
         super().__init__()
-        pos2 =  (pos[0] - Constants.HERB_RADIUS, pos[1] - Constants.HERB_RADIUS)
+        pos2 =  (pos[0] - Constants.BOUNCER_RADIUS, pos[1] - Constants.BOUNCER_RADIUS)
 
-        self.rect = pygame.rect.Rect(pos2,(2*Constants.HERB_RADIUS,2*Constants.HERB_RADIUS))
-        self.radius = Constants.HERB_RADIUS
+        self.rect = pygame.rect.Rect(pos2,(2*Constants.BOUNCER_RADIUS,2*Constants.BOUNCER_RADIUS))
+        self.radius = Constants.BOUNCER_RADIUS
         self.pos = pos
 
         self.dir = [random.randint(-2,2),random.randint(-1,1)]
