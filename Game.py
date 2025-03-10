@@ -6,6 +6,8 @@ import HumanAgent
 from DQN_Agent import DQN_Agent
 import Bouncer
 import torch
+from pygame.locals import *
+
 
 from timeit import default_timer as timer
 
@@ -14,12 +16,14 @@ from timeit import default_timer as timer
 
 
 pygame.init()
+flags = DOUBLEBUF
+screen = Constants.screen
 
 clock = pygame.time.Clock()
 
-screen = pygame.display.set_mode(Constants.BOUNDERIES)
 main_surf = pygame.Surface(Constants.BOUNDERIES)
 main_surf.fill((0,0,0))
+
 
 pygame.display.set_caption("Herb's keeper")
 

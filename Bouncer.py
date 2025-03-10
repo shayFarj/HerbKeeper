@@ -5,14 +5,6 @@ import pygame.gfxdraw
 import random
 import math
 
-BOUNCER_IMAGE = pygame.Surface((Constants.BOUNCER_RADIUS*2,Constants.BOUNCER_RADIUS*2),pygame.SRCALPHA)
-
-pygame.gfxdraw.aacircle(BOUNCER_IMAGE,Constants.BOUNCER_RADIUS,Constants.BOUNCER_RADIUS,Constants.BOUNCER_RADIUS - 1,Constants.PASTEL_RED)
-pygame.gfxdraw.filled_circle(BOUNCER_IMAGE, Constants.BOUNCER_RADIUS, Constants.BOUNCER_RADIUS, Constants.BOUNCER_RADIUS - 1,Constants.PASTEL_RED)
-
-pygame.gfxdraw.aapolygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
-pygame.gfxdraw.filled_polygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
-
 class Bouncer(pygame.sprite.Sprite):
     def __init__(self,pos):
         super().__init__()
@@ -21,6 +13,8 @@ class Bouncer(pygame.sprite.Sprite):
         self.rect = pygame.rect.Rect(pos2,(2*Constants.BOUNCER_RADIUS,2*Constants.BOUNCER_RADIUS))
         self.radius = Constants.BOUNCER_RADIUS
         self.pos = pos
+
+        self.image = Constants.BOUNCER_IMAGE
 
         self.dir = [random.randint(-2,2),random.randint(-1,1)]
         if self.dir[0] == 0:

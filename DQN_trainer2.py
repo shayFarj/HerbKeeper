@@ -8,6 +8,8 @@ from HumanAgent import humanAgent
 import torch
 import os
 import wandb
+from pygame.locals import *
+
 
 MIN_BUFFER = 80
 
@@ -17,8 +19,9 @@ def main():
     pygame.init()
 
     clock = pygame.time.Clock()
+    flags = DOUBLEBUF
 
-    screen = pygame.display.set_mode(Constants.BOUNDERIES)
+    screen = pygame.display.set_mode(Constants.BOUNDERIES,flags=flags)
     main_surf = pygame.Surface(Constants.BOUNDERIES)
     main_surf.fill((0,0,0))
 
@@ -125,6 +128,7 @@ def main():
 
             screen.blit(main_surf,(0,0))
             pygame.display.update()
+
             #clock.tick(Constants.FPS)
             if env.gameOver():
                 # env.restart()

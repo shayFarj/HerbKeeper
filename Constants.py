@@ -1,3 +1,8 @@
+import pygame
+import pygame.gfxdraw
+from pygame.locals import *
+
+
 
 
 BULLET_SPEED = 8
@@ -43,3 +48,21 @@ P_GEARS = [-1,0,1,2,3]
 CROP_HP = 30
 
 BOUNDERIES = (1024,512)
+
+flags = DOUBLEBUF
+screen = pygame.display.set_mode(BOUNDERIES, flags=flags)
+
+HERB_IMAGE = pygame.Surface((HERB_RADIUS*2,HERB_RADIUS*2))
+pygame.gfxdraw.aacircle(HERB_IMAGE,HERB_RADIUS,HERB_RADIUS,HERB_RADIUS - 1,PASTEL_GREEN)
+pygame.gfxdraw.filled_circle(HERB_IMAGE, HERB_RADIUS, HERB_RADIUS, HERB_RADIUS - 1,PASTEL_GREEN)
+HERB_IMAGE = HERB_IMAGE.convert_alpha()
+
+BOUNCER_IMAGE = pygame.Surface((BOUNCER_RADIUS*2,BOUNCER_RADIUS*2))
+
+pygame.gfxdraw.aacircle(BOUNCER_IMAGE,BOUNCER_RADIUS,BOUNCER_RADIUS,BOUNCER_RADIUS - 1,PASTEL_RED)
+pygame.gfxdraw.filled_circle(BOUNCER_IMAGE, BOUNCER_RADIUS, BOUNCER_RADIUS, BOUNCER_RADIUS - 1,PASTEL_RED)
+
+pygame.gfxdraw.aapolygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
+pygame.gfxdraw.filled_polygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
+
+BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()

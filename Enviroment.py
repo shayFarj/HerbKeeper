@@ -63,7 +63,7 @@ class Enviroment:
                 if self.scene_status == scene_flags.start_menu or self.scene_status == scene_flags.game_over:
                     self.restart()
 
-        text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
+        #text_to_screen(self.surface,str(self.spaceship.action),128,64,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
      
 
     def restart(self):
@@ -93,7 +93,7 @@ class Enviroment:
 
     def move(self,action,events,or_delta = None,render = True):
         reward = 0
-        if self.dmg_timer >= 5000:
+        if self.dmg_timer >= 2000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
             reward -= 1
@@ -149,7 +149,7 @@ class Enviroment:
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-        text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        #text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         
 
         done = self.gameOver()

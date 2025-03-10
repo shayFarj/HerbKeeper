@@ -1,0 +1,22 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py:123: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+epoch: 0 loss: 0.58 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 1 loss: 1.02 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 2 loss: 3.38 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3 loss: 73.57 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 4 loss: 78.64 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 5 loss: 5.27 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 6 loss: 7.28 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 7 loss: 4.91 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 8 loss: 11.32 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 9 loss: 7.37 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 10 loss: 7.45 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 11 loss: 6.21 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 12 loss: 7.66 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 13 loss: 7.18 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 14 loss: 9.22 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 15 loss: 10.11 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 16 loss: 62.24 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 17 loss: 7.70 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 18 loss: 23.47 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 19 loss: 72.10 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
