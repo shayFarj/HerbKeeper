@@ -19,7 +19,7 @@ class SpaceShip(CircleSprite.CircleSprite):
         pygame.gfxdraw.aaellipse(self.image,16,16,4,12,(0,0,0))
         pygame.gfxdraw.filled_ellipse(self.image,16,16,5,13,(0,0,0))
 
-        self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
+        # self.graze = CircleSprite.CircleSprite(pos,32,Constants.GREEN_DARK)
 
         self.energy = Constants.INIT_ENERGY #1000
 
@@ -31,7 +31,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
     def setPosition(self, pos):
         super().setPosition(pos)
-        self.graze.setPosition(pos)
+        # self.graze.setPosition(pos)
 
     def outofBounderies(self,pos):
         return pos[0] < 0 or pos[0] > Constants.BOUNDERIES[0] or pos[1] < 0 or pos[1] > Constants.BOUNDERIES[1]

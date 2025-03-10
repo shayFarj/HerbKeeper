@@ -35,8 +35,8 @@ class Enviroment:
         self.spaceship = Spaceship.SpaceShip((200,200))
         self.spaceship_group = pygame.sprite.GroupSingle()
         self.spaceship_group.add(self.spaceship)
-        self.graze_group = pygame.sprite.GroupSingle()
-        self.graze_group.add(self.spaceship.graze)
+        # self.graze_group = pygame.sprite.GroupSingle()
+        # self.graze_group.add(self.spaceship.graze)
         self.fps_clock = pygame.time.Clock()
 
         self.scene_status = scene_flags.start_menu
@@ -216,7 +216,7 @@ class Enviroment:
     def draw(self):
         match(self.scene_status):
             case scene_flags.game:
-                self.graze_group.draw(self.surface)
+                # self.graze_group.draw(self.surface)
                 self.bouncer_group.draw(self.surface)
                 self.spaceship_group.draw(self.surface)
                 self.herb_group.draw(self.surface)
