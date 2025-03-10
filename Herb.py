@@ -9,6 +9,7 @@ pygame.gfxdraw.filled_circle(HERB_IMAGE, Constants.HERB_RADIUS, Constants.HERB_R
 
 class Herb(pygame.sprite.Sprite):
     def __init__(self,pos):
+        super().__init__()
         pos2 =  (pos[0] - Constants.HERB_RADIUS, pos[1] - Constants.HERB_RADIUS)
 
         self.rect = pygame.rect.Rect(pos2,(2*Constants.HERB_RADIUS,2*Constants.HERB_RADIUS))
