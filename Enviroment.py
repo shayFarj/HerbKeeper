@@ -209,10 +209,10 @@ class Enviroment:
         
         
 
-    def prox(num1,num2,mnum):
-        diff = math.abs(num1 - num2)
-        diff1 = math.abs(num1 - mnum) / diff
-        diff2 = math.abs(num2 - mnum) / diff
+    def prox(self,num1,num2,mnum):
+        diff = abs(num1 - num2)
+        diff1 = abs(num1 - mnum) / diff
+        diff2 = abs(num2 - mnum) / diff
         return (diff1,diff2)
 
     def polar(self,x, y):
@@ -288,12 +288,12 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count] = diff1 * 2 * (1 - torch.tanh(0.06*(radius - 110)))
-                state[3 + count + 1] = diff2 * 2*(1 - torch.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
+                state[3 + count + 1] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (1 - torch.tanh(0.06*(radius - 110)))
-                state[3] = diff2 * 2*(1 - torch.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
+                state[3] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
                 
     
         for i in self.bouncer_group.sprites():
@@ -308,12 +308,12 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count] = diff1 * 2 * (-1 +torch.tanh(0.06*(radius - 110)))
-                state[3 + count + 1] = diff2 * 2*(-1 + torch.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (-1 +math.tanh(0.06*(radius - 110)))
+                state[3 + count + 1] = diff2 * 2*(-1 + math.tanh(0.06*(radius - 110)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (-1 + torch.tanh(0.06*(radius - 110)))
-                state[3] = diff2 * 2*(- + torch.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (-1 + math.tanh(0.06*(radius - 110)))
+                state[3] = diff2 * 2*(- + math.tanh(0.06*(radius - 110)))
         
         return state
 
