@@ -1,0 +1,4 @@
+C:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py:125: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+epoch: 0 loss: 0.06 LR: [0.0009599999999999999] step: 841 time: 14.02 sec fps: 60
+epoch: 1 loss: 4.61 LR: [0.0009599999999999999] step: 721 time: 12.02 sec fps: 60
