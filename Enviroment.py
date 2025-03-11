@@ -282,7 +282,7 @@ class Enviroment:
             radius, angle = self.polar(x,y)
 
             if angle < 0:
-                angle = 2*math.pi - angle
+                angle = 2*math.pi + angle
             
             count = int(angle // (math.pi/4))
 
@@ -292,7 +292,7 @@ class Enviroment:
                 state[3 + count] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count - 1] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
                 state[3] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
                 
     
