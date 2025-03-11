@@ -284,7 +284,7 @@ class Enviroment:
             if angle < 0:
                 angle = 2*math.pi - angle
             
-            count = angle // (math.pi/4)
+            count = int(angle // (math.pi/4))
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
