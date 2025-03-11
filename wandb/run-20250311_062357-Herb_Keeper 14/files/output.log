@@ -1,0 +1,22 @@
+C:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py:125: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+epoch: 3301 loss: 8.35 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3302 loss: 7.75 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3303 loss: 18.21 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3304 loss: 19.43 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3305 loss: 11.52 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 3306 loss: 10.05 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3307 loss: 9.21 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3308 loss: 8.32 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3309 loss: 24.24 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3310 loss: 6.69 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3311 loss: 6.08 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 3312 loss: 7.51 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3313 loss: 31.82 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 3314 loss: 7.70 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3315 loss: 20.92 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3316 loss: 7.18 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3317 loss: 49.36 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3318 loss: 13.97 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3319 loss: 16.88 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 3320 loss: 4.74 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60

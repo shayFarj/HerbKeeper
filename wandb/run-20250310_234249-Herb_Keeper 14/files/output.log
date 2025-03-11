@@ -1,0 +1,19 @@
+C:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py:125: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+C:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py:125: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+epoch: 0 loss: 0.13 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 1 loss: 4.17 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 2 loss: 6.40 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 3 loss: 7.89 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 4 loss: 7.40 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 5 loss: 6.58 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 6 loss: 7.13 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60
+epoch: 7 loss: 8.02 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 8 loss: 7.53 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 9 loss: 10.58 LR: [0.0005600000000000001] step: 841 time: 14.02 sec fps: 60
+epoch: 10 loss: 7.93 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 11 loss: 9.04 LR: [0.0005600000000000001] step: 601 time: 10.02 sec fps: 60
+epoch: 12 loss: 8.90 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 13 loss: 6.79 LR: [0.0005600000000000001] step: 481 time: 8.02 sec fps: 60
+epoch: 14 loss: 9.02 LR: [0.0005600000000000001] step: 721 time: 12.02 sec fps: 60

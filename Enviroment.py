@@ -209,8 +209,17 @@ class Enviroment:
         
         
 
+    def prox(num1,num2,mnum):
+        diff = math.abs(num1 - num2)
+        diff1 = math.abs(num1 - mnum) / diff
+        diff2 = math.abs(num2 - mnum) / diff
+        return (diff1,diff2)
 
-
+    def polar(self,x, y):
+        angle = math.atan2(y,x)
+        radius = y**2 + x**2
+        return (radius,angle)
+        
 
 
 
@@ -218,10 +227,10 @@ class Enviroment:
         match(self.scene_status):
             case scene_flags.game:
                 # self.graze_group.draw(self.surface)
-                self.bouncer_group.draw(self.surface)
-                self.spaceship_group.draw(self.surface)
-                self.herb_group.draw(self.surface)
                 if not self.training:
+                    self.bouncer_group.draw(self.surface)
+                    self.spaceship_group.draw(self.surface)
+                    self.herb_group.draw(self.surface)
                     text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
             case scene_flags.game_over:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
@@ -231,21 +240,98 @@ class Enviroment:
                 text_to_screen(self.surface,'Click to start',128,128+96,size=30,color=Constants.PASTEL_BLUE,font_type='pixelated-papyrus.ttf')
 
 
+    # def state(self, delta):
+    #     state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
+
+    #     state[0] = self.spaceship.energy / Constants.INIT_ENERGY
+
+    #     state[1] = self.spaceship.pos[0] / Constants.BOUNDERIES[0]
+    #     state[2] = self.spaceship.pos[1] / Constants.BOUNDERIES[1]
+
+    #     i_iter = 3
+    #     for i in self.herb_group.sprites():
+    #         state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+    #         i_iter += 1
+    #         state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+    #         i_iter += 1
+
+    #     for i in self.bouncer_group.sprites():
+    #         state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+    #         i_iter += 1
+    #         state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+    #         i_iter += 1
+    #         state[i_iter] =  i.dir[0] / math.ceil(delta/10)
+    #         i_iter += 1
+    #         state[i_iter] = i.dir[1] / math.ceil(delta/10)
+    #         i_iter += 1
+        
+    #     return state
+
     def state(self, delta):
         state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
 
         state[0] = self.spaceship.energy / Constants.INIT_ENERGY
 
-        state[1] =self.spaceship.pos[0] / Constants.BOUNDERIES[0]
-        state[2] =self.spaceship.pos[1] / Constants.BOUNDERIES[1]
+        state[1] = self.spaceship.pos[0] / Constants.BOUNDERIES[0]
+        state[2] = self.spaceship.pos[1] / Constants.BOUNDERIES[1]
 
         i_iter = 3
         for i in self.herb_group.sprites():
-            state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
-            i_iter += 1
-            state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
-            i_iter += 1
+            x  = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+            y = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            radius, angle = self.polar(x,y)
 
+            if angle < 0:
+                angle = 2*math.pi - angle
+            
+            count = angle // (math.pi/4)
+    
+
+            # if 0 < angle < math.pi/4:
+            #     diff1, diff2 = self.prox(0,math.pi/4,angle)
+            #     state[3] += diff1 * radius  # 3 deg
+            #     state[4] += diff2 * radius
+            
+            # if math.pi/4 < angle < math.pi/2:
+            #     diff1, diff2 = self.prox(math.pi/4,math.pi/2,angle)
+            #     state[4] += diff1 * radius
+            #     state[5] += diff2 * radius
+            
+            # if math.pi/2 < angle < (math.pi/4)*3:
+            #     diff1, diff2 = self.prox(math.pi/2,(math.pi/4)*3,angle)
+            #     state[5] += diff1 * radius
+            #     state[6] += diff2 * radius
+            
+            # if (math.pi/4)*3 < angle < math.pi:
+            #     diff1, diff2 = self.prox((math.pi/4)*3,math.pi,angle)
+            #     state[6] += diff1 * radius
+            #     state[7] += diff2 * radius #180 deg
+            
+            # if  -math.pi/4 < angle < 0:
+            #     diff1, diff2 = self.prox(-math.pi/4,0,angle)
+            #     state[8] += diff1 * radius
+            #     state[3] += diff2 * radius # 0 deg
+            
+            # if -math.pi/2 < angle < -math.pi/4:
+            #     diff1, diff2 = self.prox(-math.pi/2,-math.pi/4,angle)
+            #     state[9] += diff1 * radius
+            #     state[8] += diff2 * radius
+
+            # if -(math.pi/4)*3  < angle < -math.pi/2:
+            #     diff1, diff2 = self.prox(-(math.pi/4)*3,-math.pi/2,angle)
+            #     state[10] += diff1 * radius
+            #     state[9] += diff2 * radius
+            
+            # if -math.pi  < angle < -(math.pi/4)*3:
+            #     diff1, diff2 = self.prox(-(math.pi/4)*3,-math.pi,angle)
+            #     state[11] += diff1 * radius
+            #     state[7] += diff2 * radius # 180 deg
+            
+            
+
+            
+                
+    
         for i in self.bouncer_group.sprites():
             state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
             i_iter += 1
@@ -257,7 +343,6 @@ class Enviroment:
             i_iter += 1
         
         return state
-
 
     def collisions(self):
         herb_c = pygame.sprite.spritecollide(self.spaceship,self.herb_group,dokill=False)
