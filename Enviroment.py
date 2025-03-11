@@ -285,62 +285,35 @@ class Enviroment:
                 angle = 2*math.pi - angle
             
             count = angle // (math.pi/4)
-    
 
-            # if 0 < angle < math.pi/4:
-            #     diff1, diff2 = self.prox(0,math.pi/4,angle)
-            #     state[3] += diff1 * radius  # 3 deg
-            #     state[4] += diff2 * radius
-            
-            # if math.pi/4 < angle < math.pi/2:
-            #     diff1, diff2 = self.prox(math.pi/4,math.pi/2,angle)
-            #     state[4] += diff1 * radius
-            #     state[5] += diff2 * radius
-            
-            # if math.pi/2 < angle < (math.pi/4)*3:
-            #     diff1, diff2 = self.prox(math.pi/2,(math.pi/4)*3,angle)
-            #     state[5] += diff1 * radius
-            #     state[6] += diff2 * radius
-            
-            # if (math.pi/4)*3 < angle < math.pi:
-            #     diff1, diff2 = self.prox((math.pi/4)*3,math.pi,angle)
-            #     state[6] += diff1 * radius
-            #     state[7] += diff2 * radius #180 deg
-            
-            # if  -math.pi/4 < angle < 0:
-            #     diff1, diff2 = self.prox(-math.pi/4,0,angle)
-            #     state[8] += diff1 * radius
-            #     state[3] += diff2 * radius # 0 deg
-            
-            # if -math.pi/2 < angle < -math.pi/4:
-            #     diff1, diff2 = self.prox(-math.pi/2,-math.pi/4,angle)
-            #     state[9] += diff1 * radius
-            #     state[8] += diff2 * radius
-
-            # if -(math.pi/4)*3  < angle < -math.pi/2:
-            #     diff1, diff2 = self.prox(-(math.pi/4)*3,-math.pi/2,angle)
-            #     state[10] += diff1 * radius
-            #     state[9] += diff2 * radius
-            
-            # if -math.pi  < angle < -(math.pi/4)*3:
-            #     diff1, diff2 = self.prox(-(math.pi/4)*3,-math.pi,angle)
-            #     state[11] += diff1 * radius
-            #     state[7] += diff2 * radius # 180 deg
-            
-            
-
-            
+            if angle <= (2*math.pi) * (7/8):
+                diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
+                state[3 + count] = diff1 * 2 * (1 - torch.tanh(0.06*(radius - 110)))
+                state[3 + count + 1] = diff2 * 2*(1 - torch.tanh(0.06*(radius - 110)))
+            else:
+                diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
+                state[3 + count] = diff1 * 2 * (1 - torch.tanh(0.06*(radius - 110)))
+                state[3] = diff2 * 2*(1 - torch.tanh(0.06*(radius - 110)))
                 
     
         for i in self.bouncer_group.sprites():
-            state[i_iter] = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
-            i_iter += 1
-            state[i_iter] = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
-            i_iter += 1
-            state[i_iter] =  i.dir[0] / math.ceil(delta/10)
-            i_iter += 1
-            state[i_iter] = i.dir[1] / math.ceil(delta/10)
-            i_iter += 1
+            x  = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
+            y = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            radius, angle = self.polar(x,y)
+
+            if angle < 0:
+                angle = 2*math.pi - angle
+            
+            count = angle // (math.pi/4)
+
+            if angle <= (2*math.pi) * (7/8):
+                diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
+                state[3 + count] = diff1 * 2 * (-1 +torch.tanh(0.06*(radius - 110)))
+                state[3 + count + 1] = diff2 * 2*(-1 + torch.tanh(0.06*(radius - 110)))
+            else:
+                diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
+                state[3 + count] = diff1 * 2 * (-1 + torch.tanh(0.06*(radius - 110)))
+                state[3] = diff2 * 2*(- + torch.tanh(0.06*(radius - 110)))
         
         return state
 
