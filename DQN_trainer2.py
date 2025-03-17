@@ -49,7 +49,8 @@ def main():
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
 
     #run 11&12&13 is with nerfed game
-    run_id = 14 # above 7 is with normal 5 is without
+    #run 15 and above is with new state
+    run_id = 16 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"

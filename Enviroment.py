@@ -107,7 +107,7 @@ class Enviroment:
             herb_p1[j][1] = (i.pos[1] - self.spaceship.pos[1])
             j += 1
 
-        h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1)) - 110
+        h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1)) - 110 / Constants.HERB_NUMBER
         dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist1))
 
         self.getInput(events,action)
@@ -139,7 +139,7 @@ class Enviroment:
         #     bounce_p[k][0] == (i.pos[0] - self.spaceship.pos[0])/Constants.BOUNDERIES[0]
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
-        h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) - 110
+        h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) - 110 / Constants.HERB_NUMBER
         dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist2))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
@@ -217,7 +217,7 @@ class Enviroment:
 
     def polar(self,x, y):
         angle = math.atan2(y,x)
-        radius = y**2 + x**2
+        radius = math.sqrt(y**2 + x**2)
         return (radius,angle)
         
 
@@ -277,8 +277,8 @@ class Enviroment:
 
         i_iter = 3
         for i in self.herb_group.sprites():
-            x  = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
-            y = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            x  = (i.pos[0] - self.spaceship.pos[0]) 
+            y = (i.pos[1] - self.spaceship.pos[1])
             radius, angle = self.polar(x,y)
 
             if angle < 0:
@@ -288,17 +288,17 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count - 1] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
-                state[3 + count] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
+                state[3 + count - 1] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110 / Constants.HERB_NUMBER)))
+                state[3 + count] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110)))
-                state[3] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
+                state[3] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
                 
     
         for i in self.bouncer_group.sprites():
-            x  = (i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0]
-            y = (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1]
+            x  = (i.pos[0] - self.spaceship.pos[0]) 
+            y = (i.pos[1] - self.spaceship.pos[1])
             radius, angle = self.polar(x,y)
 
             if angle < 0:
@@ -308,13 +308,12 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count] = diff1 * 2 * (-1 +math.tanh(0.06*(radius - 110)))
-                state[3 + count + 1] = diff2 * 2*(-1 + math.tanh(0.06*(radius - 110)))
+                state[3 + count] = diff1 * 2 * (-1 +math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3 + count + 1] = diff2 * 2*(-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (-1 + math.tanh(0.06*(radius - 110)))
-                state[3] = diff2 * 2*(- + math.tanh(0.06*(radius - 110)))
-        
+                state[3 + count] = diff1 * 2 * (-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3] = diff2 * 2*(- + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
         return state
 
     def collisions(self):
