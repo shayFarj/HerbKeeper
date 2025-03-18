@@ -13,7 +13,7 @@ class SpaceShip(CircleSprite.CircleSprite):
 
     def __init__(self,pos):
         self.action = (0,0)
-        super().__init__(pos,16,Constants.PASTEL_BLUE)
+        super().__init__(pos,Constants.SPACESHIP_RADIUS,Constants.PASTEL_BLUE)
         pygame.gfxdraw.aaellipse(self.image,16,16,12,4,(0,0,0))
         pygame.gfxdraw.filled_ellipse(self.image,16,16,13,5,(0,0,0))
         pygame.gfxdraw.aaellipse(self.image,16,16,4,12,(0,0,0))

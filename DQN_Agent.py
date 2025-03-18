@@ -9,7 +9,7 @@ from DQN import DQN
 # epsilon Greedy
 epsilon_start = 1
 epsilon_final = 0.01
-epsiln_decay = 5000
+epsiln_decay = 1700
 
 # epochs = 1000
 # batch_size = 64

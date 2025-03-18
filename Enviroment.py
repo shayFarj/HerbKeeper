@@ -96,7 +96,7 @@ class Enviroment:
         if self.dmg_timer >= 2000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
-            reward -= 1
+            reward -= 5
         
 
         herb_p1 = torch.zeros((Constants.HERB_NUMBER,2))
@@ -108,7 +108,7 @@ class Enviroment:
             j += 1
 
         h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1)) - 110 / Constants.HERB_NUMBER
-        dh_reward1 = 2*torch.sum(1 - torch.tanh(0.06*h_dist1))
+        dh_reward1 = 8*torch.sum(1 - torch.tanh(0.06*h_dist1))
 
         self.getInput(events,action)
         delta = self.update(or_delta=or_delta)
@@ -140,12 +140,12 @@ class Enviroment:
         #     bounce_p[k][1] == (i.pos[1] - self.spaceship.pos[1])/Constants.BOUNDERIES[1]
         
         h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) - 110 / Constants.HERB_NUMBER
-        dh_reward2 = 2* torch.sum(1 - torch.tanh(0.06*h_dist2))#0.5 - 0.5* torch.tanh(0.015*h_dist)
+        dh_reward2 = 8* torch.sum(1 - torch.tanh(0.06*h_dist2))#0.5 - 0.5* torch.tanh(0.015*h_dist)
 
         if hc_count > 0:
             reward = hc_count * 3
         else:
-            reward = (dh_reward2 - dh_reward1)*2 - 0.05
+            reward = (dh_reward2 - dh_reward1)*2 - 2
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
@@ -227,10 +227,11 @@ class Enviroment:
         match(self.scene_status):
             case scene_flags.game:
                 # self.graze_group.draw(self.surface)
+                self.bouncer_group.draw(self.surface)
+                self.spaceship_group.draw(self.surface)
+                self.herb_group.draw(self.surface)
                 if not self.training:
-                    self.bouncer_group.draw(self.surface)
-                    self.spaceship_group.draw(self.surface)
-                    self.herb_group.draw(self.surface)
+                    
                     text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
             case scene_flags.game_over:
                 text_to_screen(self.surface,'FALIURE',128,128,size=100,color=Constants.PASTEL_RED,font_type='pixelated-papyrus.ttf')
@@ -288,12 +289,12 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count - 1] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110 / Constants.HERB_NUMBER)))
-                state[3 + count] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
+                state[3 + count - 1] = diff1 * Constants.MAX_REWARD * (1 - math.tanh(0.0015*(radius - Constants.HERB_RADIUS - Constants.SPACESHIP_RADIUS)))
+                state[3 + count] = diff2 * Constants.MAX_REWARD *(1 - math.tanh(0.0015*(radius - Constants.SPACESHIP_RADIUS - Constants.HERB_RADIUS)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
-                state[3] = diff2 * 2*(1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
+                state[3 + count] = diff1 * 10 * (1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
+                state[3] = diff2 * 10 *(1 - math.tanh(0.06*(radius - 110/ Constants.HERB_NUMBER)))
                 
     
         for i in self.bouncer_group.sprites():
@@ -308,12 +309,12 @@ class Enviroment:
 
             if angle <= (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count] = diff1 * 2 * (-1 +math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
-                state[3 + count + 1] = diff2 * 2*(-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3 + count] = diff1 * 10 * (-1 +math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3 + count + 1] = diff2 * 10 *(-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff1 * 2 * (-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
-                state[3] = diff2 * 2*(- + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3 + count] = diff1 * 10 * (-1 + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
+                state[3] = diff2 * 10 *(- + math.tanh(0.06*(radius - 110/ Constants.BOUNCER_NUMBER)))
         return state
 
     def collisions(self):

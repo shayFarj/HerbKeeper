@@ -1,7 +1,7 @@
 import pygame
 import pygame.gfxdraw
 from pygame.locals import *
-
+import math
 
 
 
@@ -45,6 +45,9 @@ STATE_LEN = 3 + 8 #spaceship's position&energy, directions
 P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
 
+
+MAX_REWARD = 10
+SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
 
@@ -67,3 +70,8 @@ pygame.gfxdraw.aapolygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
 pygame.gfxdraw.filled_polygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
 
 BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
+
+REWARD_GAMMA = 0.0015
+
+def reward_dis(distance):
+    return MAX_REWARD * (1 - math.tanh(REWARD_GAMMA*(distance - HERB_RADIUS - SPACESHIP_RADIUS)))

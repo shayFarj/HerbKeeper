@@ -1,0 +1,24 @@
+c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py:126: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32),
+epoch: 0 loss: 0.00 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 1 loss: 0.01 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 2 loss: 0.03 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 3 loss: 0.02 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 4 loss: 0.05 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 5 loss: 0.04 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 6 loss: 0.03 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 7 loss: 0.02 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 8 loss: 0.11 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 9 loss: 0.05 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 10 loss: 0.13 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 11 loss: 0.06 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 12 loss: 0.03 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 13 loss: 0.03 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 14 loss: 0.06 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 15 loss: 0.04 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 16 loss: 0.02 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 17 loss: 0.14 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 18 loss: 0.05 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 19 loss: 0.06 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 20 loss: 0.03 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 21 loss: 0.12 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60

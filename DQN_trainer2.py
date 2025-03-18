@@ -50,7 +50,9 @@ def main():
 
     #run 11&12&13 is with nerfed game
     #run 15 and above is with new state
-    run_id = 16 # above 7 is with normal 5 is without
+    #run 16 is with one herb
+    #run 17 is the same as 16 but lower epsilon decay and more extreme rewards
+    run_id = 17 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
