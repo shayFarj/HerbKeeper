@@ -24,6 +24,8 @@ class SpaceShip(CircleSprite.CircleSprite):
         self.energy = Constants.INIT_ENERGY #1000
 
         self.speedVec = pygame.Vector2()
+
+        self.speed = 0
         
     
     def getAction(self,action):
@@ -61,12 +63,12 @@ class SpaceShip(CircleSprite.CircleSprite):
                         angle = 180
 
                 
-                speed = self.action[0] * 4 * Constants.SPACESHIP_SPEED * delta/10
+                self.speed = self.action[0] * 4 * Constants.SPACESHIP_SPEED * delta/10
 
                 #TODO return this
                 # self.energy -= math.ceil(speed) 
                 
-                vector = pygame.math.Vector2(speed,0).rotate(angle)
+                vector = pygame.math.Vector2(self.speed,0).rotate(angle)
 
                 self.speedVec = vector
 

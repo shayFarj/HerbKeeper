@@ -2,7 +2,7 @@ import pygame
 import pygame.gfxdraw
 from pygame.locals import *
 import math
-
+import torch
 
 
 BULLET_SPEED = 8
@@ -47,6 +47,7 @@ P_GEARS = [-1,0,1,2,3]
 
 
 MAX_REWARD = 10
+MAX_PUNISH = MAX_REWARD
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
@@ -71,7 +72,24 @@ pygame.gfxdraw.filled_polygon(BOUNCER_IMAGE,[(2,8),(22,8),(12,23)],(0,0,0))
 
 BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 
-REWARD_GAMMA = 0.0015
+REWARD_GAMMA = 666 * HERB_NUMBER 
+PUNISH_GAMMA = 666 * BOUNCER_NUMBER
 
-def reward_dis(distance):
-    return MAX_REWARD * (1 - math.tanh(REWARD_GAMMA*(distance - HERB_RADIUS - SPACESHIP_RADIUS)))
+def reward_diff_herb(distance,speed):
+    if speed == 0:
+        return 0 * distance
+    else:
+        return -MAX_REWARD * torch.tanh((distance/speed))
+
+
+def dir_status_herb(distance):
+    return MAX_REWARD * (1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/REWARD_GAMMA)))
+
+def reward_diff_boun(distance,speed):
+    if speed == 0:
+        return 0 * distance
+    else:
+        return MAX_PUNISH * torch.tanh((distance/speed))
+
+def dir_status_boun(distance):
+    return MAX_PUNISH * (-(1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/PUNISH_GAMMA))))
