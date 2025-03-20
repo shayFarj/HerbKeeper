@@ -52,6 +52,7 @@ def main():
     #run 15 and above is with new state
     #run 16 is with one herb
     #run 17 is the same as 16 but lower epsilon decay and more extreme rewards
+    #run 19 is with less neurons and idle punishing.
     run_id = 19 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
