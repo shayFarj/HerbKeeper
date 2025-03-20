@@ -52,7 +52,7 @@ def main():
     #run 15 and above is with new state
     #run 16 is with one herb
     #run 17 is the same as 16 but lower epsilon decay and more extreme rewards
-    run_id = 17 # above 7 is with normal 5 is without
+    run_id = 19 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
@@ -128,8 +128,9 @@ def main():
             buffer.push(state, torch.tensor(action, dtype=torch.int64), torch.tensor(reward, dtype=torch.float32), 
                          next_state, torch.tensor(done, dtype=torch.float32))
 
-            screen.blit(main_surf,(0,0))
-            pygame.display.update()
+            if render:
+                screen.blit(main_surf,(0,0))
+                pygame.display.update()
 
             #clock.tick(Constants.FPS)
             if env.gameOver():
@@ -156,7 +157,7 @@ def main():
         if epoch % update_hat == 0:
             player_hat.fix_update(dqn=player.DQN)
 
-        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {Constants.FPS}')
+        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {Constants.FPS} epsilon : {player.epsilon_greedy(epoch)}')
         if epoch % 10 == 0:
             losses.append(loss.item())
         if (epoch + 1) % 10 == 0:

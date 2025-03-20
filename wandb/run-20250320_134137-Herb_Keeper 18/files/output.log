@@ -1,0 +1,36 @@
+epoch: 0 loss: 15.25 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 1 loss: 11.20 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 2 loss: 8.79 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 3 loss: 7.12 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 4 loss: 6.25 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 5 loss: 6.81 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 6 loss: 9.19 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 7 loss: 6.67 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 8 loss: 8.52 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 9 loss: 8.07 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 10 loss: 9.13 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 11 loss: 7.59 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 12 loss: 7.94 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 13 loss: 9.69 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 14 loss: 7.98 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 15 loss: 8.34 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 16 loss: 8.53 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 17 loss: 9.02 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 18 loss: 11.08 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 19 loss: 11.37 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 20 loss: 10.89 LR: [0.0009599999999999999] step: 601 time: 10.02 sec fps: 60
+epoch: 21 loss: 10.06 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 22 loss: 10.34 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 23 loss: 10.46 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 24 loss: 9.31 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+epoch: 25 loss: 9.23 LR: [0.0009599999999999999] step: 481 time: 8.02 sec fps: 60
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 188, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 126, in main
+    next_state = env.state((1/Constants.FPS)*1000)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\Enviroment.py", line 289, in state
+    state[3 + count + 1] = diff2 * Constants.dir_status_herb(radius)
+    ~~~~~^^^^^^^^^^^^^^^
+IndexError: index 11 is out of bounds for dimension 0 with size 11

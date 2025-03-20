@@ -44,9 +44,9 @@ class Enviroment:
         self.delta_avg = []
         
         self.actions = []
+        self.actions.append((0,0))
         for i in range(1,9):
-            for j in range(0,2):
-                self.actions.append((j,i))
+            self.actions.append((1,i))
 
         self.surface = surface
 
@@ -96,7 +96,7 @@ class Enviroment:
         if self.dmg_timer >= 2000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
-            reward -= Constants.MAX_PUNISH
+            # reward -= Constants.MAX_PUNISH
         
 
         herb_p1 = torch.zeros((Constants.HERB_NUMBER,2))
@@ -139,9 +139,9 @@ class Enviroment:
         
 
         if hc_count > 0 or bc_count > 0:
-            reward += hc_count * Constants.MAX_REWARD - bc_count*Constants.MAX_PUNISH
+            reward += 2*(hc_count * Constants.MAX_REWARD - bc_count*Constants.MAX_PUNISH)
         else:
-            reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
+            reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item() - 5
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
@@ -283,7 +283,7 @@ class Enviroment:
             
             count = int(angle // (math.pi/4))
 
-            if angle <= (2*math.pi) * (7/8):
+            if angle < (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
                 state[3 + count] = diff1 * Constants.dir_status_herb(radius)
                 state[3 + count + 1] = diff2 * Constants.dir_status_herb(radius)
@@ -303,7 +303,7 @@ class Enviroment:
             
             count = int(angle // (math.pi/4))
 
-            if angle <= (2*math.pi) * (7/8):
+            if angle < (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
                 state[3 + count] = diff1 * Constants.dir_status_boun(radius)
                 state[3 + count + 1] = diff2 * Constants.dir_status_boun(radius)

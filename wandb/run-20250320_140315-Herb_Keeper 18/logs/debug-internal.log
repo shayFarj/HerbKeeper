@@ -1,0 +1,13 @@
+{"time":"2025-03-20T14:03:15.7899562+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-03-20T14:03:15.7899562+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250320_140315-Herb_Keeper 18\\logs\\debug-core.log"}
+{"time":"2025-03-20T14:03:15.8992821+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 18"}
+{"time":"2025-03-20T14:03:15.8992821+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 18"}
+{"time":"2025-03-20T14:03:15.8997916+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 18"}
+{"time":"2025-03-20T14:03:15.8997916+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 18"}
+{"time":"2025-03-20T14:03:15.8997966+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 18"}
+{"time":"2025-03-20T14:03:16.1906925+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-20T14:03:26.190969+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-03-20T14:16:46.3421988+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-03-20T14:21:01.3696805+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-03-20T14:21:33.5711274+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-03-20T14:22:08.2862046+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}

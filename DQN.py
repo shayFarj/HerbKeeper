@@ -9,9 +9,9 @@ import Constants
 
 # Parameters
 input_size = Constants.STATE_LEN
-layer1 = 128
-layer2 = 64
-output_size = 16 # Q(s,a) number of all combinations of direction and gear
+layer1 = 64
+layer2 = 32
+output_size = 9 # Q(s,a) number of all combinations of direction and gear
 gamma = Constants.AGENT_GAMMA
 MSELoss = nn.MSELoss()
 
