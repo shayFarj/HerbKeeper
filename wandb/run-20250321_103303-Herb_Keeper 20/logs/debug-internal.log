@@ -1,0 +1,17 @@
+{"time":"2025-03-21T10:33:03.1768459+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-03-21T10:33:03.1768459+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250321_103303-Herb_Keeper 20\\logs\\debug-core.log"}
+{"time":"2025-03-21T10:33:03.284778+02:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:03.284778+02:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:03.284778+02:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:03.284778+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:03.284778+02:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:03.5664864+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-21T10:33:13.5675017+02:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-03-21T10:33:36.498397+02:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:36.498397+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-21T10:33:36.4990421+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-21T10:33:37.6836949+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-21T10:33:37.9820191+02:00","level":"INFO","msg":"handler: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:37.9820191+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:37.9820191+02:00","level":"INFO","msg":"sender: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-21T10:33:37.9825256+02:00","level":"INFO","msg":"stream: closed","id":"Herb_Keeper 20"}
