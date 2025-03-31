@@ -79,7 +79,10 @@ def reward_diff_herb(distance,speed):
     if speed == 0:
         return 0 * distance
     else:
-        return -MAX_REWARD * torch.tanh((distance/speed))
+        if distance <= 0:
+            return MAX_REWARD * (1 - torch.tanh((speed + distance)/(0.15 * speed)))
+        else:
+            return MAX_REWARD * (-1 - torch.tanh((distance - speed)/(0.15 * speed)))
 
 
 def dir_status_herb(distance):
@@ -89,7 +92,10 @@ def reward_diff_boun(distance,speed):
     if speed == 0:
         return 0 * distance
     else:
-        return MAX_PUNISH * torch.tanh((distance/speed))
+        if distance <= 0:
+            return -MAX_PUNISH * (1 - torch.tanh((speed + distance)/(0.15 * speed)))
+        else:
+            return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/(0.15 * speed)))
 
 def dir_status_boun(distance):
     return MAX_PUNISH * (-(1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/PUNISH_GAMMA))))

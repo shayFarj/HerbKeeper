@@ -141,11 +141,14 @@ class Enviroment:
         if hc_count > 0 or bc_count > 0:
             reward += 2*(hc_count * Constants.MAX_REWARD - bc_count*Constants.MAX_PUNISH)
         else:
-            reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item() - 5
+            if self.spaceship.speed == 0:
+                reward -= 5
+            else:
+                reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-        #text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         
 
         done = self.gameOver()
