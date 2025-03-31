@@ -84,6 +84,12 @@ def reward_diff_herb(distance,speed):
         else:
             return MAX_REWARD * (-1 - torch.tanh((distance - speed)/(0.15 * speed)))
 
+def outofBounderies(sprite):
+        if sprite is pygame.sprite:
+            return sprite.pos[0] < 0 or sprite.pos[0] > BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > BOUNDERIES[1]
+        else:
+            return sprite[0] < 0 or sprite[0] > BOUNDERIES[0] or sprite[1] < 0 or sprite[1] > BOUNDERIES[1]
+
 
 def dir_status_herb(distance):
     return MAX_REWARD * (1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/REWARD_GAMMA)))

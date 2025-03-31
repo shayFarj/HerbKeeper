@@ -1,0 +1,20 @@
+{"time":"2025-03-31T09:59:30.9172087+03:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2025-03-31T09:59:30.9172087+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\User\\Documents\\herbskeeper\\HerbKeeper\\wandb\\run-20250331_095930-Herb_Keeper 20\\logs\\debug-core.log"}
+{"time":"2025-03-31T09:59:31.5754212+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 20"}
+{"time":"2025-03-31T09:59:31.5765756+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 20"}
+{"time":"2025-03-31T09:59:31.5766725+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T09:59:31.5766725+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T09:59:31.5768547+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T09:59:31.610519+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-03-31T09:59:33.7619606+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-03-31T09:59:38.2559069+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-03-31T09:59:47.2057308+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-03-31T10:00:07.4524584+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-31T10:00:09.8960638+03:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 20"}
+{"time":"2025-03-31T10:00:09.8960638+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-31T10:00:09.8976863+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-31T10:00:11.7140912+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-31T10:00:12.2582997+03:00","level":"INFO","msg":"handler: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T10:00:12.2582997+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T10:00:12.2582997+03:00","level":"INFO","msg":"sender: closed","stream_id":"Herb_Keeper 20"}
+{"time":"2025-03-31T10:00:12.2593457+03:00","level":"INFO","msg":"stream: closed","id":"Herb_Keeper 20"}

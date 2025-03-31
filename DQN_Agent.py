@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from DQN import DQN
+import Constants
 
 # epsilon Greedy
 epsilon_start = 1
@@ -24,6 +25,7 @@ class DQN_Agent:
         self.player = player
         self.env = env
         self.active = True
+        self.random_act = (0,0)
 
     def train (self, train):
           self.train = train
@@ -32,14 +34,17 @@ class DQN_Agent:
           else:
               self.DQN.eval()
 
-    def get_action (self, state, epoch = 0, events= None, train = True):
+    def get_action (self, state,stuck, epoch = 0, events= None, train = True, step = 0):
         if not self.active:
             return (0,0)
         epsilon = self.epsilon_greedy(epoch)
         rnd = random.random()
         actions = self.env.legal_actions(state)
         if self.train and train and rnd < epsilon:
-            return random.choice(actions)
+            if step % 50 == 0 or stuck:
+                self.random_act = random.choice(actions)
+                
+            return self.random_act
         
         with torch.no_grad():
             Q_values = self.DQN(state)

@@ -26,6 +26,7 @@ class SpaceShip(CircleSprite.CircleSprite):
         self.speedVec = pygame.Vector2()
 
         self.speed = 0
+        self.stuck = False
         
     
     def getAction(self,action):
@@ -74,6 +75,9 @@ class SpaceShip(CircleSprite.CircleSprite):
 
                 nextPos = (round(self.pos[0] + vector[0]),round(self.pos[1] + vector[1]))
                 if not self.outofBounderies(nextPos):
+                    self.stuck = False
                     self.setPosition(nextPos)
+                else:
+                    self.stuck = True
                 
 

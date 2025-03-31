@@ -122,7 +122,7 @@ def main():
             
             state = env.state((1/Constants.FPS)*1000)
 
-            action = player.get_action(state=state,events=events,epoch = epoch)
+            action = player.get_action(state,env.spaceship.stuck,epoch=epoch,events=events,step=step)
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
 
             next_state = env.state((1/Constants.FPS)*1000)

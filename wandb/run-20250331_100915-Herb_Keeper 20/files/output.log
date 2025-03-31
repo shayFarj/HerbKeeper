@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 191, in <module>
+    main()
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_trainer2.py", line 125, in main
+    action = player.get_action(spaceship=env.spaceship,pos = env.spaceship.pos,state=state,events=events,epoch = epoch,step = step)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\User\Documents\herbskeeper\HerbKeeper\DQN_Agent.py", line 44, in get_action
+    if step % 50 == 0 or Constants.outofBounderies((pos[0] + spaceship.speed[0],pos[1] + spaceship.speed[1])):
+                                                             ~~~~~~~~~~~~~~~^^^
+TypeError: 'int' object is not subscriptable
