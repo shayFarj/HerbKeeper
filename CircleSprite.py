@@ -18,3 +18,7 @@ class CircleSprite (ShapeSprite.shapeSprite):
     def setPosition(self, pos):
         self.rect.move_ip(-self.pos[0] + pos[0],-self.pos[1] + pos[1])
         self.pos = pos
+
+    def setColor(self, color):
+        pygame.gfxdraw.aacircle(self.image,self.radius,self.radius,self.radius - 1,color)
+        pygame.gfxdraw.filled_circle(self.image, self.radius, self.radius, self.radius - 1,color)
