@@ -54,7 +54,8 @@ def main():
     #run 17 is the same as 16 but lower epsilon decay and more extreme rewards
     #run 19 is with less neurons and idle punishing.
     #run 20 added layer of 16 nuerons
-    run_id = 20 # above 7 is with normal 5 is without
+    #run 21 fixed state display, new net
+    run_id = 21 # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
