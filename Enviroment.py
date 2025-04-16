@@ -159,11 +159,11 @@ class Enviroment:
             if self.spaceship.speed == 0 or self.spaceship.stuck:
                 reward -= 5
             else:
-                reward += Constants.reward_herb2(h_diff,self.spaceship.speed).item() #torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
+                reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()#Constants.reward_diff_herb(h_diff,self.spaceship.speed).item() #
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-        # text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         # text_to_screen(self.surface,"dIst : " + str(h_diff),256+ 64,128,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
         # text_to_screen(self.surface,"speed : " + str(self.spaceship.speed),256+ 64,64 + 32,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
 

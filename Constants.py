@@ -75,16 +75,16 @@ BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 REWARD_GAMMA = 666 * HERB_NUMBER 
 PUNISH_GAMMA = 666 * BOUNCER_NUMBER
 
-REWARD_ALPHA = 8
+REWARD_ALPHA = 0.75
 
 def reward_diff_herb(distance,speed):
     if speed == 0:
         return 0 * distance
     else:
         if distance <= 0:
-            return MAX_REWARD * (1 - torch.tanh((speed + distance)/(0.15 * speed)))
+            return MAX_REWARD * (1 - torch.tanh((speed + distance)/REWARD_ALPHA))
         else:
-            return MAX_REWARD * (-1 - torch.tanh((distance - speed)/(0.15 * speed)))
+            return MAX_REWARD * (-1 - torch.tanh((distance - speed)/REWARD_ALPHA))
 
 def outofBounderies(sprite):
         if sprite is pygame.sprite:
@@ -101,9 +101,9 @@ def reward_diff_boun(distance,speed):
         return 0 * distance
     else:
         if distance <= 0:
-            return -MAX_PUNISH * (1 - torch.tanh((speed + distance)/(0.15 * speed)))
+            return -MAX_PUNISH * (1 - torch.tanh((speed + distance)/0.6))
         else:
-            return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/(0.15 * speed)))
+            return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/0.6))
 
 def dir_status_boun(distance):
     return MAX_PUNISH * (-(1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/PUNISH_GAMMA))))
