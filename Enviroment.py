@@ -39,14 +39,22 @@ class Enviroment:
         # self.graze_group = pygame.sprite.GroupSingle()
         # self.graze_group.add(self.spaceship.graze)
         self.fps_clock = pygame.time.Clock()
-        # self.sDisplay = StateDisplay.StateDisplay((64,64),32)
+        self.sDisplay = StateDisplay.StateDisplay((64,64),32)
 
         self.scene_status = scene_flags.start_menu
 
         self.delta_avg = []
         
         self.actions = []
+        self.act_vectors = torch.zeros(9,2)
+
+        for i in range(0,8):
+            self.act_vectors[i + 1][0] = math.cos(math.radians(-135 + i * 45))
+            self.act_vectors[i + 1][1] = math.sin(math.radians(-135 + i * 45))
+            
+
         self.actions.append((0,0))
+
         for i in range(1,9):
             self.actions.append((1,i))
 
@@ -111,6 +119,8 @@ class Enviroment:
 
         h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1))
 
+        h1_cosines = torch.matmul(herb_p1,self.act_vectors[action[1]]) / h_dist1
+
         self.getInput(events,action)
         delta = self.update(or_delta=or_delta)
 
@@ -143,10 +153,10 @@ class Enviroment:
         if hc_count > 0 or bc_count > 0:
             reward += 2*(hc_count * Constants.MAX_REWARD - bc_count*Constants.MAX_PUNISH)
         else:
-            if self.spaceship.speed == 0:
+            if self.spaceship.speed == 0 or self.spaceship.stuck:
                 reward -= 5
             else:
-                reward += torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
+                reward += Constants.reward_herb(h_dist1,h1_cosines).item() #torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
@@ -192,7 +202,7 @@ class Enviroment:
 
 
         # text_to_screen(self.surface,"state : " +str(len(str_state)),64,128+64,size=20,color=Constants.PASTEL_BLUE_LIGHT,font_type='pixelated-papyrus.ttf')
-        # self.sDisplay.update(self.state(delta))
+        self.sDisplay.update(self.state(delta))
         if not or_delta:
             if not self.training:
                 if len(self.delta_avg) < 20:
@@ -232,7 +242,7 @@ class Enviroment:
                 self.bouncer_group.draw(self.surface)
                 self.spaceship_group.draw(self.surface)
                 self.herb_group.draw(self.surface)
-                #self.sDisplay.draw(self.surface)
+                self.sDisplay.draw(self.surface)
                 if not self.training:
                     
                     text_to_screen(self.surface,str(self.spaceship.energy),512-32,64,color=Constants.PASTEL_BLUE_LIGHT)
@@ -343,5 +353,3 @@ class Enviroment:
 
     def outofBounderies(self,sprite):
         return sprite.pos[0] < 0 or sprite.pos[0] > Constants.BOUNDERIES[0] or sprite.pos[1] < 0 or sprite.pos[1] > Constants.BOUNDERIES[1]
-
-

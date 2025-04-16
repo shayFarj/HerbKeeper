@@ -1,0 +1,19 @@
+{"time":"2025-04-11T16:34:52.2518434+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-04-11T16:34:52.2518434+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250411_163452-Herb_Keeper 21\\logs\\debug-core.log"}
+{"time":"2025-04-11T16:34:52.3598986+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 21"}
+{"time":"2025-04-11T16:34:52.3598986+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 21"}
+{"time":"2025-04-11T16:34:52.3598986+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T16:34:52.3598986+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T16:34:52.3598986+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T16:34:52.9595987+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-11T16:35:02.9606091+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-11T17:16:04.0508184+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2021/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2025-04-11T17:16:13.1219838+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:55836->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-04-11T18:38:23.4945366+03:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 21"}
+{"time":"2025-04-11T18:38:23.4945366+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-11T18:38:23.4957117+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-11T18:38:25.0712205+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-11T18:38:25.3603964+03:00","level":"INFO","msg":"handler: closed","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T18:38:25.3603964+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T18:38:25.3603964+03:00","level":"INFO","msg":"sender: closed","stream_id":"Herb_Keeper 21"}
+{"time":"2025-04-11T18:38:25.3609246+03:00","level":"INFO","msg":"stream: closed","id":"Herb_Keeper 21"}

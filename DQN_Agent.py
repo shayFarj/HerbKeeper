@@ -41,7 +41,7 @@ class DQN_Agent:
         rnd = random.random()
         actions = self.env.legal_actions(state)
         if self.train and train and rnd < epsilon:
-            if step % 50 == 0 or stuck:
+            if step % 25 == 0 or stuck:
                 self.random_act = random.choice(actions)
                 
             return self.random_act

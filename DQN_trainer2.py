@@ -54,7 +54,7 @@ def main():
     #run 17 is the same as 16 but lower epsilon decay and more extreme rewards
     #run 19 is with less neurons and idle punishing.
     #run 20 added layer of 16 nuerons
-    #run 21 fixed state display, new net
+    #run 21 fixed state & display, new net
     run_id = 21  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
@@ -100,7 +100,7 @@ def main():
 
 
     #endregion
-    render=True
+    render=False
     
     for epoch in range(start_epoch,epochs):
         env.restart()

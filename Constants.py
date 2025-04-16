@@ -34,7 +34,7 @@ CROP_TIME = 30
 HERB_RADIUS = 14
 BOUNCER_RADIUS = 12
 
-INIT_ENERGY = 100
+INIT_ENERGY = 4
 
 SPACESHIP_SPEED = 1
 
@@ -75,6 +75,8 @@ BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 REWARD_GAMMA = 666 * HERB_NUMBER 
 PUNISH_GAMMA = 666 * BOUNCER_NUMBER
 
+REWARD_ALPHA = 0.001
+
 def reward_diff_herb(distance,speed):
     if speed == 0:
         return 0 * distance
@@ -105,3 +107,6 @@ def reward_diff_boun(distance,speed):
 
 def dir_status_boun(distance):
     return MAX_PUNISH * (-(1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/PUNISH_GAMMA))))
+
+def reward_herb(distance,cosines):
+    return torch.sum(cosines / (REWARD_ALPHA * ((distance - HERB_RADIUS - SPACESHIP_RADIUS) + 1 / (MAX_REWARD * REWARD_ALPHA))))
