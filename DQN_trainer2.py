@@ -56,6 +56,7 @@ def main():
     #run 20 added layer of 16 nuerons
     #run 21 fixed state & display, new net
     #run 22 new reward func, more random movement
+    #run 23 reward more sensitive, collision reward is less extreme, epsilon decay is lower
     run_id = 22  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
