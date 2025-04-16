@@ -10,7 +10,7 @@ import Constants
 # epsilon Greedy
 epsilon_start = 1
 epsilon_final = 0.01
-epsiln_decay = 1900
+epsiln_decay = 1400
 
 # epochs = 1000
 # batch_size = 64
@@ -41,7 +41,7 @@ class DQN_Agent:
         rnd = random.random()
         actions = self.env.legal_actions(state)
         if self.train and train and rnd < epsilon:
-            if step % 25 == 0 or stuck:
+            if step % 15 == 0 or stuck:
                 self.random_act = random.choice(actions)
                 
             return self.random_act
