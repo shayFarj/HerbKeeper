@@ -57,7 +57,7 @@ def main():
     #run 21 fixed state & display, new net
     #run 22 new reward func, more random movement
     #run 23 reward more sensitive, collision reward is less extreme, epsilon decay is lower
-    run_id = 22  # above 7 is with normal 5 is without
+    run_id = 23  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
