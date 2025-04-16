@@ -64,7 +64,7 @@ class SpaceShip(CircleSprite.CircleSprite):
                         angle = 180
 
                 
-                self.speed = self.action[0] * 4 * Constants.SPACESHIP_SPEED * delta/10
+                self.speed = math.ceil(self.action[0] * Constants.SPACESHIP_SPEED * (delta / 1000))
 
                 #TODO return this
                 # self.energy -= math.ceil(speed) 

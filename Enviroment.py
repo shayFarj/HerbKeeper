@@ -119,10 +119,10 @@ class Enviroment:
 
         h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1))
 
-        if not 0 in h_dist1:
-            h1_cosines = torch.matmul(herb_p1,self.act_vectors[action[1]]) / h_dist1
-        else:
-            h1_cosines = torch.tensor([0],dtype=torch.float16)
+        # if not 0 in h_dist1:
+        #     h1_cosines = torch.matmul(herb_p1,self.act_vectors[action[1]]) / h_dist1
+        # else:
+        #     h1_cosines = torch.tensor([0],dtype=torch.float16)
 
         self.getInput(events,action)
         delta = self.update(or_delta=or_delta)
@@ -149,7 +149,7 @@ class Enviroment:
         
         h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) 
         
-        h_diff = h_dist2 - h_dist1
+        h_diff = torch.clamp(h_dist2 - h_dist1,max = self.spaceship.speed,min = -self.spaceship.speed)
 
         
 
@@ -159,12 +159,13 @@ class Enviroment:
             if self.spaceship.speed == 0 or self.spaceship.stuck:
                 reward -= 5
             else:
-                reward += Constants.reward_herb(h_dist1,h1_cosines).item() #torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
+                reward += Constants.reward_herb2(h_diff,self.spaceship.speed).item() #torch.sum(Constants.reward_diff_herb(h_diff,self.spaceship.speed)).item()
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-        text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
-        
+        # text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        # text_to_screen(self.surface,"dIst : " + str(h_diff),256+ 64,128,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        # text_to_screen(self.surface,"speed : " + str(self.spaceship.speed),256+ 64,64 + 32,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
 
         done = self.gameOver()
         if or_delta:

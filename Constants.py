@@ -36,7 +36,7 @@ BOUNCER_RADIUS = 12
 
 INIT_ENERGY = 4
 
-SPACESHIP_SPEED = 1
+SPACESHIP_SPEED = 300
 
 # STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3  #herb position, bouncer position&velocity, spaceship's position&energy 
 
@@ -75,7 +75,7 @@ BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 REWARD_GAMMA = 666 * HERB_NUMBER 
 PUNISH_GAMMA = 666 * BOUNCER_NUMBER
 
-REWARD_ALPHA = 0.0005
+REWARD_ALPHA = 1
 
 def reward_diff_herb(distance,speed):
     if speed == 0:
@@ -110,3 +110,10 @@ def dir_status_boun(distance):
 
 def reward_herb(distance,cosines):
     return torch.sum(cosines / (REWARD_ALPHA * ((distance - HERB_RADIUS - SPACESHIP_RADIUS) + 1 / (MAX_REWARD * REWARD_ALPHA))))
+
+def reward_herb2(distance,speed):
+    if distance == 0 or speed == 0:
+        return torch.zeros(1)
+    offset = 1 / ((MAX_REWARD / 2) * REWARD_ALPHA)
+
+    return torch.sum(1 / (REWARD_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
