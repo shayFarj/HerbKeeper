@@ -1,0 +1,7 @@
+{"time":"2025-04-16T16:48:53.8457352+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-04-16T16:48:53.8457352+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250416_164853-Herb_Keeper 24\\logs\\debug-core.log"}
+{"time":"2025-04-16T16:48:53.9571039+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 24"}
+{"time":"2025-04-16T16:48:53.9571039+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 24"}
+{"time":"2025-04-16T16:48:53.9571039+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 24"}
+{"time":"2025-04-16T16:48:53.9571039+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 24"}
+{"time":"2025-04-16T16:48:53.9571039+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 24"}
