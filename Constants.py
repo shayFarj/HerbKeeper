@@ -46,7 +46,7 @@ P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
 
 
-MAX_REWARD = 10
+MAX_REWARD = 20
 MAX_PUNISH = MAX_REWARD
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
@@ -82,9 +82,9 @@ def reward_diff_herb(distance,speed):
         return 0 * distance
     else:
         if distance <= 0:
-            return MAX_REWARD * (1 - torch.tanh((speed + distance)/REWARD_ALPHA))
+            return (MAX_REWARD/2) * (1 - torch.tanh((speed + distance)/REWARD_ALPHA))
         else:
-            return MAX_REWARD * (-1 - torch.tanh((distance - speed)/REWARD_ALPHA))
+            return (MAX_REWARD/2) * (-1 - torch.tanh((distance - speed)/REWARD_ALPHA))
 
 def outofBounderies(sprite):
         if sprite is pygame.sprite:
