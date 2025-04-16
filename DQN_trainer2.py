@@ -58,7 +58,7 @@ def main():
     #run 22 new reward func, more random movement
     #run 23 reward more sensitive, collision reward is less extreme, epsilon decay is lower
     #run 24 new reward func, new method of speed.
-    #run 25 using the prev reward func
+    #run 25 using the prev reward func, hoever it uses also reward alpha, and I made it more sensitive.
     run_id = 25  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
