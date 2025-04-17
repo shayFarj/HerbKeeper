@@ -34,7 +34,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.003
+    learning_rate = 0.002
     update_hat = 3
     epochs = 20000
     start_epoch = 0
@@ -60,7 +60,7 @@ def main():
     #run 24 new reward func, new method of speed.
     #run 25 using the prev reward func, hoever it uses also reward alpha, and I made it more sensitive.
     #run 26 normalized everthing in state, including reward and punish, boundaries are now cube shaped. no schedualer
-    #run 27 net had a useless relu layer after output, which might have screwed with the net.
+    #run 27 net had a useless relu layer after output, which might have screwed with the net. lowered learning rate
     run_id = 27  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
