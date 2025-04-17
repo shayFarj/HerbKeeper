@@ -46,13 +46,13 @@ P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
 
 
-MAX_REWARD = 20
+MAX_REWARD = 1
 MAX_PUNISH = MAX_REWARD
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
 
-BOUNDERIES = (1024,512)
+BOUNDERIES = (512,512)
 
 flags = DOUBLEBUF
 screen = pygame.display.set_mode(BOUNDERIES, flags=flags)
@@ -75,7 +75,7 @@ BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 REWARD_GAMMA = 666 * HERB_NUMBER 
 PUNISH_GAMMA = 666 * BOUNCER_NUMBER
 
-REWARD_ALPHA = 0.75
+REWARD_ALPHA = 0.6
 
 def reward_diff_herb(distance,speed):
     if speed == 0:

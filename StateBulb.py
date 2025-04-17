@@ -1,5 +1,6 @@
 import CircleSprite
 import math
+import Constants
 
 class StateBulb(CircleSprite.CircleSprite):
     def __init__(self,maxNum, minNum):
