@@ -38,9 +38,9 @@ INIT_ENERGY = 4
 
 SPACESHIP_SPEED = 300
 
-# STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3  #herb position, bouncer position&velocity, spaceship's position&energy 
+STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3  #herb position, bouncer position&velocity, spaceship's position&energy 
 
-STATE_LEN = 3 + 8 #spaceship's position&energy, directions
+#STATE_LEN = 3 + 8 #spaceship's position&energy, directions
 
 P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
