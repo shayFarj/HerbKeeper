@@ -31,12 +31,12 @@ class DQN (nn.Module):
         
     def forward (self, x):
         x = self.linear1(x)
-        x = F.relu(x)
-        x = self.linear2(x)
         x = F.leaky_relu(x)
-        x = self.linear3(x)
-        x = self.output(x)
+        x = self.linear2(x)
         x = F.relu(x)
+        x = self.linear3(x)
+        x = F.leaky_relu(x)
+        x = self.output(x)
         return x
     
     def load_params(self, path):
