@@ -59,7 +59,8 @@ def main():
     #run 23 reward more sensitive, collision reward is less extreme, epsilon decay is lower
     #run 24 new reward func, new method of speed.
     #run 25 using the prev reward func, hoever it uses also reward alpha, and I made it more sensitive.
-    run_id = 25  # above 7 is with normal 5 is without
+    #run 26 normalized everthing in state, including reward and punish, boundaries are now cube shaped.
+    run_id = 26  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
