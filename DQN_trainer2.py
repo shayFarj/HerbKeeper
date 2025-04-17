@@ -34,19 +34,19 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.0012
+    learning_rate = 0.003
     update_hat = 3
     epochs = 20000
     start_epoch = 0
     loss = torch.tensor(0)
     losses = []
     optim = torch.optim.Adam(player.DQN.parameters(), lr=learning_rate)
-    milestones = []
+    # milestones = []
 
-    for i in range(0,21000*1000,2000*1000):
-        milestones.append(i)
+    # for i in range(0,21000*1000,2000*1000):
+    #     milestones.append(i)
 
-    scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
+    # scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,milestones=milestones, gamma=Constants.SCHEDULER_GAMMA)
 
     #run 11&12&13 is with nerfed game
     #run 15 and above is with new state
@@ -74,7 +74,7 @@ def main():
         player.DQN.load_state_dict(checkpoint['model_state_dict'])
         player_hat.DQN.load_state_dict(checkpoint['model_state_dict'])
         optim.load_state_dict(checkpoint['optimizer_state_dict'])
-        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+        # scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
         buffer = torch.load(buffer_path)
         losses = checkpoint['loss']
         player.DQN.train()
@@ -91,7 +91,7 @@ def main():
             "name": f"Herb_Keeper DDQN {run_id}",
             "checkpoint": checkpoint_path,
             "learning_rate": learning_rate,
-            "Schedule": f'{str(scheduler.milestones)} gamma={str(scheduler.gamma)}',
+            # "Schedule": f'{str(scheduler.milestones)} gamma={str(scheduler.gamma)}',
             "epochs": epochs,
             "start_epoch": start_epoch,
             "decay": 0,
@@ -158,14 +158,14 @@ def main():
             loss.backward()
             optim.step()
             optim.zero_grad()
-            scheduler.step()
+            # scheduler.step()
             #endregion
 
         
         if epoch % update_hat == 0:
             player_hat.fix_update(dqn=player.DQN)
 
-        print (f'epoch: {epoch} loss: {loss:.2f} LR: {scheduler.get_last_lr()} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {Constants.FPS} epsilon : {player.epsilon_greedy(epoch)}')
+        print (f'epoch: {epoch} loss: {loss:.2f} LR: {learning_rate} step: {step} time: {1/Constants.FPS*step:.2f} sec fps: {Constants.FPS} epsilon : {player.epsilon_greedy(epoch)}')
         if epoch % 10 == 0:
             losses.append(loss.item())
         if (epoch + 1) % 10 == 0:
@@ -186,7 +186,7 @@ def main():
                 'epoch': epoch,
                 'model_state_dict': player.DQN.state_dict(),
                 'optimizer_state_dict': optim.state_dict(),
-                'scheduler_state_dict': scheduler.state_dict(),
+                # 'scheduler_state_dict': scheduler.state_dict(),
                 'loss': losses,
             }
             torch.save(checkpoint, checkpoint_path)
