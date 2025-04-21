@@ -61,7 +61,8 @@ def main():
     #run 25 using the prev reward func, hoever it uses also reward alpha, and I made it more sensitive.
     #run 26 normalized everthing in state, including reward and punish, boundaries are now cube shaped. no schedualer
     #run 27 net had a useless relu layer after output, which might have screwed with the net. lowered learning rate
-    run_id = 27  # above 7 is with normal 5 is without
+    #run 28 is using prev state function
+    run_id = 28  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
