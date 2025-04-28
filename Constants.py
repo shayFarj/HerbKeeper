@@ -75,7 +75,7 @@ BOUNCER_IMAGE = BOUNCER_IMAGE.convert_alpha()
 REWARD_GAMMA = (BOUNDERIES[0]/2) * HERB_NUMBER 
 PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 
-REWARD_ALPHA = 0.6
+REWARD_ALPHA = 1.6
 
 def reward_diff_herb(distance,speed):
     if speed == 0:
