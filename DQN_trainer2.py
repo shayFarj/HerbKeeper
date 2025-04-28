@@ -153,8 +153,9 @@ def main():
             #region ##################train##################
             
             states, actions, rewards, next_states, dones = buffer.sample(batch_size)
-            Q_values = player.DQN(states)
-            Q_hat_Values = player.DQN(next_states)
+            Q_values = player.DQN(states,actions)
+            
+            Q_hat_Values = player.DQN(next_states,actions)
 
             loss = player.DQN.loss(Q_values, rewards, Q_hat_Values, dones)
             loss.backward()

@@ -16,6 +16,13 @@ PASTEL_PURPLE_LIGHT = (255,191,191)
 PASTEL_GREEN = (127,255,127)
 GREEN_DARK = (0,64,0,127 + 64)
 
+
+ACT_CARTEZ = torch.zeros((8,2),type = torch.float32)
+
+for i in range(8):
+    ACT_CARTEZ[i][0] = math.cos(math.radians((225 + 45*i) % 360))
+    ACT_CARTEZ[i][1] = math.sin(math.radians((225 + 45*i) % 360))
+
 AGENT_GAMMA = 0.95
 SCHEDULER_GAMMA = 0.8
 
@@ -38,7 +45,7 @@ INIT_ENERGY = 4
 
 SPACESHIP_SPEED = 300
 
-STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3  #herb position, bouncer position&velocity, spaceship's position&energy 
+STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3   #herb position, bouncer position&velocity, spaceship's position&energy 
 
 #STATE_LEN = 3 + 8 #spaceship's position&energy, directions
 
@@ -51,6 +58,11 @@ MAX_PUNISH = MAX_REWARD
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
+
+ACT_EYES = torch.zeros((8,9),type=torch.float32)
+
+for i in range(8):
+    ACT_EYES[i][((225 + 45*i) % 360) % 45] = MAX_REWARD
 
 BOUNDERIES = (512,512)
 
@@ -117,3 +129,12 @@ def reward_herb2(distance,speed):
     offset = 1 / ((MAX_REWARD / 2) * REWARD_ALPHA)
 
     return torch.sum(1 / (REWARD_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
+
+def actToCartez(self,action):
+    return ACT_CARTEZ[action[1] - 1][0] * action[0] * MAX_REWARD , ACT_CARTEZ[action[1] - 1][1]* action[0]* MAX_REWARD
+
+def actToEyes(self,action):
+    if action[0] == 0:
+        return ACT_EYES[8]
+    else:
+        return ACT_EYES[action[1] - 1]

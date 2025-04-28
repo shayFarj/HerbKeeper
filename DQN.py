@@ -8,11 +8,12 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-input_size = Constants.STATE_LEN
+#input size = Constants.STATE_LEN + 8 #eyes length + state length
+input_size = Constants.STATE_LEN  + 2 # action length + state length
 layer1 = 64
 layer2 = 32
 layer3 = 16
-output_size = 9 # Q(s,a) number of all combinations of direction and gear
+output_size = 1 # value of the action in the current state
 gamma = Constants.AGENT_GAMMA
 MSELoss = nn.MSELoss()
 
@@ -26,15 +27,13 @@ class DQN (nn.Module):
         
         self.linear1 = nn.Linear(input_size, layer1)
         self.linear2 = nn.Linear(layer1, layer2)
-        self.linear3 = nn.Linear(layer2,layer3)
-        self.output = nn.Linear(layer3, output_size)
+        self.output = nn.Linear(layer2, output_size)
         
-    def forward (self, x):
+    def forward (self, state,action):
+        x = torch.cat((action,state),dim=1)
         x = self.linear1(x)
         x = F.leaky_relu(x)
         x = self.linear2(x)
-        x = F.relu(x)
-        x = self.linear3(x)
         x = F.leaky_relu(x)
         x = self.output(x)
         return x

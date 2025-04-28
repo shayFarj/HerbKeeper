@@ -47,7 +47,7 @@ class DQN_Agent:
             return self.random_act
         
         with torch.no_grad():
-            Q_values = self.DQN(state)
+            Q_values = self.DQN(state,Constants.ACT_CARTEZ)
         
         max_index = torch.argmax(Q_values)
         return actions[max_index]
