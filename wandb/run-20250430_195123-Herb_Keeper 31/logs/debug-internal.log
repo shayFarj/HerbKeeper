@@ -1,0 +1,8 @@
+{"time":"2025-04-30T19:51:23.7520778+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-04-30T19:51:23.7520778+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250430_195123-Herb_Keeper 31\\logs\\debug-core.log"}
+{"time":"2025-04-30T19:51:23.8599197+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 31"}
+{"time":"2025-04-30T19:51:23.8599338+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 31"}
+{"time":"2025-04-30T19:51:23.8599338+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 31"}
+{"time":"2025-04-30T19:51:23.8599338+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 31"}
+{"time":"2025-04-30T19:51:23.8599338+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 31"}
+{"time":"2025-04-30T19:51:24.1474981+03:00","level":"INFO","msg":"Starting system monitor"}

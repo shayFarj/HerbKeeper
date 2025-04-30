@@ -130,10 +130,10 @@ def reward_herb2(distance,speed):
 
     return torch.sum(1 / (REWARD_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
 
-def actToCartez(self,action):
-    return ACT_CARTEZ[action[1] - 1] * action[0] * MAX_REWARD
+def actToCartez(action):
+    return ACT_CARTEZ[action[1] - 1] * action[0]
 
-def actToEyes(self,action):
+def actToEyes(action):
     if action[0] == 0:
         return ACT_EYES[8]
     else:
