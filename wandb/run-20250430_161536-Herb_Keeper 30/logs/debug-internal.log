@@ -1,0 +1,12 @@
+{"time":"2025-04-30T16:15:36.317702+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-04-30T16:15:36.317702+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250430_161536-Herb_Keeper 30\\logs\\debug-core.log"}
+{"time":"2025-04-30T16:15:36.4279405+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 30"}
+{"time":"2025-04-30T16:15:36.4279405+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 30"}
+{"time":"2025-04-30T16:15:36.4279405+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 30"}
+{"time":"2025-04-30T16:15:36.4279405+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 30"}
+{"time":"2025-04-30T16:15:36.4279405+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 30"}
+{"time":"2025-04-30T16:15:38.8211189+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-30T16:15:48.8221018+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-04-30T16:28:27.9447526+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:52094->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-04-30T16:32:28.1993934+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:52418->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2025-04-30T16:32:32.907081+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2030/file_stream\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}

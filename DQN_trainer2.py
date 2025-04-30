@@ -62,7 +62,9 @@ def main():
     #run 26 normalized everthing in state, including reward and punish, boundaries are now cube shaped. no schedualer
     #run 27 net had a useless relu layer after output, which might have screwed with the net. lowered learning rate
     #run 28 is using prev state function
-    run_id = 28  # above 7 is with normal 5 is without
+    #run 29 new net, net gets action and state
+    #run 30 now using player hat and higher max reward
+    run_id = 30  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
@@ -155,7 +157,7 @@ def main():
             states, actions, rewards, next_states, dones = buffer.sample(batch_size)
             Q_values = player.DQN(states,actions)
             
-            Q_hat_Values = player.DQN(next_states,actions)
+            Q_hat_Values = player_hat.DQN(next_states,actions)
 
             loss = player.DQN.loss(Q_values, rewards, Q_hat_Values, dones)
             loss.backward()

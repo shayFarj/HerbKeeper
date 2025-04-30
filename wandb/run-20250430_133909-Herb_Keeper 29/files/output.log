@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 201, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 157, in main
+    Q_values = player.DQN(states,actions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DQN.__call__() takes 2 positional arguments but 3 were given

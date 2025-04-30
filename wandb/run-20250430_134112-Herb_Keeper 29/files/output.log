@@ -1,0 +1,12 @@
+epoch: 0 loss: 0.01 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 1.0
+epoch: 1 loss: 0.01 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9990104948350412
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 201, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 134, in main
+    action = player.get_action(state,env.spaceship.stuck,epoch=epoch,events=events,step=step)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_Agent.py", line 49, in get_action
+    expand_state = state.repeat(Constants.ACT_CARTEZ.dim()[0],1)
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+TypeError: 'int' object is not subscriptable

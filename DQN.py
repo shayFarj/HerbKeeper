@@ -53,5 +53,5 @@ class DQN (nn.Module):
         Q_new = rewards + gamma * Q_next_Values * (1- Dones)
         return MSELoss(Q_value, Q_new)
 
-    def __call__(self, states):
-        return self.forward(states).to(self.device)
+    def __call__(self, states,actions):
+        return self.forward(states,actions).to(self.device)

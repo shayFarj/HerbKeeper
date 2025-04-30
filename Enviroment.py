@@ -46,17 +46,12 @@ class Enviroment:
         self.delta_avg = []
         
         self.actions = []
-        self.act_vectors = torch.zeros(9,2)
-
-        for i in range(0,8):
-            self.act_vectors[i + 1][0] = math.cos(math.radians(-135 + i * 45))
-            self.act_vectors[i + 1][1] = math.sin(math.radians(-135 + i * 45))
             
-
-        self.actions.append((0,0))
-
         for i in range(1,9):
             self.actions.append((1,i))
+        
+        self.actions.append((0,0))
+
 
         self.surface = surface
 
