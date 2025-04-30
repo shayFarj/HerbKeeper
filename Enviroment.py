@@ -280,6 +280,51 @@ class Enviroment:
         
         return state
 
+    def state_sorted(self, delta):
+        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
+
+        state[0] = self.spaceship.energy / Constants.INIT_ENERGY
+
+        state[1] = self.spaceship.pos[0] / Constants.BOUNDERIES[0]
+        state[2] = self.spaceship.pos[1] / Constants.BOUNDERIES[1]
+
+        i_iter = 3
+
+        herbs_arr = []
+
+        for i in self.herb_group.sprites():
+            herbs_arr.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0], (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1])
+
+        herbs_arr = sorted(herbs_arr,key=lambda x: x[0]**2 + x[1]**2)
+
+        for i in herbs_arr:
+            state[i_iter] = i[0]
+            i_iter += 1
+            state[i_iter] = i[1]
+            i_iter += 1
+
+        boun_arr = []
+
+        for i in self.bouncer_group.sprites():
+            boun_arr.append((i.pos[0] - self.spaceship.pos[0]) / Constants.BOUNDERIES[0],
+                             (i.pos[1] - self.spaceship.pos[1]) / Constants.BOUNDERIES[1],
+                             i.dir[0] / math.ceil(delta/10),
+                             i.dir[1] / math.ceil(delta/10))
+
+        boun_arr = sorted(boun_arr,key=lambda x: x[0]**2 + x[1]**2)
+
+        for i in boun_arr:
+            state[i_iter] = i[0]
+            i_iter += 1
+            state[i_iter] = i[1]
+            i_iter += 1
+            state[i_iter] =  i[2]
+            i_iter += 1
+            state[i_iter] = i[3]
+            i_iter += 1
+        
+        return state
+
     # def state(self, delta):
     #     state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
 
