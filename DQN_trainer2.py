@@ -64,8 +64,9 @@ def main():
     #run 28 is using prev state function
     #run 29 new net, net gets action and state
     #run 30 now using player hat and higher max reward
-    #run 31 pushing actual action vectors to buffer
-    run_id = 31  # above 7 is with normal 5 is without
+    #run 31 pushing actual action vectors to buffer (success)
+    #run 32 using the eyes state
+    run_id = 32  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
@@ -138,7 +139,7 @@ def main():
 
             next_state = env.state((1/Constants.FPS)*1000)
 
-            buffer.push(state, Constants.actToCartez(action), torch.tensor(reward, dtype=torch.float32), 
+            buffer.push(state, Constants.actToEyes(action), torch.tensor(reward, dtype=torch.float32), 
                          next_state, torch.tensor(done, dtype=torch.float32))
 
             if render:

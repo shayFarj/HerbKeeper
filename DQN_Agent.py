@@ -46,10 +46,10 @@ class DQN_Agent:
                 
             return self.random_act
         
-        expand_state = state.repeat(Constants.ACT_CARTEZ.size()[0],1)
+        expand_state = state.repeat(Constants.ACT_EYES.size()[0],1)
 
         with torch.no_grad():
-            Q_values = self.DQN(expand_state,Constants.ACT_CARTEZ)
+            Q_values = self.DQN(expand_state,Constants.ACT_EYES)
         
         max_index = torch.argmax(Q_values)
         return actions[max_index]

@@ -41,9 +41,9 @@ INIT_ENERGY = 4
 
 SPACESHIP_SPEED = 300
 
-STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3   #herb position, bouncer position&velocity, spaceship's position&energy 
+#STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3   #herb position, bouncer position&velocity, spaceship's position&energy 
 
-#STATE_LEN = 3 + 8 #spaceship's position&energy, directions
+STATE_LEN = 3 + 8 #spaceship's position&energy, directions
 
 P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
@@ -62,7 +62,7 @@ for i in range(8):
 ACT_EYES = torch.zeros(9,8,dtype=torch.float32)
 
 for i in range(8):
-    ACT_EYES[i][((225 + 45*i) % 360) % 45] = MAX_REWARD
+    ACT_EYES[i][((225 + 45*i) % 360) // 45] = MAX_REWARD
 
 BOUNDERIES = (512,512)
 
@@ -89,6 +89,9 @@ PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 
 REWARD_ALPHA = 1.6
 
+MIN_STATUS = 1
+STATUS_ALPHA = (1/MIN_STATUS - 1/MAX_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
+
 def reward_diff_herb(distance,speed):
     if speed == 0:
         return 0 * distance
@@ -106,7 +109,8 @@ def outofBounderies(sprite):
 
 
 def dir_status_herb(distance):
-    return MAX_REWARD * (1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/REWARD_GAMMA)))
+    offset = 1 / (MAX_REWARD * STATUS_ALPHA)
+    return 1 / (STATUS_ALPHA * (distance- HERB_RADIUS - SPACESHIP_RADIUS + offset))
 
 def reward_diff_boun(distance,speed):
     if speed == 0:
@@ -118,7 +122,7 @@ def reward_diff_boun(distance,speed):
             return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/0.6))
 
 def dir_status_boun(distance):
-    return MAX_PUNISH * (-(1 - math.tanh(((distance - HERB_RADIUS - SPACESHIP_RADIUS)/PUNISH_GAMMA))))
+    return -1 * dir_status_herb(distance)
 
 def reward_herb(distance,cosines):
     return torch.sum(cosines / (REWARD_ALPHA * ((distance - HERB_RADIUS - SPACESHIP_RADIUS) + 1 / (MAX_REWARD * REWARD_ALPHA))))

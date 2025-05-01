@@ -1,0 +1,2 @@
+epoch: 0 loss: 1.33 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 1.0
+epoch: 1 loss: 0.94 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9990104948350412

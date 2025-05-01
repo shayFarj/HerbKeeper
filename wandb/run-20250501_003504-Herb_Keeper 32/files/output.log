@@ -1,0 +1,13 @@
+epoch: 0 loss: 0.02 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 1.0
+epoch: 1 loss: 0.01 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9990104948350412
+epoch: 2 loss: 0.06 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9980219786806598
+epoch: 3 loss: 0.06 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9970344505483393
+epoch: 4 loss: 0.09 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9960479094505515
+Traceback (most recent call last):
+  File "c:\Users\Public\wpilib\2025\vscode\data\extensions\ms-python.debugpy-2025.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_vars.py", line 622, in change_attr_expression
+    value = eval(expression, frame.f_globals, frame.f_locals)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'tensor' is not defined
+epoch: 5 loss: 0.09 LR: 0.002 step: 721 time: 12.02 sec fps: 60 epsilon : 0.9950623544007555
+epoch: 6 loss: 0.03 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9940777844133959

@@ -8,8 +8,8 @@ import torch.nn.functional as F
 import Constants
 
 # Parameters
-#input size = Constants.STATE_LEN + 8 #eyes length + state length
-input_size = Constants.STATE_LEN  + 2 # action length + state length
+input_size = Constants.STATE_LEN + 8 #eyes length + state length
+#input_size = Constants.STATE_LEN  + 2 # action length + state length
 layer1 = 64
 layer2 = 32
 layer3 = 16

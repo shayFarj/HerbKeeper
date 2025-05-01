@@ -1,0 +1,10 @@
+{"time":"2025-05-01T00:29:54.5323078+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-05-01T00:29:54.5323078+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250501_002954-Herb_Keeper 32\\logs\\debug-core.log"}
+{"time":"2025-05-01T00:29:54.6403894+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 32"}
+{"time":"2025-05-01T00:29:54.6403894+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 32"}
+{"time":"2025-05-01T00:29:54.6403894+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 32"}
+{"time":"2025-05-01T00:29:54.6403894+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 32"}
+{"time":"2025-05-01T00:29:54.6403894+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 32"}
+{"time":"2025-05-01T00:29:54.9458674+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-01T00:30:04.9471652+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-05-01T00:30:29.0591644+03:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.0.0.10:58467->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}

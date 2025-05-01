@@ -23,6 +23,10 @@ class Bouncer(pygame.sprite.Sprite):
         if self.dir[1] == 0:
             self.dir[1] = 1
     
+    def setPosition(self, pos):
+        self.rect.move_ip(-self.pos[0] + pos[0],-self.pos[1] + pos[1])
+        self.pos = pos
+
     def update(self,delta) -> None:    
         if(self.pos[0] > Constants.BOUNDERIES[0] or self.pos[0] < 0):
             self.dir[0] *= -1

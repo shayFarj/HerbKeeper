@@ -1,0 +1,30 @@
+epoch: 0 loss: 0.18 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 1.0
+Traceback (most recent call last):
+  File "c:\Users\Public\wpilib\2025\vscode\data\extensions\ms-python.debugpy-2025.6.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_vars.py", line 622, in change_attr_expression
+    value = eval(expression, frame.f_globals, frame.f_locals)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'tensor' is not defined
+epoch: 1 loss: 0.16 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9990104948350412
+epoch: 2 loss: 0.20 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9980219786806598
+epoch: 3 loss: 0.22 LR: 0.002 step: 841 time: 14.02 sec fps: 60 epsilon : 0.9970344505483393
+epoch: 4 loss: 0.44 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9960479094505515
+epoch: 5 loss: 0.24 LR: 0.002 step: 721 time: 12.02 sec fps: 60 epsilon : 0.9950623544007555
+epoch: 6 loss: 0.32 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9940777844133959
+epoch: 7 loss: 0.30 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9930941985039028
+epoch: 8 loss: 0.48 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.99211159568869
+epoch: 9 loss: 0.25 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9911299749851548
+epoch: 10 loss: 0.34 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9901493354116764
+epoch: 11 loss: 0.40 LR: 0.002 step: 601 time: 10.02 sec fps: 60 epsilon : 0.9891696759876151
+epoch: 12 loss: 0.34 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9881909957333113
+epoch: 13 loss: 0.42 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9872132936700847
+epoch: 14 loss: 0.51 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9862365688202333
+epoch: 15 loss: 0.52 LR: 0.002 step: 721 time: 12.02 sec fps: 60 epsilon : 0.985260820207032
+epoch: 16 loss: 0.56 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9842860468547323
+epoch: 17 loss: 0.59 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9833122477885605
+epoch: 18 loss: 1.33 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9823394220347178
+epoch: 19 loss: 0.59 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9813675686203779
+epoch: 20 loss: 0.41 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9803966865736877
+epoch: 21 loss: 0.53 LR: 0.002 step: 601 time: 10.02 sec fps: 60 epsilon : 0.979426774923765
+epoch: 22 loss: 0.36 LR: 0.002 step: 841 time: 14.02 sec fps: 60 epsilon : 0.978457832700698
+epoch: 23 loss: 0.44 LR: 0.002 step: 481 time: 8.02 sec fps: 60 epsilon : 0.9774898589355443
