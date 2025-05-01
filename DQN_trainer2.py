@@ -67,7 +67,8 @@ def main():
     #run 31 pushing actual action vectors to buffer (success)
     #run 32 using the eyes state (success)
     #run 33 added bouncer, bouncer is fused with herb in state
-    run_id = 33  # above 7 is with normal 5 is without
+    #run 34, bouncer isn't fused, added bouncers move difference to state,a single bouncer has less impact on reward
+    run_id = 34  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
