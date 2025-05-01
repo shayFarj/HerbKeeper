@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 206, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 137, in main
+    state = env.state((1/Constants.FPS)*1000)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\Enviroment.py", line 386, in state
+    state[i_iter + count] = diff2 * Constants.dir_status_boun(radius)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\Constants.py", line 129, in dir_status_boun
+    offset = 1 / (MAX_REWARD * STATUS_ALPHA_PUNISH)
+             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: float division by zero

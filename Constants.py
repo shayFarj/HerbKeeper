@@ -91,10 +91,11 @@ PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 REWARD_ALPHA = 1.6
 PUNISH_ALPHA = 1.6
 
-MIN_STATUS = 1
+MIN_STATUS_HERB = 1 / HERB_NUMBER
+MIN_STATUS_BOUN = 1 / BOUNCER_NUMBER
 
-STATUS_ALPHA_REWARD = (1/MIN_STATUS - 1/MAX_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
-STATUS_ALPHA_PUNISH = (1/MIN_STATUS - 1/MAX_PUNISH) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - BOUNCER_RADIUS - SPACESHIP_RADIUS)
+STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
+STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_PUNISH) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
 def reward_diff_herb(distance,speed):
     if speed == 0:
@@ -126,7 +127,7 @@ def reward_diff_boun(distance,speed):
             return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/0.6))
 
 def dir_status_boun(distance):
-    offset = 1 / (MAX_REWARD * STATUS_ALPHA_PUNISH)
+    offset = 1 / (MAX_PUNISH * STATUS_ALPHA_PUNISH)
     return -1 / (STATUS_ALPHA_PUNISH * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
 def reward_herb(distance,cosines):
