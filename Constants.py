@@ -89,6 +89,7 @@ REWARD_GAMMA = (BOUNDERIES[0]/2) * HERB_NUMBER
 PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 
 REWARD_ALPHA = 1.6
+PUNISH_ALPHA = 1.6
 
 MIN_STATUS = 1
 STATUS_ALPHA = (1/MIN_STATUS - 1/MAX_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
@@ -129,11 +130,28 @@ def reward_herb(distance,cosines):
     return torch.sum(cosines / (REWARD_ALPHA * ((distance - HERB_RADIUS - SPACESHIP_RADIUS) + 1 / (MAX_REWARD * REWARD_ALPHA))))
 
 def reward_herb2(distance,speed):
-    if distance == 0 or speed == 0:
+    if speed == 0:
         return torch.zeros(1,dtype=torch.float32)
     offset = 1 / ((MAX_REWARD / 2) * REWARD_ALPHA)
 
-    return torch.sum(1 / (REWARD_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
+    sum = torch.sum(1 / (REWARD_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
+
+    if math.isinf(sum):
+        return torch.zeros(1,dtype=torch.float32)
+    else:
+        return sum 
+
+def punish_boun(distance,speed):
+    if speed == 0:
+        return torch.zeros(1,dtype=torch.float32)
+    offset = 1 / ((MAX_PUNISH / 2) * PUNISH_ALPHA)
+
+    sum = torch.sum( - 1 / (PUNISH_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
+
+    if math.isinf(sum):
+        return torch.zeros(1,dtype=torch.float32)
+    else:
+        return sum 
 
 def actToCartez(action):
     return ACT_CARTEZ[action[1] - 1] * action[0]

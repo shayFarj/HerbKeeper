@@ -105,6 +105,7 @@ class Enviroment:
         
 
         herb_p1 = torch.zeros((Constants.HERB_NUMBER,2))
+        boun_p1 = torch.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
@@ -112,7 +113,14 @@ class Enviroment:
             herb_p1[j][1] = (i.pos[1] - self.spaceship.pos[1])
             j += 1
 
+        j = 0
+        for i in self.bouncer_group.sprites():
+            boun_p1[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            boun_p1[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            j += 1
+
         h_dist1 = torch.sqrt(torch.sum((herb_p1**2),axis=1))
+        b_dist1 = torch.sqrt(torch.sum((boun_p1**2),axis=1))
 
         # if not 0 in h_dist1:
         #     h1_cosines = torch.matmul(herb_p1,self.act_vectors[action[1]]) / h_dist1
@@ -135,6 +143,7 @@ class Enviroment:
 
         
         herb_p2 = torch.zeros((Constants.HERB_NUMBER,2))
+        boun_p2 = torch.zeros((Constants.BOUNCER_NUMBER,2))
 
         j = 0
         for i in self.herb_group.sprites():
@@ -142,10 +151,18 @@ class Enviroment:
             herb_p2[j][1] = (i.pos[1] - self.spaceship.pos[1])
             j += 1
         
+        j = 0
+        for i in self.bouncer_group.sprites():
+            boun_p2[j][0] = (i.pos[0] - self.spaceship.pos[0])
+            boun_p2[j][1] = (i.pos[1] - self.spaceship.pos[1])
+            j += 1
+        
         h_dist2 = torch.sqrt(torch.sum((herb_p2**2),axis=1)) 
+        b_dist2 = torch.sqrt(torch.sum((boun_p2**2),axis=1))
         
         h_diff = torch.clamp(h_dist2 - h_dist1,max = self.spaceship.speed,min = -self.spaceship.speed)
-
+        b_diff = torch.clamp(b_dist2 - b_dist1,max = self.spaceship.speed,min = -self.spaceship.speed)
+        
         
 
         if hc_count > 0 or bc_count > 0:
@@ -154,7 +171,7 @@ class Enviroment:
             if self.spaceship.speed == 0 or self.spaceship.stuck:
                 reward = -Constants.MAX_PUNISH / 2
             else:
-                reward = torch.sum(Constants.reward_herb2(h_diff,self.spaceship.speed)).item()#Constants.reward_diff_herb(h_diff,self.spaceship.speed).item() #
+                reward = (Constants.reward_herb2(h_diff,self.spaceship.speed) + Constants.punish_boun(b_diff,self.spaceship.speed)).item()#Constants.reward_diff_herb(h_diff,self.spaceship.speed).item() #
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
