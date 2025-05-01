@@ -65,8 +65,9 @@ def main():
     #run 29 new net, net gets action and state
     #run 30 now using player hat and higher max reward
     #run 31 pushing actual action vectors to buffer (success)
-    #run 32 using the eyes state
-    run_id = 32  # above 7 is with normal 5 is without
+    #run 32 using the eyes state (success)
+    #run 33 added bouncer, bouncer is fused with herb in state
+    run_id = 33  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"

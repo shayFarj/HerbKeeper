@@ -30,9 +30,10 @@ class Bouncer(pygame.sprite.Sprite):
     def update(self,delta) -> None:    
         if(self.pos[0] > Constants.BOUNDERIES[0] or self.pos[0] < 0):
             self.dir[0] *= -1
-            self.dir[1] = random.randint(-1,1)
+            self.dir[1] = random.randint(-1,1) * Constants.BOUNCER_SPEED * (delta / 1000)
         if(self.pos[1] > Constants.BOUNDERIES[1] or self.pos[1] < 0):
             self.dir[1] *= -1
-            self.dir[0] = random.randint(-1,1)
-        self.setPosition((self.pos[0] + self.dir[0] * math.ceil(delta/10), self.pos[1] + self.dir[1]* math.ceil(delta/10)))
+            self.dir[0] = random.randint(-1,1) * Constants.BOUNCER_SPEED  * (delta / 1000)
+        
+        self.setPosition((self.pos[0] + self.dir[0], self.pos[1] + self.dir[1]))
         

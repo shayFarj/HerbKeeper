@@ -360,18 +360,18 @@ class Enviroment:
             radius, angle = self.polar(x,y)
 
             if angle < 0:
-                angle = 2*math.pi - angle
+                angle = 2*math.pi + angle
             
             count = int(angle // (math.pi/4))
 
             if angle < (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[3 + count] = diff2 * Constants.dir_status_boun(radius)
-                state[3 + count + 1] = diff1 * Constants.dir_status_boun(radius)
+                state[3 + count] += diff2 * Constants.dir_status_boun(radius)
+                state[3 + count + 1] += diff1 * Constants.dir_status_boun(radius)
             else:
-                diff1, diff2 = self.prox(count*(math.pi/4),0,angle)
-                state[3 + count] = diff2 * Constants.dir_status_boun(radius)
-                state[3] = diff1 * Constants.dir_status_boun(radius)
+                diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
+                state[3 + count] += diff2 * Constants.dir_status_boun(radius)
+                state[3] += diff1 * Constants.dir_status_boun(radius)
             
         return state
 
