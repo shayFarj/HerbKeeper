@@ -143,3 +143,6 @@ def actToEyes(action):
         return ACT_EYES[8]
     else:
         return ACT_EYES[action[1] - 1]
+    
+def outofBounderies_pos(pos):
+        return pos[0] < 0 or pos[0] > BOUNDERIES[0] or pos[1] < 0 or pos[1] > BOUNDERIES[1]
