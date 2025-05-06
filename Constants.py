@@ -51,7 +51,7 @@ P_GEARS = [-1,0,1,2,3]
 
 
 MAX_REWARD = 5
-MAX_PUNISH = MAX_REWARD / BOUNCER_NUMBER
+MAX_PUNISH = (MAX_REWARD / BOUNCER_NUMBER) * 2.2 #the 2.2 is just a multiplier to make the bouncers have more weight in the state,rewards, and punish.
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
@@ -97,14 +97,6 @@ MIN_STATUS_BOUN = 1 / BOUNCER_NUMBER
 STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_PUNISH) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
-def reward_diff_herb(distance,speed):
-    if speed == 0:
-        return 0 * distance
-    else:
-        if distance <= 0:
-            return (MAX_REWARD/2) * (1 - torch.tanh((speed + distance)/REWARD_ALPHA))
-        else:
-            return (MAX_REWARD/2) * (-1 - torch.tanh((distance - speed)/REWARD_ALPHA))
 
 def outofBounderies(sprite):
         if sprite is pygame.sprite:
@@ -117,21 +109,11 @@ def dir_status_herb(distance):
     offset = 1 / (MAX_REWARD * STATUS_ALPHA_REWARD)
     return 1 / (STATUS_ALPHA_REWARD * (distance- HERB_RADIUS - SPACESHIP_RADIUS + offset))
 
-def reward_diff_boun(distance,speed):
-    if speed == 0:
-        return 0 * distance
-    else:
-        if distance <= 0:
-            return -MAX_PUNISH * (1 - torch.tanh((speed + distance)/0.6))
-        else:
-            return -MAX_PUNISH * (-1 - torch.tanh((distance - speed)/0.6))
 
 def dir_status_boun(distance):
     offset = 1 / (MAX_PUNISH * STATUS_ALPHA_PUNISH)
     return -1 / (STATUS_ALPHA_PUNISH * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
-def reward_herb(distance,cosines):
-    return torch.sum(cosines / (REWARD_ALPHA * ((distance - HERB_RADIUS - SPACESHIP_RADIUS) + 1 / (MAX_REWARD * REWARD_ALPHA))))
 
 def reward_herb2(distance,speed):
     if speed == 0:
