@@ -51,7 +51,7 @@ P_GEARS = [-1,0,1,2,3]
 
 
 MAX_REWARD = 5
-MAX_PUNISH = (MAX_REWARD / BOUNCER_NUMBER) * 2.2 #the 2.2 is just a multiplier to make the bouncers have more weight in the state,rewards, and punish.
+MAX_PUNISH = (MAX_REWARD / BOUNCER_NUMBER) * 1.4 #the 1.4 is just a multiplier to make the bouncers have more weight in the state,rewards, and punish.
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
