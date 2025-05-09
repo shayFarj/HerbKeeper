@@ -363,12 +363,12 @@ class Enviroment:
 
             if angle < (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[i_iter + count] = diff2 * Constants.dir_status_herb(radius)
-                state[i_iter + count + 1] = diff1 * Constants.dir_status_herb(radius)
+                state[i_iter + count] += diff2 * Constants.dir_status_herb(radius)
+                state[i_iter + count + 1] += diff1 * Constants.dir_status_herb(radius)
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[i_iter + count] = diff2 * Constants.dir_status_herb(radius)
-                state[i_iter] = diff1 * Constants.dir_status_herb(radius)
+                state[i_iter + count] += diff2 * Constants.dir_status_herb(radius)
+                state[i_iter] += diff1 * Constants.dir_status_herb(radius)
                 
         i_iter += 8
         for i in self.bouncer_group.sprites():
@@ -383,16 +383,16 @@ class Enviroment:
 
             if angle < (2*math.pi) * (7/8):
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[i_iter + count] = diff2 * Constants.dir_status_boun(radius)
-                state[i_iter + count + 1] = diff1 * Constants.dir_status_boun(radius)
+                state[i_iter + count] += diff2 * Constants.dir_status_boun(radius)
+                state[i_iter + count + 1] += diff1 * Constants.dir_status_boun(radius)
             else:
                 diff1, diff2 = self.prox(count*(math.pi/4),(count + 1)*(math.pi/4),angle)
-                state[i_iter + count] = diff2 * Constants.dir_status_boun(radius)
-                state[i_iter] = diff1 * Constants.dir_status_boun(radius)
+                state[i_iter + count] += diff2 * Constants.dir_status_boun(radius)
+                state[i_iter] += diff1 * Constants.dir_status_boun(radius)
         
         diff_boun = state[i_iter:i_iter + 8] - self.prev_boun_eyes
         self.prev_boun_eyes = state[i_iter:i_iter +8]
-        
+
         i_iter += 8
 
         for i in range(i_iter,i_iter + 8):
