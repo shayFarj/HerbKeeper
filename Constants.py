@@ -105,6 +105,14 @@ MIN_STATUS_BOUN = 1 / BOUNCER_NUMBER
 STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_STATUS_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_STATUS_PUNISH) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
+RELEV_ALPHA = 1.6
+RELEV_TRANS = (-RELEV_ALPHA+math.sqrt(RELEV_ALPHA**2+4*RELEV_ALPHA)) / (2*RELEV_ALPHA)
+MAX_D = math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2)
+
+def d_relev(distance):
+    d_norm = torch.abs(distance / MAX_D)
+    return 1 /(d_norm + RELEV_TRANS) - RELEV_TRANS
+
 
 def outofBounderies(sprite):
         if sprite is pygame.sprite:
