@@ -51,7 +51,10 @@ P_GEARS = [-1,0,1,2,3]
 
 
 MAX_REWARD = 5
-MAX_PUNISH = (MAX_REWARD / BOUNCER_NUMBER) * 1.4 #the 1.4 is just a multiplier to make the bouncers have more weight in the state,rewards, and punish.
+MAX_PUNISH = 5
+MAX_STATUS_PUNISH = (MAX_PUNISH / BOUNCER_NUMBER) * 1.2
+MAX_STATUS_REWARD = 5
+
 SPACESHIP_RADIUS = 16
 # CROP_HP = 60
 CROP_HP = 30
@@ -106,12 +109,12 @@ def outofBounderies(sprite):
 
 
 def dir_status_herb(distance):
-    offset = 1 / (MAX_REWARD * STATUS_ALPHA_REWARD)
+    offset = 1 / (MAX_STATUS_REWARD * STATUS_ALPHA_REWARD)
     return 1 / (STATUS_ALPHA_REWARD * (distance- HERB_RADIUS - SPACESHIP_RADIUS + offset))
 
 
 def dir_status_boun(distance):
-    offset = 1 / (MAX_PUNISH * STATUS_ALPHA_PUNISH)
+    offset = 1 / (MAX_STATUS_PUNISH * STATUS_ALPHA_PUNISH)
     return -1 / (STATUS_ALPHA_PUNISH * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
 

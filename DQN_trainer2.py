@@ -70,7 +70,8 @@ def main():
     #run 34, bouncer isn't fused, added bouncers move difference to state,a single bouncer has less impact on reward
     #run 35, bouncer has more weight in reward, state and 
     #run 36. a bit less weight for the bouncers
-    run_id = 36  # above 7 is with normal 5 is without
+    #run 37 bouncers have less weight, but more weight in collision punish
+    run_id = 37  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
