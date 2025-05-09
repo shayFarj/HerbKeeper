@@ -391,6 +391,8 @@ class Enviroment:
                 state[i_iter] = diff1 * Constants.dir_status_boun(radius)
         
         diff_boun = state[i_iter:i_iter + 8] - self.prev_boun_eyes
+        self.prev_boun_eyes = state[i_iter:i_iter +8]
+        
         i_iter += 8
 
         for i in range(i_iter,i_iter + 8):
