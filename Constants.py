@@ -53,10 +53,10 @@ P_GEARS = [-1,0,1,2,3]
 MAX_REWARD = 5
 MAX_PUNISH = 5
 
-MAX_DIFF_PUNISH = (MAX_PUNISH /BOUNCER_NUMBER)*1.3
+MAX_DIFF_PUNISH = (MAX_PUNISH /BOUNCER_NUMBER)*1.5
 MAX_DIFF_REWARD = MAX_REWARD
 
-MAX_STATUS_PUNISH = (MAX_PUNISH / BOUNCER_NUMBER) * 1.3
+MAX_STATUS_PUNISH = (MAX_PUNISH / BOUNCER_NUMBER) * 1.5
 MAX_STATUS_REWARD = 5
 
 
@@ -105,7 +105,7 @@ MIN_STATUS_BOUN = 1 / BOUNCER_NUMBER
 STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_STATUS_REWARD) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - HERB_RADIUS - SPACESHIP_RADIUS)
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_STATUS_PUNISH) / (math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2) - BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
-RELEV_ALPHA = 1.6
+RELEV_ALPHA = 5
 RELEV_TRANS = (-RELEV_ALPHA+math.sqrt(RELEV_ALPHA**2+4*RELEV_ALPHA)) / (2*RELEV_ALPHA)
 MAX_D = math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2)
 
@@ -143,12 +143,12 @@ def reward_herb2(distance,speed):
     else:
         return sum 
 
-def punish_boun(distance,speed):
+def punish_boun(distance,speed,dis):
     if speed == 0:
         return torch.zeros(1,dtype=torch.float32)
     offset = 1 / ((MAX_DIFF_PUNISH / 2) * PUNISH_ALPHA)
 
-    sum = torch.sum( - 1 / (PUNISH_ALPHA * (distance - torch.sign(distance)*(offset + speed))))
+    sum = torch.sum(( - 1 / (PUNISH_ALPHA * (distance - torch.sign(distance)*(offset + speed))))*d_relev(dis))
 
     if math.isinf(sum):
         return torch.zeros(1,dtype=torch.float32)

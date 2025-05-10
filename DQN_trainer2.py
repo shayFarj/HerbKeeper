@@ -74,7 +74,8 @@ def main():
     #run 38,fixed diff punish and status punish
     #run 39 fixed state func
     #run 40, fixed state func snd added more weight to bouncers
-    run_id = 40  # above 7 is with normal 5 is without
+    #run41na added d_relev to reward funx. added more weight to bouncers punish
+    run_id = 41  # above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
