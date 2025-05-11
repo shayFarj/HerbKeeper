@@ -79,7 +79,10 @@ def main():
     #run 43, mincreased delev alpha
     #run 44 fixed punish boun cunx
     #run 45 fixed punish bkun func
-    run_id = 45# above 7 is with normal 5 is without
+    #run 46 increasing epsilon decay
+    #run 47 added to relev  alpha
+    #run 48 fixed relev_d func
+    run_id = 49# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
