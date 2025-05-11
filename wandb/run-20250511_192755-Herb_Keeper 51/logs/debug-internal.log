@@ -1,0 +1,18 @@
+{"time":"2025-05-11T19:27:55.2275028+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-05-11T19:27:55.2275028+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250511_192755-Herb_Keeper 51\\logs\\debug-core.log"}
+{"time":"2025-05-11T19:27:55.3362722+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 51"}
+{"time":"2025-05-11T19:27:55.3362722+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 51"}
+{"time":"2025-05-11T19:27:55.3362722+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T19:27:55.3362722+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T19:27:55.3362722+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T19:27:55.7313567+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-11T19:28:05.7321687+03:00","level":"ERROR","msg":"monitor: disk: error sampling metrics: Incorrect function."}
+{"time":"2025-05-11T23:06:41.5104496+03:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/shayfarjoon0-parkhamada/Herb_Keeper/Herb_Keeper%2051/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-05-11T23:14:02.8194084+03:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 51"}
+{"time":"2025-05-11T23:14:02.8194084+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-11T23:14:02.8205461+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-05-11T23:14:04.6231275+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-05-11T23:14:04.8853492+03:00","level":"INFO","msg":"handler: closed","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T23:14:04.8853492+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T23:14:04.8853492+03:00","level":"INFO","msg":"sender: closed","stream_id":"Herb_Keeper 51"}
+{"time":"2025-05-11T23:14:04.8853492+03:00","level":"INFO","msg":"stream: closed","id":"Herb_Keeper 51"}

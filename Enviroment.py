@@ -413,7 +413,7 @@ class Enviroment:
         bc_count = len(bounce_c)
 
         for i in bounce_c:
-            self.spaceship.energy -= 1#Constants.BOUNCER_DAMAGE
+            self.spaceship.energy -= 4#Constants.BOUNCER_DAMAGE
             i.setPosition(self.randomPosition())
         
         return (hc_count,bc_count)

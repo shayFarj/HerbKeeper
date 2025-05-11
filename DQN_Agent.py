@@ -34,7 +34,7 @@ class DQN_Agent:
           else:
               self.DQN.eval()
 
-    def get_action (self, state,stuck, epoch = 0, events= None, train = True, step = 0):
+    def get_action (self, state,stuck, epoch = 0, train = True, step = 0):
         if not self.active:
             return (0,0)
         epsilon = self.epsilon_greedy(epoch)

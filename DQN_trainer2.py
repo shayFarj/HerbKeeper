@@ -82,7 +82,11 @@ def main():
     #run 46 increasing epsilon decay
     #run 47 added to relev  alpha
     #run 48 fixed relev_d func
-    run_id = 49# above 7 is with normal 5 is without
+    #run 49 changed punish
+    #run 50 rewrofe punish constants
+    #run 51 changed relev alpha more biggrr
+    #run 52 make bouncerd more harsh and have more weight
+    run_id = 52# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
