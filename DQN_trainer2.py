@@ -78,7 +78,8 @@ def main():
     #run 42 less weight to bouncers, less epsןמברקilon dec
     #run 43, mincreased delev alpha
     #run 44 fixed punish boun cunx
-    run_id = 43# above 7 is with normal 5 is without
+    #run 45 fixed punish bkun func
+    run_id = 45# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
