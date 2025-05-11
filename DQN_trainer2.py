@@ -75,8 +75,9 @@ def main():
     #run 39 fixed state func
     #run 40, fixed state func snd added more weight to bouncers
     #run41na added d_relev to reward funx. added more weight to bouncers punish
-    #run 42 less weight to bouncers
-    run_id = 41  # above 7 is with normal 5 is without
+    #run 42 less weight to bouncers, less epsןמברקilon dec
+    #run 43, mincreased delev alpha
+    run_id = 43# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
