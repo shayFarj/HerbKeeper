@@ -77,6 +77,7 @@ def main():
     #run41na added d_relev to reward funx. added more weight to bouncers punish
     #run 42 less weight to bouncers, less epsןמברקilon dec
     #run 43, mincreased delev alpha
+    #run 44 fixed punish boun cunx
     run_id = 43# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"

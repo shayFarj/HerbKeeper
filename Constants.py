@@ -148,8 +148,12 @@ def punish_boun(distance,speed,dis):
         return torch.zeros(1,dtype=torch.float32)
     offset = 1 / ((MAX_DIFF_PUNISH / 2) * PUNISH_ALPHA)
 
-    sum = torch.sum(( - 1 / (PUNISH_ALPHA * (distance - torch.sign(distance)*(offset + speed))))*d_relev(dis))
+    x = distance - torch.sign(distance)*(offset + speed)
+    punishes = 1 / (PUNISH_ALPHA*x)
+    p_relev = punishes * d_relev(dis)
 
+    sum = torch.sum(p_relev)
+    
     if math.isinf(sum):
         return torch.zeros(1,dtype=torch.float32)
     else:
