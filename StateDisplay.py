@@ -29,6 +29,5 @@ class StateDisplay(pygame.sprite.Group):
 
         
     def update(self,state):
-        print(state[11:19])
         for i in range(3,Constants.STATE_LEN):
             self.sprites()[i - 3].setState(state[i])

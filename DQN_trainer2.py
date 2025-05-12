@@ -87,7 +87,8 @@ def main():
     #run 51 changed relev alpha more biggrr
     #run 52 make bouncerd more harsh and have more weight
     #run 53 bouncers are less harsh, but have mode weight
-    run_id = 53# above 7 is with normal 5 is without
+    #run 54 fixed relev_d func and increased relev alpha, bouncers are less harsh and have less weight
+    run_id = 54# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
