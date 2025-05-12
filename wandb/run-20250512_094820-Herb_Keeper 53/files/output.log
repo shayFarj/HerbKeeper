@@ -1,0 +1,18 @@
+tensor([ 0.0000,  0.0000, -2.5403, -4.4949,  0.0000,  0.0000,  0.0000,  0.0000])
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 225, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 159, in main
+    reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\Enviroment.py", line 131, in move
+    delta = self.update(or_delta=or_delta)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\Enviroment.py", line 221, in update
+    self.sDisplay.update(self.state(delta))
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\StateDisplay.py", line 34, in update
+    self.sprites()[i - 3].setState(state[i])
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\StateBulb.py", line 19, in setState
+    interpol=math.abs(1 - (num/(self.maxNum -self.minNum)))
+             ^^^^^^^^
+AttributeError: module 'math' has no attribute 'abs'
