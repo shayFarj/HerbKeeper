@@ -86,7 +86,8 @@ def main():
     #run 50 rewrofe punish constants
     #run 51 changed relev alpha more biggrr
     #run 52 make bouncerd more harsh and have more weight
-    run_id = 52# above 7 is with normal 5 is without
+    #run 53 bouncers are less harsh, but have mode weight
+    run_id = 53# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
@@ -154,7 +155,7 @@ def main():
             
             state = env.state((1/Constants.FPS)*1000)
 
-            action = player.get_action(state,env.spaceship.stuck,epoch=epoch,events=events,step=step)
+            action = player.get_action(state,env.spaceship.stuck,epoch=epoch,step=step)
             reward, done , delta = env.move(action=action,events=events,or_delta=1/Constants.FPS,render = render)
 
             next_state = env.state((1/Constants.FPS)*1000)
