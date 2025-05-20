@@ -34,7 +34,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.002
+    learning_rate = 0.001
     update_hat = 3
     epochs = 20000
     start_epoch = 0
@@ -88,8 +88,9 @@ def main():
     #run 52 make bouncerd more harsh and have more weight
     #run 53 bouncers are less harsh, but have mode weight
     #run 54 fixed relev_d func and increased relev alpha, bouncers are less harsh and have less weight
-    #run 55 more relev alpha and less scope for bouncers
-    run_id = 54# above 7 is with normal 5 is without
+    #run 55 more relev alpha and less scope for bouncers more epsilon decaye
+    #run 56 lowered lr and lowered relev alpha
+    run_id = 56# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
