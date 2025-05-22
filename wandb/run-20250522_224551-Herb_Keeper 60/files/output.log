@@ -1,0 +1,7 @@
+epoch: 0 loss: 8.29 LR: 0.00025 step: 112 time: 1.87 sec fps: 60 epsilon : 1.0
+epoch: 1 loss: 0.70 LR: 0.00025 step: 493 time: 8.22 sec fps: 60 epsilon : 0.9989006108848365
+epoch: 2 loss: 1.24 LR: 0.00025 step: 12 time: 0.20 sec fps: 60 epsilon : 0.9978024426347503
+epoch: 3 loss: 1.04 LR: 0.00025 step: 384 time: 6.40 sec fps: 60 epsilon : 0.996705493893978
+epoch: 4 loss: 28.42 LR: 0.00025 step: 66 time: 1.10 sec fps: 60 epsilon : 0.9956097633082619
+epoch: 5 loss: 1.19 LR: 0.00025 step: 294 time: 4.90 sec fps: 60 epsilon : 0.9945152495248477
+epoch: 6 loss: 3.34 LR: 0.00025 step: 143 time: 2.38 sec fps: 60 epsilon : 0.9934219511924841
