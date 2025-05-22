@@ -396,7 +396,7 @@ class Enviroment:
         i_iter += 8
 
         for i in range(i_iter,i_iter + 8):
-            state[i] = diff_boun[i - i_iter]
+            state[i] = diff_boun[i - i_iter] * 15
 
             
         return state

@@ -90,6 +90,7 @@ def main():
     #run 54 fixed relev_d func and increased relev alpha, bouncers are less harsh and have less weight
     #run 55 more relev alpha and less scope for bouncers more epsilon decaye
     #run 56 lowered lr and lowered relev alpha
+    #run 57 using different relev func, more weight to movement eyes, changed red scope and changed min_status_boun
     run_id = 56# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
