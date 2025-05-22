@@ -34,7 +34,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.001
+    learning_rate = 0.00025
     update_hat = 3
     epochs = 20000
     start_epoch = 0
@@ -92,7 +92,8 @@ def main():
     #run 56 lowered lr and lowered relev alpha
     #run 57 using different relev func, more weight to movement eyes, changed red scope and changed min_status_boun
     #run 58 added more time to survive so agent will have time to learn, changed red scope
-    run_id = 58# above 7 is with normal 5 is without
+    #run 59 changed red scope and lowered time to survive, lowered learning rate
+    run_id = 59# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
