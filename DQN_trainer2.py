@@ -91,7 +91,7 @@ def main():
     #run 55 more relev alpha and less scope for bouncers more epsilon decaye
     #run 56 lowered lr and lowered relev alpha
     #run 57 using different relev func, more weight to movement eyes, changed red scope and changed min_status_boun
-    #run 58 added more time to survive so agent will have time to learn
+    #run 58 added more time to survive so agent will have time to learn, changed red scope
     run_id = 58# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
