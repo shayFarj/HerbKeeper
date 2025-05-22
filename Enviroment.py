@@ -171,12 +171,14 @@ class Enviroment:
             if self.spaceship.speed == 0 or self.spaceship.stuck:
                 reward = -Constants.MAX_PUNISH / 2
             else:
-                reward = (Constants.reward_herb2(h_diff,self.spaceship.speed) + Constants.punish_boun(b_diff,self.spaceship.speed,b_dist2)).item()#Constants.reward_diff_herb(h_diff,self.spaceship.speed).item() #
+                # reward = (Constants.reward_herb2(h_diff,self.spaceship.speed) + Constants.punish_boun(b_diff,self.spaceship.speed,b_dist2)).item()
+                reward = (Constants.punish_boun(b_diff,self.spaceship.speed,b_dist2) + Constants.reward_herb2(h_diff,self.spaceship.speed)).item()
+                
         
 
         # text_to_screen(self.surface,"Graze : (" + str(grazeB) + "," + str(grazeH) + ")",196,64,size=20,color=Constants.PASTEL_PURPLE_LIGHT,font_type="basss.ttf")
-        text_to_screen(self.surface,"Reward : " + str(reward),256+ 64,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
-        # text_to_screen(self.surface,"dIst : " + str(h_diff),256+ 64,128,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        text_to_screen(self.surface,"Reward : " + str(reward),128,64,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
+        # text_to_screen(self.surface,"dIst : " + str(Constants.d_relev(b_dist2)),256,128,size=20,color=Constants.PASTEL_RED,font_type="basss.ttf")
         # text_to_screen(self.surface,"speed : " + str(self.spaceship.speed),256+ 64,64 + 32,size=20,color=Constants.PASTEL_GREEN,font_type="basss.ttf")
 
         done = self.gameOver()

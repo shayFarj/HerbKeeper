@@ -50,7 +50,7 @@ P_DIRECTIONS = [1,2,3,4,5,6,7,8]
 P_GEARS = [-1,0,1,2,3]
 
 
-MAX_REWARD = 5
+MAX_REWARD = 8
 MAX_PUNISH = 10
 
 MAX_DIFF_PUNISH = MAX_PUNISH
@@ -99,23 +99,23 @@ PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 REWARD_ALPHA = 1.6
 PUNISH_ALPHA = 1.6
 
-MIN_STATUS_HERB = 1 / HERB_NUMBER
+MIN_STATUS_HERB = 1 
 MIN_STATUS_BOUN = 3
 
 MAX_D = math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2)
 
 GREEN_SCOPE = MAX_D
-RED_SCOPE = 32
+RED_SCOPE = 48
 
 STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_STATUS_REWARD) / (GREEN_SCOPE- HERB_RADIUS - SPACESHIP_RADIUS)
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_STATUS_PUNISH) / (RED_SCOPE- BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
 
-RELEV_ALPHA = (1/0.005 - 1) / (RED_SCOPE- BOUNCER_RADIUS - SPACESHIP_RADIUS)
+RELEV_ALPHA = (1/0.5 - 1) / (RED_SCOPE- BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
 def d_relev(distance):
-    offset = 1 / RELEV_ALPHA
-    return 1 /(RELEV_ALPHA*(distance - BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
+    offset = 1 / (1 * RELEV_ALPHA)
+    return 1 / (RELEV_ALPHA * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
 
 def outofBounderies(sprite):
@@ -157,7 +157,7 @@ def punish_boun(distance,speed,dis):
     p_relev = punishes * d_relev(dis)
 
     sum = torch.sum(p_relev)
-    
+
     if math.isinf(sum):
         return torch.zeros(1,dtype=torch.float32)
     else:
