@@ -98,7 +98,7 @@ class Enviroment:
 
     def move(self,action,events,or_delta = None,render = True):
         reward = 0
-        if self.dmg_timer >= 3000:
+        if self.dmg_timer >= 2500:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
             # reward -= Constants.MAX_PUNISH
