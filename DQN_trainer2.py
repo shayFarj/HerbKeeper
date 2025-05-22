@@ -34,7 +34,7 @@ def main():
 
     batch_size = 128
     buffer = ReplayBuffer(path=None)
-    learning_rate = 0.0007
+    learning_rate = 0.001
     update_hat = 3
     epochs = 20000
     start_epoch = 0
