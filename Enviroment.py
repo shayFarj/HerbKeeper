@@ -98,7 +98,7 @@ class Enviroment:
 
     def move(self,action,events,or_delta = None,render = True):
         reward = 0
-        if self.dmg_timer >= 2500:
+        if self.dmg_timer >= 2000:
             self.dmg_timer = 0
             self.spaceship.energy -= 1
             # reward -= Constants.MAX_PUNISH
@@ -398,7 +398,7 @@ class Enviroment:
         i_iter += 8
 
         for i in range(i_iter,i_iter + 8):
-            state[i] = diff_boun[i - i_iter] * 10
+            state[i] = diff_boun[i - i_iter]
 
             
         return state
