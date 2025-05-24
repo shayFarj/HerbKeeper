@@ -5,9 +5,6 @@ import math
 import torch
 
 
-BULLET_SPEED = 8
-BULLET_DIR_ERROR = 1
-BULLET_SIZE = 5
 PASTEL_RED = (255,127,127)
 PASTEL_BLUE = (127,127,255)
 PASTEL_BLUE_LIGHT = (127,191,255)
@@ -24,31 +21,27 @@ SCHEDULER_GAMMA = 0.8
 
 FPS = 60
 
-CROP_RADIUS = 100
-BULLET_ENERGY = 50
-BOUNCER_DAMAGE = 400
-BULLET_NUMBER = 15
-HERB_ENERGY = 500
+BOUNCER_DAMAGE = 2
+HERB_ENERGY = 1
 # BOUNCER_NUMBER = 40
 BOUNCER_NUMBER = 8# 15
 # HERB_NUMBER = 7
 HERB_NUMBER = 1
-CROP_TIME = 30
 HERB_RADIUS = 14
 BOUNCER_RADIUS = 12
 
 INIT_ENERGY = 4
 
+TIME_UNIT = 2000
+
 SPACESHIP_SPEED = 300
 BOUNCER_SPEED = 150
+SPACESHIP_RADIUS = 16
+
 
 #STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3   #herb position, bouncer position&velocity, spaceship's position&energy 
 
 STATE_LEN = 3 + 8 + 8 + 8 #spaceship's position&energy, herb eyes, bouncer_eyes, bouncer_move_change
-
-P_DIRECTIONS = [1,2,3,4,5,6,7,8]
-P_GEARS = [-1,0,1,2,3]
-
 
 MAX_REWARD = 5
 MAX_PUNISH = 10
@@ -60,9 +53,6 @@ MAX_STATUS_PUNISH = MAX_PUNISH
 MAX_STATUS_REWARD = MAX_REWARD
 
 
-SPACESHIP_RADIUS = 16
-# CROP_HP = 60
-CROP_HP = 30
 
 for i in range(8):
     ACT_CARTEZ[i][0] = math.cos(math.radians((225 + 45*i) % 360)) * MAX_REWARD
