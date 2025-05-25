@@ -398,7 +398,10 @@ class Enviroment:
         i_iter += 8
 
         for i in range(i_iter,i_iter + 8):
-            state[i] = diff_boun[i - i_iter]
+            if(diff_boun[i - i_iter] > 0):
+                state[i] = diff_boun[i - i_iter]
+            else:
+                state[i + 8] = abs(diff_boun[i - i_iter])
 
             
         return state

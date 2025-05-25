@@ -41,7 +41,7 @@ SPACESHIP_RADIUS = 16
 
 #STATE_LEN = HERB_NUMBER * 2 + BOUNCER_NUMBER * 4 + 3   #herb position, bouncer position&velocity, spaceship's position&energy 
 
-STATE_LEN = 3 + 8 + 8 + 8 #spaceship's position&energy, herb eyes, bouncer_eyes, bouncer_move_change
+STATE_LEN = 3 + 8 + 8 + 16 #spaceship's position&energy, herb eyes, bouncer_eyes, bouncer_move_change(16 eyes)
 
 MAX_REWARD = 5
 MAX_PUNISH = 10
@@ -87,7 +87,7 @@ REWARD_GAMMA = (BOUNDERIES[0]/2) * HERB_NUMBER
 PUNISH_GAMMA = (BOUNDERIES[0]/2) * BOUNCER_NUMBER
 
 REWARD_ALPHA = 1.6
-PUNISH_ALPHA = 1.6
+PUNISH_ALPHA = 1.4
 
 MIN_STATUS_HERB = 1 
 MIN_STATUS_BOUN = 2
@@ -101,7 +101,7 @@ STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_STATUS_REWARD) / (GREEN_SCOPE- 
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_STATUS_PUNISH) / (RED_SCOPE- BOUNCER_RADIUS - SPACESHIP_RADIUS)
 
 
-RELEV_ALPHA = 110
+RELEV_ALPHA = 95
 RELEV_TRANS = (-RELEV_ALPHA+math.sqrt(RELEV_ALPHA**2+4*RELEV_ALPHA)) / (2*RELEV_ALPHA)
 
 
@@ -125,7 +125,7 @@ def dir_status_herb(distance):
 
 def dir_status_boun(distance):
     offset = 1 / (MAX_STATUS_PUNISH * STATUS_ALPHA_PUNISH)
-    return -1 / (STATUS_ALPHA_PUNISH * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
+    return 1 / (STATUS_ALPHA_PUNISH * (distance- BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
 
 def reward_herb2(distance,speed):
