@@ -16,13 +16,19 @@ class StateDisplay(pygame.sprite.Group):
 
         for i in range(8):
             bPos = (pos[0] + 96 + radius*math.cos((2*math.pi/8)*i), pos[1] + radius*math.sin((2*math.pi/8)*i))
-            bulb = StateBulb.StateBulb(0,-Constants.MAX_PUNISH,(255,0,0),(30,30,30))
+            bulb = StateBulb.StateBulb(0,Constants.MAX_PUNISH,(30,30,30),(255,0,0))
             bulb.setPosition(bPos)
             self.add(bulb)
 
         for i in range(8):
             bPos = (pos[0] +192 + radius*math.cos((2*math.pi/8)*i), pos[1] + radius*math.sin((2*math.pi/8)*i))
-            bulb = StateBulb.StateBulb(-Constants.MAX_PUNISH,Constants.MAX_PUNISH,(255,0,0),(0,255,0),mid_color=(30,30,30))
+            bulb = StateBulb.StateBulb(0,Constants.MAX_REWARD/2,(30,30,30),(0,255,0))
+            bulb.setPosition(bPos)
+            self.add(bulb)
+        
+        for i in range(8):
+            bPos = (pos[0] + 288 + radius*math.cos((2*math.pi/8)*i), pos[1] + radius*math.sin((2*math.pi/8)*i))
+            bulb = StateBulb.StateBulb(0,Constants.MAX_REWARD,(30,30,30),(255,0,0))
             bulb.setPosition(bPos)
             self.add(bulb)
 

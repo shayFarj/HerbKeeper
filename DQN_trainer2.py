@@ -94,8 +94,8 @@ def main():
     #run 58 added more time to survive so agent will have time to learn, changed red scope
     #run 59 changed red scope and lowered time to survive, lowered learning rate
     #run 60 lowered time to survive, changed relev alpha changed herb weight and changed red scope changed the multiplier for movemnet eyes, changed lr
-    #run 61, 
-    run_id = 60# above 7 is with normal 5 is without
+    #run 61, run 61, more movement eyes, movement eyes is positive, status boun is positive,lowered punish alpha, lowered relev alpha 
+    run_id = 61# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
