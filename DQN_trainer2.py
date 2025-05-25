@@ -34,7 +34,7 @@ def main():
 
     batch_size = 128 #מספר צעדי משחק לאימון אחד
     buffer = ReplayBuffer(path=None) 
-    learning_rate = 0.001 # קצב למידה
+    learning_rate = 0.0001 # קצב למידה
     update_hat = 3 #מספר רצף צעדי המשחק שלאחריהן הרשת האחראית לחישוב התגמול העתידי תתעדכן במשקליה ותוספתיה
     epochs = 20000 # מספר משחקים לאסיפת צעדי משחק
     start_epoch = 0 # מספר המשחק ממנו מתחילים את האימון (במקרה של הפסקת האימון באמצע והפעלתו מחדש)
@@ -95,7 +95,7 @@ def main():
     #run 59 changed red scope and lowered time to survive, lowered learning rate
     #run 60 lowered time to survive, changed relev alpha changed herb weight and changed red scope changed the multiplier for movemnet eyes, changed lr
     #run 61, run 61, more movement eyes, movement eyes is positive, status boun is positive,lowered punish alpha, lowered relev alpha 
-    #run 62, new relev func, added weight to max_reward
+    #run 62, new relev func, added weight to max_reward, lowered learning rate
     run_id = 62# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
