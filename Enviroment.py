@@ -84,7 +84,7 @@ class Enviroment:
         self.agent.active = True
 
         for i in range(Constants.BOUNCER_NUMBER):
-            self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition()))
+            self.bouncer_group.add(Bouncer.Bouncer(self.randomPosition(),Constants.DEBUG))
 
         for i in range(Constants.HERB_NUMBER):
             self.herb_group.add(Herb.Herb(self.randomPosition()))
@@ -399,9 +399,9 @@ class Enviroment:
 
         for i in range(i_iter,i_iter + 8):
             if(diff_boun[i - i_iter] > 0):
-                state[i] = diff_boun[i - i_iter] * 2
+                state[i] = diff_boun[i - i_iter] 
             else:
-                state[i + 8] = abs(diff_boun[i - i_iter]) * 2
+                state[i + 8] = abs(diff_boun[i - i_iter]) 
 
             
         return state

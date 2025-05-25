@@ -21,6 +21,8 @@ SCHEDULER_GAMMA = 0.8
 
 FPS = 60
 
+DEBUG = False
+
 BOUNCER_DAMAGE = 2
 HERB_ENERGY = 1
 # BOUNCER_NUMBER = 40
@@ -43,7 +45,7 @@ SPACESHIP_RADIUS = 16
 
 STATE_LEN = 3 + 8 + 8 + 16 #spaceship's position&energy, herb eyes, bouncer_eyes, bouncer_move_change(16 eyes)
 
-MAX_REWARD = 5
+MAX_REWARD = 7
 MAX_PUNISH = 10
 
 MAX_DIFF_PUNISH = MAX_PUNISH
@@ -95,7 +97,7 @@ MIN_STATUS_BOUN = 2
 MAX_D = math.sqrt(BOUNDERIES[0]**2 + BOUNDERIES[1]**2)
 
 GREEN_SCOPE = MAX_D
-RED_SCOPE = MAX_D/20
+RED_SCOPE = 28
 
 STATUS_ALPHA_REWARD = (1/MIN_STATUS_HERB - 1/MAX_STATUS_REWARD) / (GREEN_SCOPE- HERB_RADIUS - SPACESHIP_RADIUS)
 STATUS_ALPHA_PUNISH = (1/MIN_STATUS_BOUN - 1/MAX_STATUS_PUNISH) / (RED_SCOPE- BOUNCER_RADIUS - SPACESHIP_RADIUS)
@@ -110,6 +112,10 @@ def d_relev(distance):
     return 1 /(RELEV_ALPHA*(d_norm + RELEV_TRANS)) - RELEV_TRANS
 
 
+RELEV_ALPHA2 = (1 - MIN_STATUS_BOUN/MAX_STATUS_PUNISH) / (RED_SCOPE - HERB_RADIUS - SPACESHIP_RADIUS)
+def d_relev2(distance):
+    offset = 1 / RELEV_ALPHA2
+    return 1 / (RELEV_ALPHA2 * (distance - BOUNCER_RADIUS - SPACESHIP_RADIUS + offset))
 
 def outofBounderies(sprite):
         if sprite is pygame.sprite:
@@ -147,7 +153,7 @@ def punish_boun(distance,speed,dis):
 
     x = distance - torch.sign(distance)*(offset + speed)
     punishes = -1 / (PUNISH_ALPHA*x)
-    p_relev = punishes * d_relev(dis)
+    p_relev = punishes * d_relev2(dis)
 
     sum = torch.sum(p_relev)
 
