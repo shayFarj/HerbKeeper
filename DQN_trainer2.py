@@ -96,7 +96,7 @@ def main():
     #run 60 lowered time to survive, changed relev alpha changed herb weight and changed red scope changed the multiplier for movemnet eyes, changed lr
     #run 61, run 61, more movement eyes, movement eyes is positive, status boun is positive,lowered punish alpha, lowered relev alpha 
     #run 62, new relev func, lowered red scope, added weight to max_reward
-    run_id = 61# above 7 is with normal 5 is without
+    run_id = 62# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"
