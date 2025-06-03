@@ -97,7 +97,10 @@ def main():
     #run 61, run 61, more movement eyes, movement eyes is positive, status boun is positive,lowered punish alpha, lowered relev alpha 
     #run 62, new relev func, added weight to max_reward, lowered learning rate, added to red scope, epsilon decay greater
     #run 63 lowered punish alpha
-    run_id = 63# above 7 is with normal 5 is without
+    #run 64 bigger red scope
+    #run 65 using cuda
+    #run 66 using cuda
+    run_id = 66# above 7 is with normal 5 is without
 
     checkpoint_path = f"Data/checkpoint{run_id}.pth"
     buffer_path = f"Data/buffer{run_id}.pth"

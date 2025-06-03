@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 236, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 191, in main
+    states, actions, rewards, next_states, dones = buffer.sample(batch_size)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\ReplayBuffer.py", line 27, in sample
+    rewards = torch.vstack(reward_tensors.to(torch.device("cuda"))).to(torch.device("cuda"))
+                           ^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'to'

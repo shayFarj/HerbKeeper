@@ -8,4 +8,5 @@ tensor3 = tensor2.repeat(3,1)
 tensor4 = torch.zeros(1)
 tensor4[0]= 0
 
-print(Constants.d_relev(28+32))
+print(torch.cuda.is_available())
+print(torch.__version__)

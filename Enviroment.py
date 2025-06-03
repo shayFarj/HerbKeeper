@@ -15,6 +15,7 @@ class scene_flags:
     game_over = 2
     start_menu = 0
 
+
 def text_to_screen(screen, text, x, y, size = 50,
             color = (200, 000, 000), font_type = 'basis33.ttf'):
     try:
@@ -51,7 +52,7 @@ class Enviroment:
             self.actions.append((1,i))
         
         self.actions.append((0,0))
-        self.prev_boun_eyes = torch.zeros(8,dtype=torch.float32)
+        self.prev_boun_eyes = torch.zeros(8,dtype=torch.float32).to(device=Constants.DEVICE)
 
         self.surface = surface
 
@@ -345,7 +346,7 @@ class Enviroment:
         return state
 
     def state(self, delta):
-        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
+        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32).to(device=Constants.DEVICE)
 
         state[0] = self.spaceship.energy / Constants.INIT_ENERGY
 

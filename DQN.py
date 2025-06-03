@@ -50,8 +50,15 @@ class DQN (nn.Module):
         return new_DQN
     
     def loss (self, Q_value, rewards, Q_next_Values, Dones ):
+        # print("Rewards device : ", rewards.device)
+        # print("Q_next_values device : ",Q_next_Values.device)
+        # print("Dones device : ",Dones.device)
+        # print("Q_Values device : ",Q_value.device)
         Q_new = rewards + gamma * Q_next_Values * (1- Dones)
         return MSELoss(Q_value, Q_new)
 
     def __call__(self, states,actions):
-        return self.forward(states,actions).to(self.device)
+        print(states.device)
+        print(actions.device)
+        print(Constants.DEVICE)
+        return self.forward(states,actions)
