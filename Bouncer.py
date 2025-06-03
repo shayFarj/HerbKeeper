@@ -9,7 +9,7 @@ class Bouncer(pygame.sprite.Sprite):
     def __init__(self,pos,debug = False):
         super().__init__()
 
-        self.rect = pygame.rect.Rect(pos,(2*Constants.BOUNCER_RADIUS,2*Constants.BOUNCER_RADIUS))
+        self.rect = pygame.rect.Rect((pos[0] - Constants.BOUNCER_RADIUS,pos[1] - Constants.BOUNCER_RADIUS),(2*Constants.BOUNCER_RADIUS,2*Constants.BOUNCER_RADIUS))
         self.radius = Constants.BOUNCER_RADIUS
         self.pos = pos
 
