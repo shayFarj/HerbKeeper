@@ -1,0 +1,12 @@
+cpu
+cpu
+Traceback (most recent call last):
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 238, in <module>
+    main()
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN_trainer2.py", line 194, in main
+    Q_values = player.DQN(states,actions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Farjoon\Documents\HerbsKeeper\HerbKeeper\DQN.py", line 63, in __call__
+    print(Constants.DEVICE)
+          ^^^^^^^^^^^^^^^^
+AttributeError: module 'Constants' has no attribute 'DEVICE'

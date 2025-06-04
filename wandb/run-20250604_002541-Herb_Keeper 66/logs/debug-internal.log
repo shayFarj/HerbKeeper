@@ -1,0 +1,11 @@
+{"time":"2025-06-04T00:25:41.2108001+03:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-06-04T00:25:41.2108001+03:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Farjoon\\Documents\\HerbsKeeper\\HerbKeeper\\wandb\\run-20250604_002541-Herb_Keeper 66\\logs\\debug-core.log"}
+{"time":"2025-06-04T00:25:41.3198202+03:00","level":"INFO","msg":"created new stream","id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:41.3198202+03:00","level":"INFO","msg":"stream: started","id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:41.3198202+03:00","level":"INFO","msg":"handler: started","stream_id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:41.3198202+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:41.3198202+03:00","level":"INFO","msg":"sender: started","stream_id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:41.587202+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-04T00:25:42.3010209+03:00","level":"INFO","msg":"stream: closing","id":"Herb_Keeper 66"}
+{"time":"2025-06-04T00:25:42.3010209+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-04T00:25:42.3016548+03:00","level":"INFO","msg":"Stopped system monitor"}

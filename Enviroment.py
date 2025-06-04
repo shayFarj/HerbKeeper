@@ -52,7 +52,7 @@ class Enviroment:
             self.actions.append((1,i))
         
         self.actions.append((0,0))
-        self.prev_boun_eyes = torch.zeros(8,dtype=torch.float32).to(device=Constants.DEVICE)
+        self.prev_boun_eyes = torch.zeros(8,dtype=torch.float32)
 
         self.surface = surface
 
@@ -346,7 +346,7 @@ class Enviroment:
         return state
 
     def state(self, delta):
-        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32).to(device=Constants.DEVICE)
+        state = torch.zeros(Constants.STATE_LEN,dtype=torch.float32)
 
         state[0] = self.spaceship.energy / Constants.INIT_ENERGY
 

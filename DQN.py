@@ -58,7 +58,4 @@ class DQN (nn.Module):
         return MSELoss(Q_value, Q_new)
 
     def __call__(self, states,actions):
-        print(states.device)
-        print(actions.device)
-        print(Constants.DEVICE)
         return self.forward(states,actions)

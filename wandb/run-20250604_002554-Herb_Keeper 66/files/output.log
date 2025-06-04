@@ -1,0 +1,4 @@
+epoch: 0 loss: 7.27 LR: 5e-05 step: 437 time: 7.28 sec fps: 60 epsilon : 1.0
+epoch: 1 loss: 9.41 LR: 5e-05 step: 61 time: 1.02 sec fps: 60 epsilon : 0.9990104948350412
+epoch: 2 loss: 6.36 LR: 5e-05 step: 343 time: 5.72 sec fps: 60 epsilon : 0.9980219786806598
+epoch: 3 loss: 5.21 LR: 5e-05 step: 332 time: 5.53 sec fps: 60 epsilon : 0.9970344505483393
